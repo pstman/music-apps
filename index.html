@@ -3,7 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>پرده‌نگار • سامانه جامع انطباق پیانو، ویولن و ردیف موسیقی ایرانی (نسخه ۲.۴.۰)</title>
+  <title>پرده‌نگار • سامانه جامع انطباق پیانو، ویولن و ردیف موسیقی ایرانی | اثر ایمان برزجان (نسخه ۲.۴.۰)</title>
+
+  <!-- Entity SEO, Author & Knowledge Graph Meta Tags -->
+  <meta name="author" content="ایمان برزجان | Iman Barzjan">
+  <meta name="creator" content="ایمان برزجان | Iman Barzjan">
+  <meta name="publisher" content="ویولن‌کده (@violonkadeh)">
+  <meta name="description" content="پرده‌نگار؛ نرم‌افزار آموزشی تعاملی انطباق ۵۱ کلاویه پیانو با پهنه کامل ویولن، شبیه‌سازی ۱۲ دستگاه و آواز موسیقی ایرانی، ریزپرده‌های سری و کرن و کوک‌های ردیف. طراحی و پیاده‌سازی توسط ایمان برزجان با مشاوره علمی استاد بابک بختیاری.">
+  <meta name="keywords" content="پرده‌‌نگار, ایمان برزجان, Iman Barzjan, imanbarzjan.ir, استاد بابک بختیاری, آموزش ویولن, آموزش پیانو, ردیف موسیقی ایرانی, ۱۲ دستگاه و آواز, کوک ویولن, ریزپرده, سُری, کُرن, Web Audio API">
+  <link rel="canonical" href="https://pstman.github.io/music-apps/">
+
+  <!-- Open Graph & Knowledge Panel Signal Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="پرده‌نگار • سامانه انطباق پیانو، ویولن و ۱۲ دستگاه ردیف ایرانی">
+  <meta property="og:description" content="اثر و پیاده‌‌سازی: ایمان برزجان (Iman Barzjan) | مشاور علمی: استاد بابک بختیاری | ناشر: ویولن‌کده">
+  <meta property="og:url" content="https://pstman.github.io/music-apps/">
+  <meta property="og:site_name" content="پرده‌نگار (PardehNegar)">
+  <meta property="og:locale" content="fa_IR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="پرده‌نگار • انطباق پیانو، ویولن و ردیف ایرانی">
+  <meta name="twitter:description" content="طراحی و پیاده‌سازی توسط ایمان برزجان با مشاوره علمی استاد بابک بختیاری">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Knowledge Graph Entity Disambiguation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://imanbarzjan.ir/#person",
+        "name": "ایمان برزجان",
+        "alternateName": [
+          "Iman Barzjan",
+          "ایمان برزجان (Iman Barzjan)",
+          "pstman"
+        ],
+        "jobTitle": "نرم‌افزارنویس، طراح سامانه‌های آموزشی موسیقی و پژوهشگر",
+        "url": "https://imanbarzjan.ir",
+        "sameAs": [
+          "https://imanbarzjan.ir",
+          "https://github.com/pstman",
+          "https://www.youtube.com/@ImanBarzjan",
+          "https://www.instagram.com/iman_barzjan",
+          "https://t.me/imanbarzjanmusic",
+          "https://t.me/iman_barzjan"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://t.me/violonkadeh#advisor",
+        "name": "بابک بختیاری",
+        "alternateName": "استاد بابک بختیاری",
+        "jobTitle": "مدرس، نوازنده ویولن و مشاور علمی و هنری"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://pstman.github.io/music-apps/#software",
+        "name": "پرده‌نگار",
+        "alternateName": "PardehNegar",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All (Web, Android, iOS, Windows, macOS, Linux)",
+        "softwareVersion": "2.4.0",
+        "inLanguage": "fa",
+        "url": "https://pstman.github.io/music-apps/",
+        "author": {
+          "@id": "https://imanbarzjan.ir/#person"
+        },
+        "creator": {
+          "@id": "https://imanbarzjan.ir/#person"
+        },
+        "contributor": {
+          "@id": "https://t.me/violonkadeh#advisor"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ویولن‌کده",
+          "url": "https://t.me/violonkadeh"
+        },
+        "description": "سامانه هوشمند و تعاملی انطباق نوت‌های پیانو و ویولن در ۱۲ دستگاه و آواز کامل موسیقی ایرانی همراه با شبیه‌سازی دقیق فواصل میکروتونال و سیستم ضدفالش."
+      }
+    ]
+  }
+  </script>
 
   <!-- PWA & Standalone Configuration -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -15,7 +98,7 @@
   <meta name="format-detection" content="telephone=no">
 
   <!-- Dynamic Inline Web App Manifest Data URI -->
-  <link rel="manifest" href='data:application/manifest+json,{"name":"پرده‌نگار • انطباق پیانو، ویولن و ردیف موسیقی ایرانی","short_name":"پرده‌نگار","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#d97706","description":"مرجع ۱۲ دستگاه و آواز موسیقی ایرانی، ریزپرده‌ها و کوک‌های ویولن روی پیانو","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23ffffff%27/%3E%3Cpath d=%27M30 75 C 30 65, 42 60, 42 50 C 42 42, 35 38, 35 30 C 35 22, 45 15, 50 15 C 55 15, 65 22, 65 30 C 65 38, 58 42, 58 50 C 58 60, 70 65, 70 75 C 70 85, 30 85, 30 75 Z%27 fill=%27none%27 stroke=%27%23d97706%27 stroke-width=%275%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%276%27 fill=%27%23d97706%27/%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}'>
+  <link rel="manifest" href='data:application/manifest+json,{"name":"پرده‌نگار • انطباق پیانو، ویولن و ردیف موسیقی ایرانی","short_name":"پرده‌‌نگار","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#d97706","description":"مرجع ۱۲ دستگاه و آواز موسیقی ایرانی، ریزپرده‌ها و کوک‌های ویولن روی پیانو اثر ایمان برزجان","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23ffffff%27/%3E%3Cpath d=%27M30 75 C 30 65, 42 60, 42 50 C 42 42, 35 38, 35 30 C 35 22, 45 15, 50 15 C 55 15, 65 22, 65 30 C 65 38, 58 42, 58 50 C 58 60, 70 65, 70 75 C 70 85, 30 85, 30 75 Z%27 fill=%27none%27 stroke=%27%23d97706%27 stroke-width=%275%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%276%27 fill=%27%23d97706%27/%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}'>
 
   <!-- iOS App Icon (Data URI) -->
   <link rel="apple-touch-icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"%3E%3Crect width="120" height="120" rx="26" fill="%23ffffff"/%3E%3Cpath d="M36 90 C 36 78, 50 72, 50 60 C 50 50, 42 45, 42 36 C 42 26, 54 18, 60 18 C 66 18, 78 26, 78 36 C 78 45, 70 50, 70 60 C 70 72, 84 78, 84 90 C 84 102, 36 102, 36 90 Z" fill="none" stroke="%23d97706" stroke-width="6"/%3E%3Ccircle cx="60" cy="60" r="7" fill="%23d97706"/%3E%3C/svg%3E'>
@@ -875,15 +958,15 @@
     </div>
 
     <h1 class="main-title">
-      <span class="brand-name">«پرده‌نگار»</span> • انطباق نوت‌های موسیقی، ۱۲ دستگاه و آواز ایرانی بر پیانو و ویولن
+      <span class="brand-name">«پرده‌‌نگار»</span> • انطباق نوت‌های موسیقی، ۱۲ دستگاه و آواز ایرانی بر پیانو و ویولن
     </h1>
 
     <div class="action-links-row">
-      <a href="https://t.me/iman_barzjan" target="_blank" rel="noopener noreferrer" class="app-btn btn-author">
+      <a href="https://imanbarzjan.ir" target="_blank" rel="noopener noreferrer" class="app-btn btn-author">
         <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
         </svg>
-        <span>طراح و مؤلف: ایمان برزجان</span>
+        <span>طراح و مؤلف: ایمان برزجان (imanbarzjan.ir)</span>
       </a>
 
       <div class="app-btn btn-advisor">
@@ -1121,7 +1204,7 @@
   <footer>
     <p>نرم‌افزار جامع «پرده‌نگار» • آموزش انطباق نوت‌های پیانو، ویولن و ردیف موسیقی ایرانی (نسخه ۲.۴.۰)</p>
     <p style="margin-top:6px; font-weight:800; color:var(--accent-primary);">
-      طراح و مؤلف: ایمان برزجان | مشاور علمی و هنری: استاد بابک بختیاری | ناشر و حامی: کانال ویولن کده (@violonkadeh)
+      طراح و مؤلف: ایمان برزجان (Iman Barzjan) | وب‌سایت: <a href="https://imanbarzjan.ir" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary); text-decoration:underline;">imanbarzjan.ir</a> | مشاور علمی: استاد بابک بختیاری
     </p>
   </footer>
 
@@ -1143,6 +1226,7 @@
       <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.65;">
         • <strong>حضور مشاور علمی و هنری:</strong> درج رسمی نام گرامی «استاد بابک بختیاری» در تابلوی مشخصات نرم‌افزار، پوستر خروجی و شناسنامه پروژه.<br>
         • <strong>تکمیل شاکله ردیف ایرانی (۱۲ دستگاه و آواز کامل):</strong> اضافه شدن دستگاه نوا، دستگاه راست‌پنجگاه، آواز بیات ترک (زند) و آواز افشاری با کوک‌های اختصاصی.<br>
+        • <strong>ارتقای وب معنایی و گراف دانش (Knowledge Graph):</strong> تزریق کدهای رسمی Schema.org Person و اتصال پایدار وب‌سایت رسمی (imanbarzjan.ir)، یوتیوب، اینستاگرام و تلگرام مؤلف.<br>
         • ارتقای پلاک‌های راهنمای نوت‌های شاهد و ایست و به‌روزرسانی جدول کوک‌های سنتی ویولن.
       </p>
     </div>
@@ -1150,7 +1234,7 @@
     <div class="changelog-item">
       <div class="changelog-ver">
         <span>نسخه ۲.۳.۰</span>
-        <span style="font-size:11px; color:#64748b;">نام پرده‌نگار + قفل ضدفالش</span>
+        <span style="font-size:11px; color:#64748b;">نام پرده‌‌نگار + قفل ضدفالش</span>
       </div>
       <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
         • انتخاب نام رسمی «پرده‌نگار» و تفکیک طراح و ناشر.<br>
@@ -1374,7 +1458,7 @@ const PERSIAN_DASTGAH_DATA = [
       { name: 'سیم ۲: E4 (می)', freq: 329.63, midi: 64 },
       { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
     ],
-    info: 'دستگاه همایون: نوت شاهد روی «رِ ۵» [پلاک آبی] و ایست فرود روی «سل ۴» [پلاک سبز]. فاصله لا کُرن تا سی طنین باوقار همایون را می‌سازد.'
+    info: 'دستگاه همایون: نوت شاهد روی «رِ ۵» [پلاک آبی] و ایست فرود روی «سل ۴» [پلاک سبز]. فاصله لا کُرن تا سی طنین باوقار همایون را می‌‌سازد.'
   },
   {
     id: 'esfahan_do',
@@ -2007,7 +2091,7 @@ function exportAnnotatedSnapshot() {
   canvas.width = totalW;
   canvas.height = totalH;
 
-  // پس‌زمینه اصلی پوستر
+  // پس‌‌زمینه اصلی پوستر
   ctx.fillStyle = '#f8fafc';
   ctx.fillRect(0, 0, totalW, totalH);
 
@@ -2056,7 +2140,7 @@ function exportAnnotatedSnapshot() {
   ctx.fillStyle = '#b45309';
   ctx.font = 'bold 12.5px sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText('طراح و مؤلف: ایمان برزجان | ناشر: کانال ویولن کده (@violonkadeh)', 30, 70);
+  ctx.fillText('طراح و مؤلف: ایمان برزجان (imanbarzjan.ir) | ناشر: ویولن کده (@violonkadeh)', 30, 70);
 
   ctx.fillStyle = '#64748b';
   ctx.font = '11px sans-serif';
