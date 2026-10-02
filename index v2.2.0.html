@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ویولن‌کده • اپلیکیشن جامع گام‌ها و دستگاه‌های موسیقی ایرانی بر کلاویه‌های پیانو (نسخه ۲.۲.۰)</title>
+  <title>ویولن‌کده • اپلیکیشن جامع گام‌ها و دستگاه‌های موسیقی ایرانی بر کلاویه‌های پیانو (نسخه ۲.۱.۱)</title>
 
-  <!-- PWA & Standalone Configuration -->
+  <!-- PWA & Standalone Fullscreen Configuration -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -30,11 +30,9 @@
       --accent-primary: #b45309;
       --accent-glow: #d97706;
       --accent-soft: #fef3c7;
+      --accent-persian: #0284c7;
+      --accent-persian-soft: #e0f2fe;
       
-      --color-shahed: #0284c7;
-      --color-ist: #16a34a;
-      --color-both: #0f766e;
-
       --text-dark: #0f172a;
       --text-main: #1e293b;
       --text-muted: #64748b;
@@ -306,7 +304,6 @@
       gap: 7px;
       font-size: 13.5px;
       box-shadow: 0 3px 12px rgba(217, 119, 6, 0.32);
-      transition: transform 0.1s ease;
     }
     .btn-gold:active { transform: scale(0.96); }
 
@@ -550,7 +547,6 @@
       border-color: #f59e0b;
       color: #78350f;
     }
-    
     .white-key.is-shahed {
       background: #e0f2fe !important;
       border-color: #0284c7 !important;
@@ -562,12 +558,6 @@
       border-color: #16a34a !important;
       box-shadow: inset 0 -5px 0 #16a34a, 0 0 14px rgba(22, 163, 74, 0.45) !important;
       color: #14532d !important;
-    }
-    .white-key.is-shahed-and-ist {
-      background: #ccfbf1 !important;
-      border-color: #0d9488 !important;
-      box-shadow: inset 0 -5px 0 #0d9488, 0 0 16px rgba(13, 148, 136, 0.55) !important;
-      color: #0f766e !important;
     }
     .white-key.pressed {
       background: #fcd34d !important;
@@ -609,12 +599,6 @@
       border-color: #4ade80 !important;
       color: #ffffff !important;
       box-shadow: 2px 4px 12px rgba(22, 163, 74, 0.6) !important;
-    }
-    .black-key.is-shahed-and-ist {
-      background: linear-gradient(180deg, #0f766e 0%, #115e59 100%) !important;
-      border-color: #2dd4bf !important;
-      color: #ffffff !important;
-      box-shadow: 2px 4px 14px rgba(15, 118, 110, 0.65) !important;
     }
     .black-key.pressed {
       background: #f59e0b !important;
@@ -672,12 +656,10 @@
       bottom: 2px;
       font-size: 8.5px;
       font-weight: 900;
-      padding: 2px 5px;
+      padding: 1px 4px;
       border-radius: 4px;
       pointer-events: none;
       z-index: 4;
-      white-space: nowrap;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
     }
     .role-shahed {
       background: #0284c7;
@@ -687,41 +669,15 @@
       background: #16a34a;
       color: #ffffff;
     }
-    .role-both {
-      background: #0f766e;
-      color: #ffffff;
-      border: 1px solid #2dd4bf;
-    }
 
     .status-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 12.5px;
-      padding: 6px 8px;
+      padding: 4px 6px;
       color: var(--text-muted);
       font-weight: 600;
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-    }
-    .status-legend {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
     }
     .status-active-note {
       font-weight: 800;
@@ -796,7 +752,7 @@
       border: 1px solid #e2e8f0;
       border-radius: 20px;
       padding: 22px;
-      max-width: 500px;
+      max-width: 480px;
       width: 100%;
       max-height: 85vh;
       overflow-y: auto;
@@ -840,7 +796,7 @@
       </div>
 
       <button class="version-badge" onclick="openChangelogModal()">
-        <span>نسخه ۲.۲.۰ (تغییرات)</span>
+        <span>نسخه ۲.۱.۱ (تغییرات)</span>
         <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
         </svg>
@@ -913,17 +869,17 @@
     <div id="dastgahInfoBadge" class="dastgah-info-badge"></div>
 
     <div class="btn-row">
-      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
         <button id="playScaleBtn" class="btn-gold" onclick="togglePlayScale()">
           <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
           </svg>
-          <span id="playScaleLabel">پخش رفت و برگشتی دستگاه</span>
+          <span id="playScaleLabel">پخش صوتی دستگاه</span>
         </button>
 
-        <select id="soundTimbre" style="width: auto; padding: 9px 12px; font-size:13px; font-weight:700;">
-          <option value="piano">پیانو با کوک محجوبی (ساستین غنی)</option>
-          <option value="violin">صدای ویولن سنتی با ویبراتوی عمیق</option>
+        <select id="soundTimbre" style="width: auto; padding: 8px 12px; font-size:13px;">
+          <option value="piano">پیانو با کوک ایرانی (محجوبی)</option>
+          <option value="violin">صدای ویولن با ویبراتو سنتی</option>
         </select>
       </div>
 
@@ -982,10 +938,8 @@
   </div>
 
   <div class="status-bar">
-    <div class="status-legend">
-      <span class="legend-item"><span class="legend-dot" style="background:#0284c7;"></span> آبی: نوت شاهد</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#16a34a;"></span> سبز: نوت ایست</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#0d9488;"></span> فیروزه‌ای پررنگ: هم شاهد و هم ایست</span>
+    <div>
+      <span>ضربه: نواختن با کوک ایرانی | آبی: نوت شاهد | سبز: نوت ایست</span>
     </div>
     <div id="statusActiveNote" class="status-active-note">آماده نواختن</div>
   </div>
@@ -993,7 +947,7 @@
   <section class="guide-card">
     <div class="guide-section-title">۱. شبیه‌سازی پیانوی کوک ایرانی (مکتب استاد مرتضی محجوبی)</div>
     <p>
-      پیانو به صورت غربی دارای ۱۲ فام نیم‌‌پرده‌ای ثابت است. در تاریخ موسیقی ایران، اساتید بزرگی همچون <strong>مرتضی محجوبی</strong>، <strong>مشیر همایون شهردار</strong> و <strong>جواد معروفی</strong> برای اجرای دستگاه‌ها، کلاویه‌های پیانو را متناسب با فواصل ربع‌پرده‌ای دستگاه (سُری و کُرن) کوک می‌کردند. در این وب‌‌اپلیکیشن، با انتخاب هر دستگاه، فرکانس کلاویه‌های تغییریافته به صورت هوشمند بین ۳۵ تا ۵۰ سِنت تعدیل می‌‌گردند تا طنین اصیل ایرانی بازتولید شود.
+      پیانو به صورت غربی دارای ۱۲ فام نیم‌پرده‌ای ثابت است. در تاریخ موسیقی ایران، اساتید بزرگی همچون <strong>مرتضی محجوبی</strong>، <strong>مشیر همایون شهردار</strong> و <strong>جواد معروفی</strong> برای اجرای دستگاه‌ها، کلاویه‌های پیانو را متناسب با فواصل ربع‌پرده‌ای دستگاه (سُری و کُرن) کوک می‌کردند. در این وب‌‌اپلیکیشن، با انتخاب هر دستگاه، فرکانس کلاویه‌های تغییریافته به صورت هوشمند بین ۳۵ تا ۵۰ سِنت تعدیل می‌‌گردند تا طنین اصیل ایرانی بازتولید شود.
     </p>
 
     <div class="guide-section-title">۲. کوک‌های اختصاصی ۴ سیم ویولن در موسیقی ایرانی</div>
@@ -1050,8 +1004,8 @@
     <div class="guide-box">
       <strong>کُرن (𝄳 - Koron):</strong> نوت را حدود ربع‌پرده (۳۵ الی ۵۰ سِنت) بم‌تر می‌کند.
       <br><strong>سُری (𝄲 - Sori):</strong> نوت را حدود ربع‌پرده (۳۵ الی ۵۰ سِنت) زیرتر می‌کند.
-      <br><strong>نوت شاهد:</strong> نوتی که گردش ملودی پیوسته حول آن شکل می‌گیرد و با پلاک فیروزه‌ای [شاهد] علامت‌گذاری شده است.
-      <br><strong>نوت ایست:</strong> نوتی که جملات آوازی و ضربی برای استراحت یا خاتمه روی آن مکث می‌کنند و با پلاک سبز [ایست] مشخص است. در دستگاه‌هایی که این دو نوت بر هم منطبق هستند، پلاک دوگانه [شاهد و ایست] نمایش می‌یابد.
+      <br><strong>نوت شاهد:</strong> نوتی که گردش ملودی پیوسته حول آن شکل می‌گیرد و با رنگ آبی فیروزه‌ای در کلاویه‌ها مشخص است.
+      <br><strong>نوت ایست:</strong> نوتی که جملات آوازی و ضربی برای استراحت یا خاتمه روی آن مکث می‌کنند و با رنگ سبز زمردی علامت‌‌گذاری شده است.
     </div>
   </section>
 
@@ -1072,25 +1026,13 @@
 
     <div class="changelog-item">
       <div class="changelog-ver">
-        <span>نسخه ۲.۲.۰ (نسخه فعلی)</span>
-        <span style="font-size:11px; color:#10b981;">پخش رفت و برگشت + ساستین</span>
+        <span>نسخه ۲.۱.۱ (نسخه فعلی)</span>
+        <span style="font-size:11px; color:#10b981;">رفع باگ صوتی ویولن</span>
       </div>
       <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
-        • پخش رفت و برگشتی گام و دستگاه (حرکت بالارونده و پایین‌رونده کامل).<br>
-        • ریتم متین و آرام‌تر با ساستین کشیده‌تر برای درک عمیق فواصل.<br>
-        • ویبراتوی عمیق‌تر و طنین گرم‌تر ساز ویولن و رزونانس چکش پیانو.<br>
-        • رفع مشکل نوت ایست و نمایش پلاک‌های مستقل و دوگانه «شاهد»، «ایست» و «شاهد و ایست».
-      </p>
-    </div>
-
-    <div class="changelog-item">
-      <div class="changelog-ver">
-        <span>نسخه ۲.۱.۱</span>
-        <span style="font-size:11px; color:#64748b;">رفع باگ صوتی ویولن</span>
-      </div>
-      <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
-        • اصلاح اتصال اسیلاتور به خروجی و رفع بی‌صدایی ویولن.<br>
-        • فیلتر آکوستیک رزونانس بدنه و قطع آنی نودها هنگام استاپ.
+        • اصلاح قطعی صدای ویولن و اتصال صحیح به مدار صوتی.<br>
+        • افزودن فیلتر تشدیدکننده کاسه چوبی ویولن (Resonance Biquad Filter).<br>
+        • توقف آنی و کامل تمام اسیلاتورها با دکمه توقف.
       </p>
     </div>
 
@@ -1102,7 +1044,8 @@
       <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
         • اضافه شدن زبانه دستگاه‌ها و آوازهای ردیف موسیقی ایرانی.<br>
         • موتور صوتی میکروتونال ربع‌پرده‌ای (سُری و کُرن) کوک محجوبی.<br>
-        • کوک‌های سنتی ۴ سیم ویولن (اصفهان، دشتی، چهارگاه، سه‌گاه...).
+        • کوک‌های سنتی ۴ سیم ویولن (اصفهان، دشتی، چهارگاه، سه‌گاه...).<br>
+        • نشانگر نوت شاهد (آبی) و نوت ایست (سبز).
       </p>
     </div>
 
@@ -1113,7 +1056,8 @@
       </div>
       <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
         • بازطراحی به پوسته عاجی روشن، کهربایی و نمد قرمز پیانو.<br>
-        • اصلاح تشخیص تاچ در موبایل (تفکیک کشیدن انگشت و ضربه زدن).
+        • اصلاح تشخیص تاچ در موبایل (تفکیک کشیدن انگشت و ضربه زدن).<br>
+        • اضافه شدن اسلایدر هدایتگر و کلیدهای پیمایش بم/زیر.
       </p>
     </div>
 
@@ -1202,15 +1146,15 @@ const PERSIAN_DASTGAH_DATA = [
     notes: [7, 9, 10, 0, 2, 3, 5],
     microCents: { 9: -45 },
     microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 67, // Sol 4
-    istMidi: 67,    // Sol 4 (شاهد و ایست مشترک)
+    shahedMidi: 67,
+    istMidi: 67,
     kookViolin: [
       { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
       { name: 'سیم ۳: D4 (رِ)', freq: 293.66, midi: 62 },
       { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
       { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
     ],
-    info: 'دستگاه شور سل: نوت شاهد و ایست هر دو روی «سل (G4)» قرار دارند. نوت دوم آن «لا کُرن (A𝄳)» با تعدیل ۴۵ سنت بم‌تر شنیده می‌شود.'
+    info: 'دستگاه شور سل: نوت شاهد و ایست روی «سل (G4)». نوت دوم آن «لا کُرن (A𝄳)» است که به شیوه پیانوی استاد مرتضی محجوبی ۴۵ سنت بم‌تر صدا می‌دهد.'
   },
   {
     id: 'esfahan_do',
@@ -1218,15 +1162,15 @@ const PERSIAN_DASTGAH_DATA = [
     isPersian: true,
     notes: [0, 2, 3, 5, 7, 8, 11],
     sharpPref: false,
-    shahedMidi: 72, // Do 5
-    istMidi: 60,    // Do 4
+    shahedMidi: 72,
+    istMidi: 60,
     kookViolin: [
       { name: 'سیم ۴: E3 (می)', freq: 164.81, midi: 52 },
       { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
       { name: 'سیم ۲: E4 (می)', freq: 329.63, midi: 64 },
       { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
     ],
-    info: 'بیات اصفهان دو: نوت شاهد روی دو ۵ (C5) و نوت ایست و فرود روی دو ۴ (C4) است. کوک مشهور ویولن: می - لا - می - لا.'
+    info: 'بیات اصفهان: دارای حس نوستالژیک و عاشقانه. کوک ویولن آن معمولاً «می - لا - می - لا» است که طنین جفت‌سیم‌های هم‌نام را آزاد می‌کند.'
   },
   {
     id: 'dashti_re',
@@ -1235,15 +1179,15 @@ const PERSIAN_DASTGAH_DATA = [
     notes: [2, 4, 5, 7, 9, 10, 0],
     microCents: { 4: -45 },
     microLabels: { 4: { letter: 'E𝄳 (می کُرن)', solfege: 'می کُرن' } },
-    shahedMidi: 69, // La 4
-    istMidi: 62,    // Re 4
+    shahedMidi: 69,
+    istMidi: 62,
     kookViolin: [
       { name: 'سیم ۴: D3 (رِ)', freq: 146.83, midi: 50 },
       { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
       { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
       { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
     ],
-    info: 'آواز دشتی رِ: نوت شاهد روی «لا (A4)» با رنگ فیروزه‌ای و نوت ایست قطعی روی «رِ (D4)» با رنگ سبز مشخص است. کوک ویولن: رِ - لا - رِ - لا.'
+    info: 'آواز دشتی رِ: نوت شاهد روی «لا (A4)» و ایست روی «رِ (D4)». نوت «می کُرن (E𝄳)» محور پرده‌گردانی به اوج (عشاق) است. کوک ویولن: رِ - لا - رِ - لا.'
   },
   {
     id: 'chahargah_do',
@@ -1255,7 +1199,7 @@ const PERSIAN_DASTGAH_DATA = [
       2: { letter: 'D𝄳 (رِ کُرن)', solfege: 'رِ کُرن' },
       9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' }
     },
-    shahedMidi: 60, // Do 4 (شاهد و ایست مشترک)
+    shahedMidi: 60,
     istMidi: 60,
     kookViolin: [
       { name: 'سیم ۴: D3 (رِ)', freq: 146.83, midi: 50 },
@@ -1263,7 +1207,7 @@ const PERSIAN_DASTGAH_DATA = [
       { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
       { name: 'سیم ۱: G4 (سل)', freq: 392.00, midi: 67 }
     ],
-    info: 'دستگاه چهارگاه: نوت شاهد و ایست روی «دو (C)» منطبق هستند. دارای دو نوت ربع‌پرده‌ای «رِ کُرن» و «لا کُرن» با دو دانگ متقارن.'
+    info: 'دستگاه چهارگاه: حماسی‌ترین دستگاه ایرانی با دو دانگ متقارن. دارای دو نوت ربع‌پرده‌ای «رِ کُرن (D𝄳)» و «لا کُرن (A𝄳)». نوت شاهد و ایست روی دو (C).'
   },
   {
     id: 'segah_mi',
@@ -1275,7 +1219,7 @@ const PERSIAN_DASTGAH_DATA = [
       4: { letter: 'E𝄳 (می کُرن)', solfege: 'می کُرن' },
       9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' }
     },
-    shahedMidi: 64, // E4 (به صورت E کُرن شاهد و ایست مشترک)
+    shahedMidi: 64,
     istMidi: 64,
     kookViolin: [
       { name: 'سیم ۴: E𝄳3 (می کُرن)', freq: 160.50, midi: 52 },
@@ -1283,7 +1227,7 @@ const PERSIAN_DASTGAH_DATA = [
       { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
       { name: 'سیم ۱: G4 (سل)', freq: 392.00, midi: 67 }
     ],
-    info: 'دستگاه سه‌گاه: قطب ملودی و مرکز ثقل آن نوت «می کُرن» است که هم شاهد و هم ایست اصلی جملات است.'
+    info: 'دستگاه سه‌گاه: قطب ملودی و مرکز ثقل آن نوت «می کُرن» است. کوک ویولن با بم کردن سیم اول یا چهارم برای همراهی با می کُرن تنظیم می‌گردد.'
   },
   {
     id: 'homayoun_sol',
@@ -1292,15 +1236,15 @@ const PERSIAN_DASTGAH_DATA = [
     notes: [7, 9, 11, 0, 2, 3, 5],
     microCents: { 9: -45 },
     microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 74, // Re 5 (شاهد)
-    istMidi: 67,    // Sol 4 (ایست)
+    shahedMidi: 74,
+    istMidi: 67,
     kookViolin: [
       { name: 'سیم ۴: E3 (می)', freq: 164.81, midi: 52 },
       { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
       { name: 'سیم ۲: E4 (می)', freq: 329.63, midi: 64 },
       { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
     ],
-    info: 'دستگاه همایون سل: نوت شاهد روی «رِ ۵» [پلاک آبی] و نوت ایست پایانی روی «سل ۴» [پلاک سبز] است. فاصله سوم بیش‌بزرگ لا کُرن تا سی طنین باشکوهی می‌سازد.'
+    info: 'دستگاه همایون: فاصله سوم بیش‌بزرگ میان «لا کُرن» و «سی بکار» جلوه‌ای شاهانه به این دستگاه می‌بخشد. کوک ویولن آن با اصفهان مشترک است.'
   },
   {
     id: 'abu_ata',
@@ -1309,15 +1253,15 @@ const PERSIAN_DASTGAH_DATA = [
     notes: [7, 9, 10, 0, 2, 3, 5],
     microCents: { 9: -45 },
     microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 72, // Do 5 (شاهد)
-    istMidi: 67,    // Sol 4 (ایست)
+    shahedMidi: 72,
+    istMidi: 67,
     kookViolin: [
       { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
       { name: 'سیم ۳: D4 (رِ)', freq: 293.66, midi: 62 },
       { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
       { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
     ],
-    info: 'آواز ابوعطا: شاهد آن نوت «دو ۵» [پلاک آبی] و ایست فرود آن «سل ۴» [پلاک سبز] است.'
+    info: 'آواز ابوعطا: از ملحقات شور با تکیه ویژه بر نوت «دو (C5)». گوشه مشهور حجاز اوج احساسی و معنوی ابوعطا را رقم می‌زند.'
   },
   {
     id: 'mahoor_do',
@@ -1325,7 +1269,7 @@ const PERSIAN_DASTGAH_DATA = [
     isPersian: true,
     notes: [0, 2, 4, 5, 7, 9, 11],
     sharpPref: true,
-    shahedMidi: 60, // Do 4 (شاهد و ایست مشترک)
+    shahedMidi: 60,
     istMidi: 60,
     kookViolin: [
       { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
@@ -1333,7 +1277,7 @@ const PERSIAN_DASTGAH_DATA = [
       { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
       { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
     ],
-    info: 'دستگاه ماهور: نوت شاهد و ایست هر دو روی «دو (C)» قرار دارند و ساختار درجات آن منطبق با گام ماژور کلاسیک است.'
+    info: 'دستگاه ماهور: ساختار درجات آن با گام ماژور کلاسیک هم‌خوانی دارد اما گردش نغمه‌ها و تحریرهای آن روح زنده موسیقی اصیل ایرانی است.'
   }
 ];
 
@@ -1366,11 +1310,11 @@ function initWebAudio() {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     masterCompressor = audioCtx.createDynamicsCompressor();
-    masterCompressor.threshold.setValueAtTime(-14, audioCtx.currentTime);
-    masterCompressor.knee.setValueAtTime(8, audioCtx.currentTime);
-    masterCompressor.ratio.setValueAtTime(6, audioCtx.currentTime);
-    masterCompressor.attack.setValueAtTime(0.002, audioCtx.currentTime);
-    masterCompressor.release.setValueAtTime(0.12, audioCtx.currentTime);
+    masterCompressor.threshold.setValueAtTime(-16, audioCtx.currentTime);
+    masterCompressor.knee.setValueAtTime(10, audioCtx.currentTime);
+    masterCompressor.ratio.setValueAtTime(8, audioCtx.currentTime);
+    masterCompressor.attack.setValueAtTime(0.003, audioCtx.currentTime);
+    masterCompressor.release.setValueAtTime(0.1, audioCtx.currentTime);
     masterCompressor.connect(audioCtx.destination);
   }
   if (audioCtx.state === 'suspended') {
@@ -1383,8 +1327,7 @@ function midiToMicroFreq(midi, centsOffset = 0) {
   return baseFreq * Math.pow(2, centsOffset / 1200);
 }
 
-// تولید صدای طبیعی ویولن و پیانو با ساستین غنی و طنین گرم
-function playVoice(freq, startTime, duration = 0.7) {
+function playVoice(freq, startTime, duration = 0.5) {
   initWebAudio();
   const timbre = document.getElementById('soundTimbre').value;
   const t = (startTime !== undefined && startTime > 0) ? startTime : audioCtx.currentTime;
@@ -1393,75 +1336,63 @@ function playVoice(freq, startTime, duration = 0.7) {
   gain.connect(masterCompressor);
 
   if (timbre === 'violin') {
-    // ویولن سنتی با ویبراتوی عمیق، دو اسیلاتور هارمونیک و فیلتر فرمانت چوبی
-    const osc1 = audioCtx.createOscillator();
-    const osc2 = audioCtx.createOscillator();
-    osc1.type = 'sawtooth';
-    osc2.type = 'triangle';
-    osc1.frequency.setValueAtTime(freq, t);
-    osc2.frequency.setValueAtTime(freq * 2, t);
+    const osc = audioCtx.createOscillator();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(freq, t);
 
-    // فیلتر فرمانت بدنه چوبی ساز
+    // Biquad Filter to mimic wooden acoustic resonance
     const bodyFilter = audioCtx.createBiquadFilter();
     bodyFilter.type = 'lowpass';
-    const filterCutoff = Math.min(3600, Math.max(850, freq * 3.2));
+    const filterCutoff = Math.min(3800, Math.max(900, freq * 3.4));
     bodyFilter.frequency.setValueAtTime(filterCutoff, t);
-    bodyFilter.Q.setValueAtTime(2.2, t);
+    bodyFilter.Q.setValueAtTime(1.8, t);
 
-    // ویبراتوی عمیق و طبیعی فرکانسی (LFO با فرکانس 5.8 هرتز)
+    // Natural Vibrato LFO
     const lfo = audioCtx.createOscillator();
     const lfoGain = audioCtx.createGain();
-    lfo.frequency.setValueAtTime(5.8, t);
-    // عمق ویبراتو (تقریباً 18 سِنت)
-    lfoGain.gain.setValueAtTime(freq * 0.016, t);
+    lfo.frequency.setValueAtTime(5.6, t);
+    lfoGain.gain.setValueAtTime(freq * 0.012, t);
     lfo.connect(lfoGain);
-    lfoGain.connect(osc1.frequency);
-    lfoGain.connect(osc2.frequency);
+    lfoGain.connect(osc.frequency);
 
-    // انولوپ نرم آرشه‌کشی با ساستین کشیده
-    const attack = 0.08;
-    const release = Math.max(0.12, duration * 0.25);
+    // Smooth bow envelope
     gain.gain.setValueAtTime(0.0001, t);
-    gain.gain.exponentialRampToValueAtTime(0.32, t + attack);
-    gain.gain.setValueAtTime(0.28, t + duration - release);
+    gain.gain.exponentialRampToValueAtTime(0.35, t + 0.05);
+    gain.gain.setValueAtTime(0.30, t + Math.max(0.06, duration - 0.06));
     gain.gain.exponentialRampToValueAtTime(0.0001, t + duration);
 
-    osc1.connect(bodyFilter);
-    osc2.connect(bodyFilter);
+    // Connected: Oscillator -> Body Resonance Filter -> Gain -> Master Compressor
+    osc.connect(bodyFilter);
     bodyFilter.connect(gain);
 
     lfo.start(t);
-    osc1.start(t);
-    osc2.start(t);
+    osc.start(t);
     lfo.stop(t + duration);
-    osc1.stop(t + duration);
-    osc2.stop(t + duration);
+    osc.stop(t + duration);
 
-    activeScheduledNodes.push(osc1, osc2, lfo, gain);
+    activeScheduledNodes.push(osc, lfo, gain);
 
   } else {
-    // پیانوی آکوستیک با ساستین غنی، ضربه چکش و سه هارمونیک مستقل
-    const sustainTime = Math.max(duration * 1.3, 0.9);
+    // Piano Acoustic Timbre
     gain.gain.setValueAtTime(0.0001, t);
-    gain.gain.exponentialRampToValueAtTime(0.65, t + 0.015);
-    // افت تدریجی ملایم (Decay/Sustain طبیعی پیانو)
-    gain.gain.exponentialRampToValueAtTime(0.25, t + (sustainTime * 0.45));
-    gain.gain.exponentialRampToValueAtTime(0.0001, t + sustainTime);
+    gain.gain.exponentialRampToValueAtTime(0.55, t + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.18, t + 0.22);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + duration);
 
-    [1.0, 2.0, 3.0, 4.0].forEach((harmonic, idx) => {
+    [1.0, 2.0, 3.0].forEach((harmonic, idx) => {
       const osc = audioCtx.createOscillator();
       const hGain = audioCtx.createGain();
       osc.type = idx === 0 ? 'triangle' : 'sine';
       osc.frequency.setValueAtTime(freq * harmonic, t);
 
-      const amp = idx === 0 ? 0.60 : (idx === 1 ? 0.22 : (idx === 2 ? 0.12 : 0.05));
+      const amp = idx === 0 ? 0.65 : (idx === 1 ? 0.25 : 0.1);
       hGain.gain.setValueAtTime(amp, t);
-      hGain.gain.exponentialRampToValueAtTime(0.0001, t + (sustainTime / Math.sqrt(harmonic)));
+      hGain.gain.exponentialRampToValueAtTime(0.0001, t + (duration / Math.sqrt(harmonic)));
 
       osc.connect(hGain);
       hGain.connect(gain);
       osc.start(t);
-      osc.stop(t + sustainTime);
+      osc.stop(t + duration);
 
       activeScheduledNodes.push(osc);
     });
@@ -1561,7 +1492,7 @@ function playKey(k) {
   const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
   const freq = midiToMicroFreq(k.midi, cents);
 
-  playVoice(freq, 0, 0.85);
+  playVoice(freq, 0, 0.7);
   highlightKeyVisual(k.domElement);
   
   const noteName = k.badgeElement.innerText.replace('\n', ' ');
@@ -1579,7 +1510,7 @@ function playKeyByMidi(midi) {
 
 function highlightKeyVisual(domEl) {
   domEl.classList.add('pressed');
-  setTimeout(() => domEl.classList.remove('pressed'), 320);
+  setTimeout(() => domEl.classList.remove('pressed'), 260);
 }
 
 function switchCategory(cat) {
@@ -1587,7 +1518,7 @@ function switchCategory(cat) {
   document.getElementById('tabPersian').classList.toggle('active', cat === 'persian');
   document.getElementById('tabClassical').classList.toggle('active', cat === 'classical');
   document.getElementById('scaleSelectLabel').innerText = cat === 'persian' ? 'انتخاب دستگاه یا آواز ایرانی:' : 'انتخاب گام دیاتونیک کلاسیک:';
-  document.getElementById('playScaleLabel').innerText = cat === 'persian' ? 'پخش رفت و برگشتی دستگاه' : 'پخش رفت و برگشتی گام';
+  document.getElementById('playScaleLabel').innerText = cat === 'persian' ? 'پخش صوتی دستگاه' : 'پخش صوتی گام';
 
   populateScaleOptions();
   applyScaleChange();
@@ -1627,7 +1558,7 @@ function updateViolinKookBar() {
       btn.className = 'btn-string';
       btn.innerText = item.name;
       btn.onclick = () => {
-        playVoice(item.freq, 0, 1.1);
+        playVoice(item.freq, 0, 0.9);
         document.getElementById('statusActiveNote').innerText = `کوک سیم: ${item.name} (${item.freq.toFixed(1)}Hz)`;
         jumpToMidi(item.midi);
       };
@@ -1671,11 +1602,8 @@ function renderKeyLabels() {
   ALL_KEYS.forEach(k => {
     const pitchClass = k.midi % 12;
     const inScale = currentScale.notes.includes(pitchClass);
-
-    // تشخیص دقیق نوت شاهد و نوت ایست بر اساس کلاس نوت (Pitch Class)
-    const isShahed = currentScale.shahedMidi !== undefined && ((k.midi % 12) === (currentScale.shahedMidi % 12));
-    const isIst = currentScale.istMidi !== undefined && ((k.midi % 12) === (currentScale.istMidi % 12));
-    const isBoth = isShahed && isIst;
+    const isShahed = currentScale.shahedMidi && (k.midi === currentScale.shahedMidi || k.midi === currentScale.shahedMidi - 12 || k.midi === currentScale.shahedMidi + 12);
+    const isIst = currentScale.istMidi && (k.midi === currentScale.istMidi || k.midi === currentScale.istMidi - 12 || k.midi === currentScale.istMidi + 12);
 
     if (currentScale.id === 'chromatic') {
       k.domElement.classList.remove('out-of-scale');
@@ -1685,21 +1613,14 @@ function renderKeyLabels() {
       k.domElement.classList.toggle('in-scale', inScale);
     }
 
-    // حذف کلاس‌های قبلی
-    k.domElement.classList.remove('is-shahed', 'is-ist', 'is-shahed-and-ist');
+    k.domElement.classList.toggle('is-shahed', !!isShahed);
+    k.domElement.classList.toggle('is-ist', !isShahed && !!isIst);
 
-    if (isBoth) {
-      k.domElement.classList.add('is-shahed-and-ist');
-      k.roleElement.style.display = 'block';
-      k.roleElement.className = 'role-badge role-both';
-      k.roleElement.innerText = 'شاهد و ایست';
-    } else if (isShahed) {
-      k.domElement.classList.add('is-shahed');
+    if (isShahed) {
       k.roleElement.style.display = 'block';
       k.roleElement.className = 'role-badge role-shahed';
       k.roleElement.innerText = 'شاهد';
     } else if (isIst) {
-      k.domElement.classList.add('is-ist');
       k.roleElement.style.display = 'block';
       k.roleElement.className = 'role-badge role-ist';
       k.roleElement.innerText = 'ایست';
@@ -1774,6 +1695,7 @@ function stopScalePlayback() {
   activeScalePlaybackTids.forEach(t => clearTimeout(t));
   activeScalePlaybackTids = [];
 
+  // Stop and silence all currently scheduled audio oscillators and gains
   activeScheduledNodes.forEach(node => {
     try {
       if (node.stop) node.stop();
@@ -1785,11 +1707,10 @@ function stopScalePlayback() {
   activeScheduledNodes = [];
 
   isPlayingScaleActive = false;
-  document.getElementById('playScaleLabel').innerText = currentCategory === 'persian' ? 'پخش رفت و برگشتی دستگاه' : 'پخش رفت و برگشتی گام';
+  document.getElementById('playScaleLabel').innerText = currentCategory === 'persian' ? 'پخش صوتی دستگاه' : 'پخش صوتی گام';
   ALL_KEYS.forEach(k => k.domElement.classList.remove('pressed'));
 }
 
-// پخش رفت و برگشتی (بالارونده و پایین‌رونده) با ریتم آرام و ساستین دار
 function startScalePlayback() {
   initWebAudio();
   const currentScale = getActiveScale();
@@ -1798,32 +1719,24 @@ function startScalePlayback() {
   const inScaleKeys = ALL_KEYS.filter(k => currentScale.notes.includes(k.midi % 12));
   if (inScaleKeys.length === 0) return;
 
-  // توالی رفت و برگشتی: از بم به اوج، سپس از اوج به بم
-  const ascendingKeys = [...inScaleKeys];
-  const descendingKeys = [...inScaleKeys].slice(0, -1).reverse();
-  const fullSequence = [...ascendingKeys, ...descendingKeys];
-
   isPlayingScaleActive = true;
   document.getElementById('playScaleLabel').innerText = 'توقف پخش';
 
-  // ریتم متین و آرام‌تر با فاصله زمانی ۰.۶۸ ثانیه برای شنیده شدن ساستین
-  const step = 0.68;
+  const step = 0.35;
   const baseTime = audioCtx.currentTime + 0.05;
 
-  fullSequence.forEach((k, idx) => {
+  inScaleKeys.forEach((k, idx) => {
     const noteStart = baseTime + (idx * step);
     const pitchClass = k.midi % 12;
     const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
     const freq = midiToMicroFreq(k.midi, cents);
 
-    // صدا با کشش مطلوب ۰.۶۵ ثانیه و ساستین طبیعی
-    playVoice(freq, noteStart, 0.65);
+    playVoice(freq, noteStart, step * 0.9);
 
     const delayMs = (noteStart - audioCtx.currentTime) * 1000;
     const tid = setTimeout(() => {
       highlightKeyVisual(k.domElement);
-      const direction = idx < ascendingKeys.length ? '▲ بالارونده' : '▼ پایین‌رونده';
-      document.getElementById('statusActiveNote').innerText = `${direction}: ${k.badgeElement.innerText.replace('\n', ' ')}`;
+      document.getElementById('statusActiveNote').innerText = `پخش دستگاه: ${k.badgeElement.innerText.replace('\n', ' ')}`;
 
       const leftEdge = viewport.scrollLeft;
       const rightEdge = leftEdge + viewport.clientWidth;
@@ -1834,7 +1747,7 @@ function startScalePlayback() {
     activeScalePlaybackTids.push(tid);
   });
 
-  const totalMs = (fullSequence.length * step + 0.3) * 1000;
+  const totalMs = (inScaleKeys.length * step + 0.2) * 1000;
   const finishTid = setTimeout(stopScalePlayback, totalMs);
   activeScalePlaybackTids.push(finishTid);
 }
@@ -1866,7 +1779,7 @@ function exportAnnotatedSnapshot() {
   ctx.fillStyle = '#b45309';
   ctx.font = 'bold 16px sans-serif';
   ctx.textAlign = 'right';
-  ctx.fillText(`انطباق نوت‌های ${currentScale.name} بر کلاویه‌های پیانو و پهنه ویولن (نسخه ۲.۲.۰)`, totalW - 20, 34);
+  ctx.fillText(`انطباق نوت‌های ${currentScale.name} بر کلاویه‌های پیانو و پهنه ویولن (نسخه ۲.۱.۱)`, totalW - 20, 34);
 
   ctx.fillStyle = '#64748b';
   ctx.font = '13px sans-serif';
@@ -1877,11 +1790,10 @@ function exportAnnotatedSnapshot() {
     const isOut = k.domElement.classList.contains('out-of-scale');
     const isShahed = k.domElement.classList.contains('is-shahed');
     const isIst = k.domElement.classList.contains('is-ist');
-    const isBoth = k.domElement.classList.contains('is-shahed-and-ist');
 
-    ctx.fillStyle = isBoth ? '#ccfbf1' : (isShahed ? '#e0f2fe' : (isIst ? '#dcfce7' : (isOut ? '#e2e8f0' : '#ffffff')));
+    ctx.fillStyle = isShahed ? '#e0f2fe' : (isIst ? '#dcfce7' : (isOut ? '#e2e8f0' : '#ffffff'));
     ctx.fillRect(k.left, 66, whiteKeyWidth - 1, 240);
-    ctx.strokeStyle = isBoth ? '#0d9488' : (isShahed ? '#0284c7' : (isIst ? '#16a34a' : '#94a3b8'));
+    ctx.strokeStyle = isShahed ? '#0284c7' : (isIst ? '#16a34a' : '#94a3b8');
     ctx.strokeRect(k.left, 66, whiteKeyWidth - 1, 240);
 
     ctx.fillStyle = isOut ? '#94a3b8' : '#0f172a';
@@ -1889,18 +1801,10 @@ function exportAnnotatedSnapshot() {
     ctx.textAlign = 'center';
     ctx.fillText(k.badgeElement.innerText.replace('\n', ' '), k.left + (whiteKeyWidth / 2), 282);
 
-    if (isBoth) {
-      ctx.fillStyle = '#0f766e';
-      ctx.font = 'bold 9.5px sans-serif';
-      ctx.fillText('[شاهد و ایست]', k.left + (whiteKeyWidth / 2), 98);
-    } else if (isShahed) {
+    if (isShahed) {
       ctx.fillStyle = '#0284c7';
       ctx.font = 'bold 10px sans-serif';
-      ctx.fillText('[شاهد]', k.left + (whiteKeyWidth / 2), 98);
-    } else if (isIst) {
-      ctx.fillStyle = '#16a34a';
-      ctx.font = 'bold 10px sans-serif';
-      ctx.fillText('[ایست]', k.left + (whiteKeyWidth / 2), 98);
+      ctx.fillText('[شاهد]', k.left + (whiteKeyWidth / 2), 100);
     }
   });
 
@@ -1908,9 +1812,8 @@ function exportAnnotatedSnapshot() {
     const isOut = k.domElement.classList.contains('out-of-scale');
     const isShahed = k.domElement.classList.contains('is-shahed');
     const isIst = k.domElement.classList.contains('is-ist');
-    const isBoth = k.domElement.classList.contains('is-shahed-and-ist');
 
-    ctx.fillStyle = isBoth ? '#0f766e' : (isShahed ? '#0284c7' : (isIst ? '#16a34a' : (isOut ? '#94a3b8' : '#1e293b')));
+    ctx.fillStyle = isShahed ? '#0284c7' : (isIst ? '#16a34a' : (isOut ? '#94a3b8' : '#1e293b'));
     ctx.fillRect(k.left, 66, blackKeyWidth, 146);
     ctx.strokeStyle = '#0f172a';
     ctx.strokeRect(k.left, 66, blackKeyWidth, 146);
@@ -1922,7 +1825,7 @@ function exportAnnotatedSnapshot() {
   });
 
   const link = document.createElement('a');
-  link.download = `violonkadeh_${currentScale.id}_v2.2.0_iman_barzjan.png`;
+  link.download = `violonkadeh_${currentScale.id}_v2.1.1_iman_barzjan.png`;
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
