@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ویولن‌کده • اپلیکیشن جامع گام‌ها و دستگاه‌های موسیقی ایرانی بر کلاویه‌های پیانو (نسخه ۲.۱.۱)</title>
+  <title>ویولن‌کده • اپلیکیشن انطباق نوت‌های پیانو و ویولن</title>
 
   <!-- PWA & Standalone Fullscreen Configuration -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="ویولن‌کده">
-  <meta name="application-name" content="ویولن‌‌کده">
+  <meta name="application-name" content="ویولن‌کده">
   <meta name="theme-color" content="#f8fafc">
   <meta name="format-detection" content="telephone=no">
 
   <!-- Dynamic Inline Web App Manifest Data URI -->
-  <link rel="manifest" href='data:application/manifest+json,{"name":"ویولن‌کده • دستگاه‌های ایرانی و پیانو","short_name":"ویولن‌کده","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#d97706","description":"مرجع تخصصی آموزش دستگاه‌های موسیقی ایرانی، ربع‌پرده‌ها (سُری و کُرن) و کوک‌های ویولن روی پیانو","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23ffffff%27/%3E%3Cpath d=%27M30 75 C 30 65, 42 60, 42 50 C 42 42, 35 38, 35 30 C 35 22, 45 15, 50 15 C 55 15, 65 22, 65 30 C 65 38, 58 42, 58 50 C 58 60, 70 65, 70 75 C 70 85, 30 85, 30 75 Z%27 fill=%27none%27 stroke=%27%23d97706%27 stroke-width=%275%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%276%27 fill=%27%23d97706%27/%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}'>
+  <link rel="manifest" href='data:application/manifest+json,{"name":"ویولن‌کده • انطباق پیانو و ویولن","short_name":"ویولن‌کده","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#d97706","description":"مرجع تخصصی آموزش نوت‌های موسیقی، گام‌ها و پهنه ویولن روی کلاویه‌های پیانو","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23ffffff%27/%3E%3Cpath d=%27M30 75 C 30 65, 42 60, 42 50 C 42 42, 35 38, 35 30 C 35 22, 45 15, 50 15 C 55 15, 65 22, 65 30 C 65 38, 58 42, 58 50 C 58 60, 70 65, 70 75 C 70 85, 30 85, 30 75 Z%27 fill=%27none%27 stroke=%27%23d97706%27 stroke-width=%275%27/%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%276%27 fill=%27%23d97706%27/%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}'>
 
   <!-- iOS App Icon (Data URI) -->
   <link rel="apple-touch-icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"%3E%3Crect width="120" height="120" rx="26" fill="%23ffffff"/%3E%3Cpath d="M36 90 C 36 78, 50 72, 50 60 C 50 50, 42 45, 42 36 C 42 26, 54 18, 60 18 C 66 18, 78 26, 78 36 C 78 45, 70 50, 70 60 C 70 72, 84 78, 84 90 C 84 102, 36 102, 36 90 Z" fill="none" stroke="%23d97706" stroke-width="6"/%3E%3Ccircle cx="60" cy="60" r="7" fill="%23d97706"/%3E%3C/svg%3E'>
 
   <style>
     :root {
+      /* Bright, Warm & Crisp Light Theme */
       --bg-main: #f4f6fb;
       --card-bg: #ffffff;
       --card-border: #e2e8f0;
       --card-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
       
-      --accent-primary: #b45309;
-      --accent-glow: #d97706;
-      --accent-soft: #fef3c7;
-      --accent-persian: #0284c7;
-      --accent-persian-soft: #e0f2fe;
+      --accent-primary: #b45309;       /* Warm Violin Amber */
+      --accent-glow: #d97706;          /* Rich Honey Gold */
+      --accent-soft: #fef3c7;          /* Soft Cream Amber */
+      --accent-badge: #fffbeb;
       
       --text-dark: #0f172a;
       --text-main: #1e293b;
@@ -39,9 +39,9 @@
       --text-light: #94a3b8;
 
       --white-w: 48px;
-      --white-h: 224px;
+      --white-h: 220px;
       --black-w: 30px;
-      --black-h: 140px;
+      --black-h: 138px;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
@@ -75,6 +75,7 @@
       gap: 14px;
     }
 
+    /* Fixed-Dimension SVG Rules for WebKit & Safari Compatibility */
     svg {
       display: inline-block;
       vertical-align: middle;
@@ -85,6 +86,7 @@
     .icon-md { width: 20px; height: 20px; }
     .icon-lg { width: 24px; height: 24px; }
 
+    /* Header Styles - Bright & Welcoming */
     .header-card {
       background: #ffffff;
       border: 1px solid var(--card-border);
@@ -93,15 +95,6 @@
       text-align: center;
       position: relative;
       box-shadow: var(--card-shadow);
-    }
-
-    .header-badge-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
     }
 
     .header-badge {
@@ -115,27 +108,7 @@
       font-size: 12px;
       color: var(--accent-primary);
       font-weight: 800;
-    }
-
-    .version-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 12px;
-      background: #e0f2fe;
-      border: 1px solid #bae6fd;
-      border-radius: 20px;
-      font-size: 11.5px;
-      color: #0369a1;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .version-badge:hover {
-      background: #bae6fd;
-    }
-    .version-badge:active {
-      transform: scale(0.96);
+      margin-bottom: 8px;
     }
 
     .main-title {
@@ -146,6 +119,7 @@
       letter-spacing: -0.4px;
     }
 
+    /* Actions Bar & Telegram Channel Link */
     .action-links-row {
       display: flex;
       flex-wrap: wrap;
@@ -198,50 +172,15 @@
     }
     .btn-install:active { transform: scale(0.96); }
 
-    .category-tabs-container {
-      display: flex;
-      background: #e2e8f0;
-      padding: 4px;
-      border-radius: 14px;
-      gap: 6px;
-    }
-
-    .category-tab-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 11px;
-      border: none;
-      font-size: 13.5px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      color: #475569;
-      background: transparent;
-    }
-
-    .category-tab-btn.active {
-      background: #ffffff;
-      color: var(--accent-primary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .category-tab-btn.active.persian-active {
-      color: #0369a1;
-      border-bottom: 2px solid #0284c7;
-    }
-
+    /* Control Panel - Clean Light Surface */
     .control-panel {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 18px;
-      padding: 16px 18px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       box-shadow: var(--card-shadow);
     }
 
@@ -328,35 +267,19 @@
     }
     .btn-secondary:active { transform: scale(0.96); }
 
-    .dastgah-info-badge {
-      display: none;
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-right: 4px solid #0284c7;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 13px;
-      color: #0369a1;
-      line-height: 1.6;
-    }
-
+    /* Open Violin Strings Shortcut - Warm Amber Banner */
     .violin-strings-row {
       background: #fffbeb;
       border: 1px solid #fde68a;
       border-radius: 14px;
-      padding: 12px 14px;
+      padding: 10px 14px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       font-size: 12.5px;
       box-shadow: 0 2px 6px rgba(217, 119, 6, 0.05);
-    }
-
-    .violin-strings-row.persian-kook {
-      background: #f0fdf4;
-      border-color: #bbf7d0;
     }
 
     .strings-title {
@@ -365,9 +288,6 @@
       display: flex;
       align-items: center;
       gap: 6px;
-    }
-    .violin-strings-row.persian-kook .strings-title {
-      color: #15803d;
     }
 
     .string-buttons {
@@ -380,7 +300,7 @@
       background: #ffffff;
       border: 1px solid #f59e0b;
       color: #92400e;
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: 8px;
       font-size: 12px;
       font-weight: 800;
@@ -393,18 +313,7 @@
     }
     .btn-string:active { background: #d97706; color: #fff; }
 
-    .violin-strings-row.persian-kook .btn-string {
-      border-color: #22c55e;
-      color: #166534;
-    }
-    .violin-strings-row.persian-kook .btn-string:hover {
-      background: #dcfce7;
-    }
-    .violin-strings-row.persian-kook .btn-string:active {
-      background: #16a34a;
-      color: #ffffff;
-    }
-
+    /* Navigation Controller Bar */
     .nav-controller {
       background: #ffffff;
       border: 1px solid var(--card-border);
@@ -480,6 +389,7 @@
       border: 2px solid #ffffff;
     }
 
+    /* Piano Scroll Viewport - High Elegance Wooden Felt Top */
     .piano-wrapper {
       background: #fdfefe;
       border: 2px solid #cbd5e1;
@@ -491,6 +401,7 @@
       position: relative;
     }
 
+    /* Classical Red Piano Felt Strip on Top */
     .piano-wrapper::before {
       content: "";
       position: absolute;
@@ -524,6 +435,7 @@
       transform: translateY(3px);
     }
 
+    /* White Keys - Crisp Ivory with Clear Contrast */
     .white-key {
       width: var(--white-w);
       height: var(--white-h);
@@ -547,23 +459,12 @@
       border-color: #f59e0b;
       color: #78350f;
     }
-    .white-key.is-shahed {
-      background: #e0f2fe !important;
-      border-color: #0284c7 !important;
-      box-shadow: inset 0 -5px 0 #0284c7, 0 0 14px rgba(2, 132, 199, 0.5) !important;
-      color: #0369a1 !important;
-    }
-    .white-key.is-ist {
-      background: #dcfce7 !important;
-      border-color: #16a34a !important;
-      box-shadow: inset 0 -5px 0 #16a34a, 0 0 14px rgba(22, 163, 74, 0.45) !important;
-      color: #14532d !important;
-    }
     .white-key.pressed {
       background: #fcd34d !important;
       color: #000 !important;
     }
 
+    /* Black Keys - Elegant Ebony and Clear Gold Accents */
     .black-key {
       width: var(--black-w);
       height: var(--black-h);
@@ -588,18 +489,6 @@
       color: #fef3c7;
       box-shadow: 2px 4px 10px rgba(180, 83, 9, 0.5);
     }
-    .black-key.is-shahed {
-      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
-      border-color: #38bdf8 !important;
-      color: #ffffff !important;
-      box-shadow: 2px 4px 12px rgba(2, 132, 199, 0.6) !important;
-    }
-    .black-key.is-ist {
-      background: linear-gradient(180deg, #16a34a 0%, #14532d 100%) !important;
-      border-color: #4ade80 !important;
-      color: #ffffff !important;
-      box-shadow: 2px 4px 12px rgba(22, 163, 74, 0.6) !important;
-    }
     .black-key.pressed {
       background: #f59e0b !important;
       color: #000000 !important;
@@ -609,31 +498,11 @@
       font-size: 13.5px;
       pointer-events: none;
       font-weight: 800;
-      text-align: center;
     }
     .black-key .key-badge {
-      font-size: 10px;
+      font-size: 10.5px;
       text-align: center;
       line-height: 1.15;
-    }
-
-    .micro-pill {
-      font-size: 10px;
-      padding: 1px 4px;
-      border-radius: 4px;
-      margin-top: 2px;
-      display: inline-block;
-      font-weight: 900;
-    }
-    .pill-koron {
-      background: #e0f2fe;
-      color: #0284c7;
-      border: 1px solid #7dd3fc;
-    }
-    .pill-sori {
-      background: #ffedd5;
-      color: #ea580c;
-      border: 1px solid #fed7aa;
     }
 
     .violin-string-tag {
@@ -651,25 +520,7 @@
       white-space: nowrap;
     }
 
-    .role-badge {
-      position: absolute;
-      bottom: 2px;
-      font-size: 8.5px;
-      font-weight: 900;
-      padding: 1px 4px;
-      border-radius: 4px;
-      pointer-events: none;
-      z-index: 4;
-    }
-    .role-shahed {
-      background: #0284c7;
-      color: #ffffff;
-    }
-    .role-ist {
-      background: #16a34a;
-      color: #ffffff;
-    }
-
+    /* Status Bar */
     .status-bar {
       display: flex;
       justify-content: space-between;
@@ -684,6 +535,7 @@
       color: var(--accent-primary);
     }
 
+    /* Theory Guide Section - Clean Bright White Background */
     .guide-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -716,27 +568,8 @@
       color: var(--text-dark);
     }
 
-    .table-container {
-      overflow-x: auto;
-      margin-top: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-    th, td {
-      border: 1px solid #cbd5e1;
-      padding: 8px 10px;
-      text-align: right;
-    }
-    th {
-      background: #f1f5f9;
-      font-weight: 800;
-      color: var(--text-dark);
-    }
-
-    .app-modal {
+    /* Modal / Tooltip for iOS Add to Home Screen */
+    .ios-modal {
       display: none;
       position: fixed;
       inset: 0;
@@ -745,31 +578,16 @@
       z-index: 9999;
       justify-content: center;
       align-items: center;
-      padding: 16px;
+      padding: 20px;
     }
-    .modal-box {
+    .ios-modal-box {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 20px;
-      padding: 22px;
-      max-width: 480px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      text-align: right;
+      padding: 24px;
+      max-width: 370px;
+      text-align: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-    .changelog-item {
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-    }
-    .changelog-ver {
-      font-weight: 900;
-      color: var(--accent-primary);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
     }
 
     footer {
@@ -787,25 +605,17 @@
 <div class="app-wrapper">
   
   <header class="header-card">
-    <div class="header-badge-row">
-      <div class="header-badge">
-        <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-        </svg>
-        <span>دستگاه‌های ردیف ایرانی و پهنه کامل ویولن (G3 تا A7)</span>
-      </div>
-
-      <button class="version-badge" onclick="openChangelogModal()">
-        <span>نسخه ۲.۱.۱ (تغییرات)</span>
-        <svg class="icon-sm" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-        </svg>
-      </button>
+    <div class="header-badge">
+      <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+      <span>پهنه کامل ویولن (G3 تا A7) بر کلاویه‌های پیانو</span>
     </div>
 
-    <h1 class="main-title">انطباق نوت‌های موسیقی و دستگاه‌های ایرانی بر کلاویه‌های پیانو</h1>
+    <h1 class="main-title">انطباق نوت‌های موسیقی بر کلاویه‌های پیانو</h1>
 
     <div class="action-links-row">
+      <!-- Telegram Channel Button -->
       <a href="https://t.me/violonkadeh" target="_blank" rel="noopener noreferrer" class="app-btn btn-telegram">
         <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -813,6 +623,7 @@
         <span>کانال «ویولن کده» (ورود)</span>
       </a>
 
+      <!-- Direct Message to Creator -->
       <a href="https://t.me/iman_barzjan" target="_blank" rel="noopener noreferrer" class="app-btn btn-author">
         <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
           <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
@@ -820,42 +631,37 @@
         <span>تهیه و تدوین: ایمان برزجان</span>
       </a>
 
+      <!-- Install App Button (PWA Trigger) -->
       <button id="installAppBtn" class="app-btn btn-install" onclick="handleAppInstall()">
         <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v12m0 0l-4-4m4 4l4-4"/>
         </svg>
-        <span>نصب اپلیکیشن</span>
+        <span>نصب به عنوان اپلیکیشن</span>
       </button>
     </div>
   </header>
 
-  <div class="category-tabs-container">
-    <button id="tabPersian" class="category-tab-btn active persian-active" onclick="switchCategory('persian')">
-      <span>🇮🇷 دستگاه‌ها و آوازهای موسیقی ایرانی</span>
-    </button>
-    <button id="tabClassical" class="category-tab-btn" onclick="switchCategory('classical')">
-      <span>🎼 گام‌های کلاسیک جهانی (ماژور و مینور)</span>
-    </button>
-  </div>
-
   <section class="control-panel">
     <div class="control-grid">
       
+      <!-- Scale Dropdown -->
       <div class="select-group">
-        <label for="scaleSelect" class="select-label" id="scaleSelectLabel">انتخاب دستگاه یا آواز ایرانی:</label>
+        <label for="scaleSelect" class="select-label">انتخاب گام دیاتونیک:</label>
         <select id="scaleSelect" onchange="applyScaleChange()"></select>
       </div>
 
+      <!-- Accidental Display Format -->
       <div class="select-group">
         <label for="accidentalMode" class="select-label">نمایش کلیدهای مشکی:</label>
         <select id="accidentalMode" onchange="renderKeyLabels()">
-          <option value="auto">هوشمند (منطبق با گام/دستگاه)</option>
+          <option value="auto">هوشمند (منطبق با گام)</option>
           <option value="both">دیز و بمل هر دو (♯ / ♭)</option>
           <option value="sharp">فقط دیز (♯)</option>
           <option value="flat">فقط بمل (♭)</option>
         </select>
       </div>
 
+      <!-- Naming System -->
       <div class="select-group">
         <label for="namingMode" class="select-label">سیستم نام‌گذاری:</label>
         <select id="namingMode" onchange="renderKeyLabels()">
@@ -866,20 +672,19 @@
 
     </div>
 
-    <div id="dastgahInfoBadge" class="dastgah-info-badge"></div>
-
+    <!-- Play, Sound Mode & Screenshot Export Row -->
     <div class="btn-row">
       <div style="display:flex; gap:8px; flex-wrap:wrap;">
         <button id="playScaleBtn" class="btn-gold" onclick="togglePlayScale()">
           <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
           </svg>
-          <span id="playScaleLabel">پخش صوتی دستگاه</span>
+          <span id="playScaleLabel">پخش صوتی گام</span>
         </button>
 
         <select id="soundTimbre" style="width: auto; padding: 8px 12px; font-size:13px;">
-          <option value="piano">پیانو با کوک ایرانی (محجوبی)</option>
-          <option value="violin">صدای ویولن با ویبراتو سنتی</option>
+          <option value="piano">صدای پیانو آکوستیک</option>
+          <option value="violin">صدای ویولن با ویبراتو</option>
         </select>
       </div>
 
@@ -901,11 +706,17 @@
     </div>
   </section>
 
-  <div class="violin-strings-row" id="violinStringsRow">
-    <div class="strings-title" id="stringsTitle">
-      <span>🎻 کوک ویولن برای این مقام:</span>
+  <!-- Open Violin Strings Shortcut -->
+  <div class="violin-strings-row">
+    <div class="strings-title">
+      <span>🎻 سیم‌های باز ویولن:</span>
     </div>
-    <div class="string-buttons" id="stringButtonsContainer"></div>
+    <div class="string-buttons">
+      <button class="btn-string" onclick="playKeyByMidi(55)">سیم ۴: G3 (سل)</button>
+      <button class="btn-string" onclick="playKeyByMidi(62)">سیم ۳: D4 (رِ)</button>
+      <button class="btn-string" onclick="playKeyByMidi(69)">سیم ۲: A4 (لا ۴۴۰Hz)</button>
+      <button class="btn-string" onclick="playKeyByMidi(76)">سیم ۱: E5 (می)</button>
+    </div>
   </div>
 
   <div class="nav-controller">
@@ -937,141 +748,54 @@
     <div class="piano-board" id="pianoBoard"></div>
   </div>
 
+  <!-- Sound Status Indicator -->
   <div class="status-bar">
     <div>
-      <span>ضربه: نواختن با کوک ایرانی | آبی: نوت شاهد | سبز: نوت ایست</span>
+      <span>ضربه: نواختن صدا | کشیدن انگشت: ورق زدن کلاویه‌ها</span>
     </div>
     <div id="statusActiveNote" class="status-active-note">آماده نواختن</div>
   </div>
 
   <section class="guide-card">
-    <div class="guide-section-title">۱. شبیه‌سازی پیانوی کوک ایرانی (مکتب استاد مرتضی محجوبی)</div>
+    <div class="guide-section-title">۱. ترتیب کلاویه‌ها و پهنه ساز ویولن</div>
     <p>
-      پیانو به صورت غربی دارای ۱۲ فام نیم‌پرده‌ای ثابت است. در تاریخ موسیقی ایران، اساتید بزرگی همچون <strong>مرتضی محجوبی</strong>، <strong>مشیر همایون شهردار</strong> و <strong>جواد معروفی</strong> برای اجرای دستگاه‌ها، کلاویه‌های پیانو را متناسب با فواصل ربع‌پرده‌ای دستگاه (سُری و کُرن) کوک می‌کردند. در این وب‌‌اپلیکیشن، با انتخاب هر دستگاه، فرکانس کلاویه‌های تغییریافته به صورت هوشمند بین ۳۵ تا ۵۰ سِنت تعدیل می‌‌گردند تا طنین اصیل ایرانی بازتولید شود.
+      کلاویه‌های پیانو تکرار فواصل نیم‌پرده‌ای دوازده‌گانه هستند. در این نرم‌افزار، پهنه صوتی از <strong>G3 (بم‌ترین نوت ویولن / سیم چهارم باز)</strong> تا <strong>A7 (اوج پوزیسیون‌های فوق‌العاده بالا روی سیم می)</strong> با مجموع ۵۱ کلاویه پوشش داده شده است.
     </p>
 
-    <div class="guide-section-title">۲. کوک‌های اختصاصی ۴ سیم ویولن در موسیقی ایرانی</div>
+    <div class="guide-section-title">۲. چرا کلاویه مشکی برای «می دیز (#E)» و «سی دیز (#B)» نداریم؟</div>
     <p>
-      بر خلاف ویولن‌نوازی کلاسیک که همواره روی (سل - ر - لا - می) ثابت است، استادان بنام ویولن ایران همچون <strong>ابوالحسن صبا</strong>، <strong>پرویز یاحقی</strong>، <strong>حبیب‌الله بدیعی</strong> و <strong>علی تجویدی</strong>، کوک سیم‌های ساز را تغییر می‌دادند تا علاوه بر سهولت انگشت‌گذاری، رزونانس (طنین واخوان) شگفت‌انگیز سازهای سنتی ایرانی پدید آید.
+      فاصله بین اکثر کلیدهای سفید مجاور (مثل Do تا Re) یک پرده کامل است، بنابراین کلید مشکی نقش نیم‌پرده بین آن‌ها را بازی می‌کند. اما فاصله طبیعی میان نوت‌های <strong>E تا F (می تا فا)</strong> و <strong>B تا C (سی تا دو)</strong> ذاتا خودش نیم‌پرده است. به همین علت کلیدهای سفید مستقیماً به هم چسبیده‌اند و نیازی به کلید مشکی واسط نیست.
     </p>
-
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>دستگاه / آواز</th>
-            <th>کوک سیم‌ها (از بم به زیر)</th>
-            <th>نام‌های سیم‌ها</th>
-            <th>ویژگی اجرایی</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>شور «سل»</strong></td>
-            <td>سل - ر - لا - می یا سل - ر - لا - ر</td>
-            <td>G3 - D4 - A4 - E5/D5</td>
-            <td>کوک پایه ردیف صبا، لا کُرن روی سیم ۲</td>
-          </tr>
-          <tr>
-            <td><strong>همایون و بیات اصفهان</strong></td>
-            <td>می - لا - می - لا</td>
-            <td>E3 - A3 - E4 - A4</td>
-            <td>کوک مشهور یاحقی با طنین سیم‌های زوج و طراوت اصفهان</td>
-          </tr>
-          <tr>
-            <td><strong>آواز دشتی «ر»</strong></td>
-            <td>ر - لا - ر - لا</td>
-            <td>D3 - A3 - D4 - A4</td>
-            <td>رزونانس عمیق روی شاهد دشتی (لا) و نوت متغیر</td>
-          </tr>
-          <tr>
-            <td><strong>دستگاه سه‌گاه</strong></td>
-            <td>می کُرن - لا - ر - سل</td>
-            <td>E𝄳 - A - D - G</td>
-            <td>طنین سیم واخوان روی قطب سه‌گاه (می کُرن)</td>
-          </tr>
-          <tr>
-            <td><strong>دستگاه چهارگاه</strong></td>
-            <td>ر - لا - ر - سل</td>
-            <td>D3 - A3 - D4 - G4</td>
-            <td>اجرای روان گوشه‌های زابل، حصار و فرود حماسی</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="guide-section-title">۳. علائم میکروتونال سُری (𝄲) و کُرن (𝄳)</div>
     <div class="guide-box">
-      <strong>کُرن (𝄳 - Koron):</strong> نوت را حدود ربع‌پرده (۳۵ الی ۵۰ سِنت) بم‌تر می‌کند.
-      <br><strong>سُری (𝄲 - Sori):</strong> نوت را حدود ربع‌پرده (۳۵ الی ۵۰ سِنت) زیرتر می‌کند.
-      <br><strong>نوت شاهد:</strong> نوتی که گردش ملودی پیوسته حول آن شکل می‌گیرد و با رنگ آبی فیروزه‌ای در کلاویه‌ها مشخص است.
-      <br><strong>نوت ایست:</strong> نوتی که جملات آوازی و ضربی برای استراحت یا خاتمه روی آن مکث می‌کنند و با رنگ سبز زمردی علامت‌‌گذاری شده است.
+      <strong>آن‌هارمونیک (مترادف صوتی):</strong> کلید فیزیکی نوت <strong>#E (می دیز)</strong> همان کلید سفید <strong>F (فا)</strong> است. همچنین کلید فیزیکی نوت <strong>#B (سی دیز)</strong> همان کلید سفید <strong>C (دو)</strong> است.
     </div>
+
+    <div class="guide-section-title">۳. کدام گام‌ها دارای نوت‌های #E یا #B هستند؟</div>
+    <p>
+      طبق قانون تئوری گام‌های دیاتونیک، در هر گام ۷ نوتی باید از تمام ۷ حرف الفبای موسیقی (C, D, E, F, G, A, B) دقیقاً یک‌بار استفاده شود و هیچ حرفی حذف یا دو بار تکرار نشود:
+    </p>
+    <ul style="padding-right: 20px; display:flex; flex-direction:column; gap:6px;">
+      <li><strong>گام F# Major (فا دیز ماژور):</strong> درجه هفتم آن حتماً باید <strong>#E</strong> نامیده شود (نه F) تا نام حرف F دو بار تکرار نگردد.</li>
+      <li><strong>گام C# Major (دو دیز ماژور):</strong> تمام ۷ نوت دارای علامت دیز هستند و شامل هر دو نوت <strong>#E</strong> و <strong>#B</strong> است.</li>
+      <li><strong>گام C# Harmonic Minor (دو دیز مینور هارمونیک):</strong> درجه هفتم گام برای حل به تونیک نیم‌پرده زیر می‌شود و به نوت <strong>#B</strong> تبدیل می‌گردد.</li>
+    </ul>
   </section>
 
+  <!-- Footer Signature -->
   <footer>
-    <p>سامانه جامع آموزش انطباق نوت‌های پیانو، ویولن و دستگاه‌های ایرانی</p>
+    <p>سامانه جامع آموزش انطباق نوت‌های پیانو و ویولن</p>
     <p style="margin-top:5px; font-weight:800; color:var(--accent-primary);">تهیه و تدوین: ایمان برزجان | اختصاصی کانال ویولن کده</p>
   </footer>
 
 </div>
 
-<!-- Modal: Version Changelog -->
-<div id="changelogModal" class="app-modal" onclick="closeChangelogModal(event)">
-  <div class="modal-box">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-      <h3 style="color:#0f172a; font-size:16px; font-weight:900;">📜 تاریخچه نسخه‌های نرم‌افزار</h3>
-      <button onclick="document.getElementById('changelogModal').style.display='none'" style="background:none; border:none; font-size:18px; cursor:pointer; color:#64748b;">✕</button>
-    </div>
-
-    <div class="changelog-item">
-      <div class="changelog-ver">
-        <span>نسخه ۲.۱.۱ (نسخه فعلی)</span>
-        <span style="font-size:11px; color:#10b981;">رفع باگ صوتی ویولن</span>
-      </div>
-      <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
-        • اصلاح قطعی صدای ویولن و اتصال صحیح به مدار صوتی.<br>
-        • افزودن فیلتر تشدیدکننده کاسه چوبی ویولن (Resonance Biquad Filter).<br>
-        • توقف آنی و کامل تمام اسیلاتورها با دکمه توقف.
-      </p>
-    </div>
-
-    <div class="changelog-item">
-      <div class="changelog-ver">
-        <span>نسخه ۲.۱.۰</span>
-        <span style="font-size:11px; color:#64748b;">دستگاه‌های سنتی</span>
-      </div>
-      <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
-        • اضافه شدن زبانه دستگاه‌ها و آوازهای ردیف موسیقی ایرانی.<br>
-        • موتور صوتی میکروتونال ربع‌پرده‌ای (سُری و کُرن) کوک محجوبی.<br>
-        • کوک‌های سنتی ۴ سیم ویولن (اصفهان، دشتی، چهارگاه، سه‌گاه...).<br>
-        • نشانگر نوت شاهد (آبی) و نوت ایست (سبز).
-      </p>
-    </div>
-
-    <div class="changelog-item">
-      <div class="changelog-ver">
-        <span>نسخه ۲.۰.۰</span>
-        <span style="font-size:11px; color:#64748b;">بهبود بصری</span>
-      </div>
-      <p style="font-size:12.5px; color:#475569; margin-top:4px; line-height:1.6;">
-        • بازطراحی به پوسته عاجی روشن، کهربایی و نمد قرمز پیانو.<br>
-        • اصلاح تشخیص تاچ در موبایل (تفکیک کشیدن انگشت و ضربه زدن).<br>
-        • اضافه شدن اسلایدر هدایتگر و کلیدهای پیمایش بم/زیر.
-      </p>
-    </div>
-
-    <button class="btn-gold" style="width:100%; justify-content:center; margin-top:16px;" onclick="document.getElementById('changelogModal').style.display='none'">بستن</button>
-  </div>
-</div>
-
-<!-- Modal: iOS Install Guide -->
-<div id="iosModal" class="app-modal" onclick="closeIosModal(event)">
-  <div class="modal-box" style="text-align:center;">
+<!-- iOS Add-to-Home-Screen Instructions Modal -->
+<div id="iosModal" class="ios-modal" onclick="closeIosModal(event)">
+  <div class="ios-modal-box">
     <div style="font-size:32px; margin-bottom:10px;">📲</div>
     <h3 style="color:#0f172a; font-size:17px; font-weight:800; margin-bottom:10px;">نصب روی آیفون (iOS)</h3>
     <p style="font-size:13.5px; color:#475569; line-height:1.75; margin-bottom:16px; text-align:right;">
-      برای نصب برنامه روی صفحه اصلی گوشی:
+      برای تبدیل این برنامه به یک اپلیکیشن مستقل در آیفون:
       <br>۱. در مرورگر سافاری روی آیکون <strong>Share (اشتراک‌گذاری)</strong> در پایین صفحه بزنید.
       <br>۲. گزینه <strong>Add to Home Screen (افزودن به صفحه اصلی)</strong> را انتخاب کنید.
     </p>
@@ -1080,8 +804,11 @@
 </div>
 
 <script>
+/* -----------------------------------------------------------
+   1. Keyboard Database (G3 to A7 - Full Violin Compass: 51 Keys)
+   ----------------------------------------------------------- */
 const ALL_KEYS = [
-  { midi: 55, name: 'G3', solfege: 'سُل ۳', isBlack: false, defaultStringTag: 'سیم ۴ (G)' },
+  { midi: 55, name: 'G3', solfege: 'سُل ۳', isBlack: false, stringTag: 'سیم ۴ (G)' },
   { midi: 56, name: 'G#3/Ab3', sharp: 'G♯3', flat: 'A♭3', solfegeSharp: 'سُل♯ ۳', solfegeFlat: 'لا♭ ۳', isBlack: true },
   { midi: 57, name: 'A3', solfege: 'لا ۳', isBlack: false },
   { midi: 58, name: 'A#3/Bb3', sharp: 'A♯3', flat: 'B♭3', solfegeSharp: 'لا♯ ۳', solfegeFlat: 'سی♭ ۳', isBlack: true },
@@ -1089,14 +816,14 @@ const ALL_KEYS = [
 
   { midi: 60, name: 'C4', solfege: 'دو ۴', isBlack: false },
   { midi: 61, name: 'C#4/Db4', sharp: 'C♯4', flat: 'D♭4', solfegeSharp: 'دو♯ ۴', solfegeFlat: 'رِ♭ ۴', isBlack: true },
-  { midi: 62, name: 'D4', solfege: 'رِ ۴', isBlack: false, defaultStringTag: 'سیم ۳ (D)' },
+  { midi: 62, name: 'D4', solfege: 'رِ ۴', isBlack: false, stringTag: 'سیم ۳ (D)' },
   { midi: 63, name: 'D#4/Eb4', sharp: 'D♯4', flat: 'E♭4', solfegeSharp: 'رِ♯ ۴', solfegeFlat: 'می♭ ۴', isBlack: true },
   { midi: 64, name: 'E4', solfege: 'می ۴', isBlack: false },
   { midi: 65, name: 'F4', solfege: 'فا ۴', isBlack: false },
   { midi: 66, name: 'F#4/Gb4', sharp: 'F♯4', flat: 'G♭4', solfegeSharp: 'فا♯ ۴', solfegeFlat: 'سُل♭ ۴', isBlack: true },
   { midi: 67, name: 'G4', solfege: 'سُل ۴', isBlack: false },
   { midi: 68, name: 'G#4/Ab4', sharp: 'G♯4', flat: 'A♭4', solfegeSharp: 'سُل♯ ۴', solfegeFlat: 'لا♭ ۴', isBlack: true },
-  { midi: 69, name: 'A4', solfege: 'لا ۴', isBlack: false, defaultStringTag: 'سیم ۲ (A)' },
+  { midi: 69, name: 'A4', solfege: 'لا ۴', isBlack: false, stringTag: 'سیم ۲ (A)' },
   { midi: 70, name: 'A#4/Bb4', sharp: 'A♯4', flat: 'B♭4', solfegeSharp: 'لا♯ ۴', solfegeFlat: 'سی♭ ۴', isBlack: true },
   { midi: 71, name: 'B4', solfege: 'سی ۴', isBlack: false },
 
@@ -1104,7 +831,7 @@ const ALL_KEYS = [
   { midi: 73, name: 'C#5/Db5', sharp: 'C♯5', flat: 'D♭5', solfegeSharp: 'دو♯ ۵', solfegeFlat: 'رِ♭ ۵', isBlack: true },
   { midi: 74, name: 'D5', solfege: 'رِ ۵', isBlack: false },
   { midi: 75, name: 'D#5/Eb5', sharp: 'D♯5', flat: 'E♭5', solfegeSharp: 'رِ♯ ۵', solfegeFlat: 'می♭ ۵', isBlack: true },
-  { midi: 76, name: 'E5', solfege: 'می ۵', isBlack: false, defaultStringTag: 'سیم ۱ (E)' },
+  { midi: 76, name: 'E5', solfege: 'می ۵', isBlack: false, stringTag: 'سیم ۱ (E)' },
   { midi: 77, name: 'F5', solfege: 'فا ۵', isBlack: false },
   { midi: 78, name: 'F#5/Gb5', sharp: 'F♯5', flat: 'G♭5', solfegeSharp: 'فا♯ ۵', solfegeFlat: 'سُل♭ ۵', isBlack: true },
   { midi: 79, name: 'G5', solfege: 'سُل ۵', isBlack: false },
@@ -1138,150 +865,10 @@ const ALL_KEYS = [
   { midi: 105, name: 'A7', solfege: 'لا ۷', isBlack: false }
 ];
 
-const PERSIAN_DASTGAH_DATA = [
-  {
-    id: 'shor_sol',
-    name: 'دستگاه شور «سُل» (مادر دستگاه‌ها)',
-    isPersian: true,
-    notes: [7, 9, 10, 0, 2, 3, 5],
-    microCents: { 9: -45 },
-    microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 67,
-    istMidi: 67,
-    kookViolin: [
-      { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
-      { name: 'سیم ۳: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
-      { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
-    ],
-    info: 'دستگاه شور سل: نوت شاهد و ایست روی «سل (G4)». نوت دوم آن «لا کُرن (A𝄳)» است که به شیوه پیانوی استاد مرتضی محجوبی ۴۵ سنت بم‌تر صدا می‌دهد.'
-  },
-  {
-    id: 'esfahan_do',
-    name: 'آواز بیات اصفهان «دو» (شیوای صبا و یاحقی)',
-    isPersian: true,
-    notes: [0, 2, 3, 5, 7, 8, 11],
-    sharpPref: false,
-    shahedMidi: 72,
-    istMidi: 60,
-    kookViolin: [
-      { name: 'سیم ۴: E3 (می)', freq: 164.81, midi: 52 },
-      { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
-      { name: 'سیم ۲: E4 (می)', freq: 329.63, midi: 64 },
-      { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
-    ],
-    info: 'بیات اصفهان: دارای حس نوستالژیک و عاشقانه. کوک ویولن آن معمولاً «می - لا - می - لا» است که طنین جفت‌سیم‌های هم‌نام را آزاد می‌کند.'
-  },
-  {
-    id: 'dashti_re',
-    name: 'آواز دشتی «رِ» (سوزناک و دل‌انگیز)',
-    isPersian: true,
-    notes: [2, 4, 5, 7, 9, 10, 0],
-    microCents: { 4: -45 },
-    microLabels: { 4: { letter: 'E𝄳 (می کُرن)', solfege: 'می کُرن' } },
-    shahedMidi: 69,
-    istMidi: 62,
-    kookViolin: [
-      { name: 'سیم ۴: D3 (رِ)', freq: 146.83, midi: 50 },
-      { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
-      { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
-    ],
-    info: 'آواز دشتی رِ: نوت شاهد روی «لا (A4)» و ایست روی «رِ (D4)». نوت «می کُرن (E𝄳)» محور پرده‌گردانی به اوج (عشاق) است. کوک ویولن: رِ - لا - رِ - لا.'
-  },
-  {
-    id: 'chahargah_do',
-    name: 'دستگاه چهارگاه «دو» (حماسی و بیدارگر)',
-    isPersian: true,
-    notes: [0, 2, 4, 5, 7, 9, 11],
-    microCents: { 2: -45, 9: -45 },
-    microLabels: {
-      2: { letter: 'D𝄳 (رِ کُرن)', solfege: 'رِ کُرن' },
-      9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' }
-    },
-    shahedMidi: 60,
-    istMidi: 60,
-    kookViolin: [
-      { name: 'سیم ۴: D3 (رِ)', freq: 146.83, midi: 50 },
-      { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
-      { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۱: G4 (سل)', freq: 392.00, midi: 67 }
-    ],
-    info: 'دستگاه چهارگاه: حماسی‌ترین دستگاه ایرانی با دو دانگ متقارن. دارای دو نوت ربع‌پرده‌ای «رِ کُرن (D𝄳)» و «لا کُرن (A𝄳)». نوت شاهد و ایست روی دو (C).'
-  },
-  {
-    id: 'segah_mi',
-    name: 'دستگاه سه‌گاه «می کُرن» (پرشور و عاطفی)',
-    isPersian: true,
-    notes: [4, 5, 7, 9, 10, 0, 2],
-    microCents: { 4: -45, 9: -45 },
-    microLabels: {
-      4: { letter: 'E𝄳 (می کُرن)', solfege: 'می کُرن' },
-      9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' }
-    },
-    shahedMidi: 64,
-    istMidi: 64,
-    kookViolin: [
-      { name: 'سیم ۴: E𝄳3 (می کُرن)', freq: 160.50, midi: 52 },
-      { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
-      { name: 'سیم ۲: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۱: G4 (سل)', freq: 392.00, midi: 67 }
-    ],
-    info: 'دستگاه سه‌گاه: قطب ملودی و مرکز ثقل آن نوت «می کُرن» است. کوک ویولن با بم کردن سیم اول یا چهارم برای همراهی با می کُرن تنظیم می‌گردد.'
-  },
-  {
-    id: 'homayoun_sol',
-    name: 'دستگاه همایون «سُل» (مجلل و عرفانی)',
-    isPersian: true,
-    notes: [7, 9, 11, 0, 2, 3, 5],
-    microCents: { 9: -45 },
-    microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 74,
-    istMidi: 67,
-    kookViolin: [
-      { name: 'سیم ۴: E3 (می)', freq: 164.81, midi: 52 },
-      { name: 'سیم ۳: A3 (لا)', freq: 220.00, midi: 57 },
-      { name: 'سیم ۲: E4 (می)', freq: 329.63, midi: 64 },
-      { name: 'سیم ۱: A4 (لا)', freq: 440.00, midi: 69 }
-    ],
-    info: 'دستگاه همایون: فاصله سوم بیش‌بزرگ میان «لا کُرن» و «سی بکار» جلوه‌ای شاهانه به این دستگاه می‌بخشد. کوک ویولن آن با اصفهان مشترک است.'
-  },
-  {
-    id: 'abu_ata',
-    name: 'آواز ابوعطا «سُل» (دستان و حجاز)',
-    isPersian: true,
-    notes: [7, 9, 10, 0, 2, 3, 5],
-    microCents: { 9: -45 },
-    microLabels: { 9: { letter: 'A𝄳 (لا کُرن)', solfege: 'لا کُرن' } },
-    shahedMidi: 72,
-    istMidi: 67,
-    kookViolin: [
-      { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
-      { name: 'سیم ۳: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
-      { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
-    ],
-    info: 'آواز ابوعطا: از ملحقات شور با تکیه ویژه بر نوت «دو (C5)». گوشه مشهور حجاز اوج احساسی و معنوی ابوعطا را رقم می‌زند.'
-  },
-  {
-    id: 'mahoor_do',
-    name: 'دستگاه ماهور «دو» (باوقار و طرب‌انگیز)',
-    isPersian: true,
-    notes: [0, 2, 4, 5, 7, 9, 11],
-    sharpPref: true,
-    shahedMidi: 60,
-    istMidi: 60,
-    kookViolin: [
-      { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 },
-      { name: 'سیم ۳: D4 (رِ)', freq: 293.66, midi: 62 },
-      { name: 'سیم ۲: A4 (لا)', freq: 440.00, midi: 69 },
-      { name: 'سیم ۱: E5 (می)', freq: 659.25, midi: 76 }
-    ],
-    info: 'دستگاه ماهور: ساختار درجات آن با گام ماژور کلاسیک هم‌خوانی دارد اما گردش نغمه‌ها و تحریرهای آن روح زنده موسیقی اصیل ایرانی است.'
-  }
-];
-
-const CLASSICAL_SCALES_DATA = [
+/* -----------------------------------------------------------
+   2. Comprehensive Scales with Accurate Enharmonics
+   ----------------------------------------------------------- */
+const SCALES_DATA = [
   { id: 'chromatic', name: 'کروماتیک (نمایش تمام ۵۱ نوت)', notes: [0,1,2,3,4,5,6,7,8,9,10,11], sharpPref: true },
   { id: 'c_maj', name: 'دو ماژور / لا مینور (بدون علامت)', notes: [0,2,4,5,7,9,11], sharpPref: true },
   { id: 'g_maj', name: 'سل ماژور (۱ دیز - F♯)', notes: [7,9,11,0,2,4,6], sharpPref: true },
@@ -1299,12 +886,13 @@ const CLASSICAL_SCALES_DATA = [
   { id: 'cs_harm_min', name: 'دو دیز مینور هارمونیک (شامل #B محسوس)', notes: [1,3,4,6,8,9,0], sharpPref: true, specialNotes: { 0: 'B♯' } }
 ];
 
+/* -----------------------------------------------------------
+   3. Hardware-Clocked Web Audio Engine
+   ----------------------------------------------------------- */
 let audioCtx = null;
 let masterCompressor = null;
 let activeScalePlaybackTids = [];
-let activeScheduledNodes = [];
 let isPlayingScaleActive = false;
-let currentCategory = 'persian';
 
 function initWebAudio() {
   if (!audioCtx) {
@@ -1322,15 +910,14 @@ function initWebAudio() {
   }
 }
 
-function midiToMicroFreq(midi, centsOffset = 0) {
-  const baseFreq = 440 * Math.pow(2, (midi - 69) / 12);
-  return baseFreq * Math.pow(2, centsOffset / 1200);
+function midiToFreq(m) {
+  return 440 * Math.pow(2, (m - 69) / 12);
 }
 
 function playVoice(freq, startTime, duration = 0.5) {
   initWebAudio();
   const timbre = document.getElementById('soundTimbre').value;
-  const t = (startTime !== undefined && startTime > 0) ? startTime : audioCtx.currentTime;
+  const t = startTime || audioCtx.currentTime;
 
   const gain = audioCtx.createGain();
   gain.connect(masterCompressor);
@@ -1340,40 +927,26 @@ function playVoice(freq, startTime, duration = 0.5) {
     osc.type = 'sawtooth';
     osc.frequency.setValueAtTime(freq, t);
 
-    // Biquad Filter to mimic wooden acoustic resonance
-    const bodyFilter = audioCtx.createBiquadFilter();
-    bodyFilter.type = 'lowpass';
-    const filterCutoff = Math.min(3800, Math.max(900, freq * 3.4));
-    bodyFilter.frequency.setValueAtTime(filterCutoff, t);
-    bodyFilter.Q.setValueAtTime(1.8, t);
-
-    // Natural Vibrato LFO
+    // Subtle Vibrato LFO
     const lfo = audioCtx.createOscillator();
     const lfoGain = audioCtx.createGain();
     lfo.frequency.setValueAtTime(5.6, t);
-    lfoGain.gain.setValueAtTime(freq * 0.012, t);
+    lfoGain.gain.setValueAtTime(freq * 0.014, t);
     lfo.connect(lfoGain);
     lfoGain.connect(osc.frequency);
 
-    // Smooth bow envelope
     gain.gain.setValueAtTime(0.0001, t);
     gain.gain.exponentialRampToValueAtTime(0.35, t + 0.05);
-    gain.gain.setValueAtTime(0.30, t + Math.max(0.06, duration - 0.06));
+    gain.gain.setValueAtTime(0.32, t + duration - 0.05);
     gain.gain.exponentialRampToValueAtTime(0.0001, t + duration);
-
-    // Connected: Oscillator -> Body Resonance Filter -> Gain -> Master Compressor
-    osc.connect(bodyFilter);
-    bodyFilter.connect(gain);
 
     lfo.start(t);
     osc.start(t);
     lfo.stop(t + duration);
     osc.stop(t + duration);
 
-    activeScheduledNodes.push(osc, lfo, gain);
-
   } else {
-    // Piano Acoustic Timbre
+    // Acoustic Piano Synthesis
     gain.gain.setValueAtTime(0.0001, t);
     gain.gain.exponentialRampToValueAtTime(0.55, t + 0.012);
     gain.gain.exponentialRampToValueAtTime(0.18, t + 0.22);
@@ -1393,13 +966,13 @@ function playVoice(freq, startTime, duration = 0.5) {
       hGain.connect(gain);
       osc.start(t);
       osc.stop(t + duration);
-
-      activeScheduledNodes.push(osc);
     });
-    activeScheduledNodes.push(gain);
   }
 }
 
+/* -----------------------------------------------------------
+   4. DOM Keyboard Construction
+   ----------------------------------------------------------- */
 const pianoBoard = document.getElementById('pianoBoard');
 const whiteKeyWidth = 48;
 const blackKeyWidth = 30;
@@ -1429,17 +1002,12 @@ ALL_KEYS.forEach(k => {
   el.style.left = k.left + 'px';
   el.id = 'key-el-' + k.midi;
 
-  const tag = document.createElement('div');
-  tag.className = 'violin-string-tag';
-  tag.style.display = 'none';
-  el.appendChild(tag);
-  k.tagElement = tag;
-
-  const roleTag = document.createElement('div');
-  roleTag.className = 'role-badge';
-  roleTag.style.display = 'none';
-  el.appendChild(roleTag);
-  k.roleElement = roleTag;
+  if (k.stringTag) {
+    const tag = document.createElement('div');
+    tag.className = 'violin-string-tag';
+    tag.innerText = k.stringTag;
+    el.appendChild(tag);
+  }
 
   const badge = document.createElement('div');
   badge.className = 'key-badge';
@@ -1447,6 +1015,7 @@ ALL_KEYS.forEach(k => {
   k.badgeElement = badge;
   k.domElement = el;
 
+  // Swipe vs Tap Touch Discrimination
   let touchStartX = 0;
   let touchStartY = 0;
   let hasMoved = false;
@@ -1480,24 +1049,10 @@ ALL_KEYS.forEach(k => {
   pianoBoard.appendChild(el);
 });
 
-function getActiveScale() {
-  const select = document.getElementById('scaleSelect');
-  const pool = currentCategory === 'persian' ? PERSIAN_DASTGAH_DATA : CLASSICAL_SCALES_DATA;
-  return pool.find(s => s.id === select.value) || pool[0];
-}
-
 function playKey(k) {
-  const currentScale = getActiveScale();
-  const pitchClass = k.midi % 12;
-  const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
-  const freq = midiToMicroFreq(k.midi, cents);
-
-  playVoice(freq, 0, 0.7);
+  playVoice(midiToFreq(k.midi), 0, 0.7);
   highlightKeyVisual(k.domElement);
-  
-  const noteName = k.badgeElement.innerText.replace('\n', ' ');
-  const centsNotice = cents !== 0 ? ` [کوک ایرانی ${cents} سِنت]` : '';
-  document.getElementById('statusActiveNote').innerText = `نواخته شد: ${noteName} (${freq.toFixed(1)}Hz)${centsNotice}`;
+  document.getElementById('statusActiveNote').innerText = `نواخته شد: ${k.badgeElement.innerText} (${midiToFreq(k.midi).toFixed(1)}Hz)`;
 }
 
 function playKeyByMidi(midi) {
@@ -1513,97 +1068,30 @@ function highlightKeyVisual(domEl) {
   setTimeout(() => domEl.classList.remove('pressed'), 260);
 }
 
-function switchCategory(cat) {
-  currentCategory = cat;
-  document.getElementById('tabPersian').classList.toggle('active', cat === 'persian');
-  document.getElementById('tabClassical').classList.toggle('active', cat === 'classical');
-  document.getElementById('scaleSelectLabel').innerText = cat === 'persian' ? 'انتخاب دستگاه یا آواز ایرانی:' : 'انتخاب گام دیاتونیک کلاسیک:';
-  document.getElementById('playScaleLabel').innerText = cat === 'persian' ? 'پخش صوتی دستگاه' : 'پخش صوتی گام';
-
-  populateScaleOptions();
-  applyScaleChange();
-}
-
-function populateScaleOptions() {
-  const scaleSelect = document.getElementById('scaleSelect');
-  scaleSelect.innerHTML = '';
-  const pool = currentCategory === 'persian' ? PERSIAN_DASTGAH_DATA : CLASSICAL_SCALES_DATA;
-  pool.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s.id;
-    opt.innerText = s.name;
-    scaleSelect.appendChild(opt);
-  });
-}
+/* -----------------------------------------------------------
+   5. Scale Selection & Dynamic Labeling
+   ----------------------------------------------------------- */
+const scaleSelect = document.getElementById('scaleSelect');
+SCALES_DATA.forEach(s => {
+  const opt = document.createElement('option');
+  opt.value = s.id;
+  opt.innerText = s.name;
+  scaleSelect.appendChild(opt);
+});
 
 function applyScaleChange() {
   if (isPlayingScaleActive) stopScalePlayback();
-  updateViolinKookBar();
-  updateDastgahInfoBadge();
   renderKeyLabels();
 }
 
-function updateViolinKookBar() {
-  const currentScale = getActiveScale();
-  const kookRow = document.getElementById('violinStringsRow');
-  const buttonsContainer = document.getElementById('stringButtonsContainer');
-  buttonsContainer.innerHTML = '';
-
-  if (currentScale.isPersian && currentScale.kookViolin) {
-    kookRow.classList.add('persian-kook');
-    document.getElementById('stringsTitle').innerHTML = `<span>🎻 کوک ویولن برای ${currentScale.name.split(' ')[0]} ${currentScale.name.split(' ')[1]}:</span>`;
-    
-    currentScale.kookViolin.forEach(item => {
-      const btn = document.createElement('button');
-      btn.className = 'btn-string';
-      btn.innerText = item.name;
-      btn.onclick = () => {
-        playVoice(item.freq, 0, 0.9);
-        document.getElementById('statusActiveNote').innerText = `کوک سیم: ${item.name} (${item.freq.toFixed(1)}Hz)`;
-        jumpToMidi(item.midi);
-      };
-      buttonsContainer.appendChild(btn);
-    });
-  } else {
-    kookRow.classList.remove('persian-kook');
-    document.getElementById('stringsTitle').innerHTML = `<span>🎻 سیم‌های باز ویولن (کوک استاندارد جهانی):</span>`;
-    const standard = [
-      { name: 'سیم ۴: G3 (سل)', midi: 55 },
-      { name: 'سیم ۳: D4 (رِ)', midi: 62 },
-      { name: 'سیم ۲: A4 (لا)', midi: 69 },
-      { name: 'سیم ۱: E5 (می)', midi: 76 }
-    ];
-    standard.forEach(item => {
-      const btn = document.createElement('button');
-      btn.className = 'btn-string';
-      btn.innerText = item.name;
-      btn.onclick = () => playKeyByMidi(item.midi);
-      buttonsContainer.appendChild(btn);
-    });
-  }
-}
-
-function updateDastgahInfoBadge() {
-  const currentScale = getActiveScale();
-  const badge = document.getElementById('dastgahInfoBadge');
-  if (currentScale.isPersian && currentScale.info) {
-    badge.style.display = 'block';
-    badge.innerHTML = `<strong>مشخصات و گردش ملودی:</strong> ${currentScale.info}`;
-  } else {
-    badge.style.display = 'none';
-  }
-}
-
 function renderKeyLabels() {
-  const currentScale = getActiveScale();
+  const currentScale = SCALES_DATA.find(s => s.id === scaleSelect.value) || SCALES_DATA[0];
   const accMode = document.getElementById('accidentalMode').value;
   const nameMode = document.getElementById('namingMode').value;
 
   ALL_KEYS.forEach(k => {
     const pitchClass = k.midi % 12;
     const inScale = currentScale.notes.includes(pitchClass);
-    const isShahed = currentScale.shahedMidi && (k.midi === currentScale.shahedMidi || k.midi === currentScale.shahedMidi - 12 || k.midi === currentScale.shahedMidi + 12);
-    const isIst = currentScale.istMidi && (k.midi === currentScale.istMidi || k.midi === currentScale.istMidi - 12 || k.midi === currentScale.istMidi + 12);
 
     if (currentScale.id === 'chromatic') {
       k.domElement.classList.remove('out-of-scale');
@@ -1613,28 +1101,7 @@ function renderKeyLabels() {
       k.domElement.classList.toggle('in-scale', inScale);
     }
 
-    k.domElement.classList.toggle('is-shahed', !!isShahed);
-    k.domElement.classList.toggle('is-ist', !isShahed && !!isIst);
-
-    if (isShahed) {
-      k.roleElement.style.display = 'block';
-      k.roleElement.className = 'role-badge role-shahed';
-      k.roleElement.innerText = 'شاهد';
-    } else if (isIst) {
-      k.roleElement.style.display = 'block';
-      k.roleElement.className = 'role-badge role-ist';
-      k.roleElement.innerText = 'ایست';
-    } else {
-      k.roleElement.style.display = 'none';
-    }
-
-    if (currentScale.microLabels && currentScale.microLabels[pitchClass]) {
-      const mInfo = currentScale.microLabels[pitchClass];
-      const mText = nameMode === 'letter' ? mInfo.letter : mInfo.solfege;
-      k.badgeElement.innerHTML = `<span>${mText}</span><br><span class="micro-pill pill-koron">کوک کُرن</span>`;
-      return;
-    }
-
+    // Handle theoretical enharmonic overrides (like E# or B#)
     if (currentScale.specialNotes && currentScale.specialNotes[pitchClass]) {
       k.badgeElement.innerText = currentScale.specialNotes[pitchClass];
       return;
@@ -1657,6 +1124,9 @@ function renderKeyLabels() {
   });
 }
 
+/* -----------------------------------------------------------
+   6. Touch Scrolling & Octave Navigation
+   ----------------------------------------------------------- */
 const viewport = document.getElementById('pianoViewport');
 const slider = document.getElementById('pianoSlider');
 
@@ -1683,6 +1153,9 @@ function jumpToMidi(midi) {
   }
 }
 
+/* -----------------------------------------------------------
+   7. Synchronized Scale Playback
+   ----------------------------------------------------------- */
 function togglePlayScale() {
   if (isPlayingScaleActive) {
     stopScalePlayback();
@@ -1694,26 +1167,14 @@ function togglePlayScale() {
 function stopScalePlayback() {
   activeScalePlaybackTids.forEach(t => clearTimeout(t));
   activeScalePlaybackTids = [];
-
-  // Stop and silence all currently scheduled audio oscillators and gains
-  activeScheduledNodes.forEach(node => {
-    try {
-      if (node.stop) node.stop();
-      if (node.gain && audioCtx) {
-        node.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-      }
-    } catch (e) {}
-  });
-  activeScheduledNodes = [];
-
   isPlayingScaleActive = false;
-  document.getElementById('playScaleLabel').innerText = currentCategory === 'persian' ? 'پخش صوتی دستگاه' : 'پخش صوتی گام';
+  document.getElementById('playScaleLabel').innerText = 'پخش صوتی گام';
   ALL_KEYS.forEach(k => k.domElement.classList.remove('pressed'));
 }
 
 function startScalePlayback() {
   initWebAudio();
-  const currentScale = getActiveScale();
+  const currentScale = SCALES_DATA.find(s => s.id === scaleSelect.value);
   if (!currentScale) return;
 
   const inScaleKeys = ALL_KEYS.filter(k => currentScale.notes.includes(k.midi % 12));
@@ -1722,22 +1183,19 @@ function startScalePlayback() {
   isPlayingScaleActive = true;
   document.getElementById('playScaleLabel').innerText = 'توقف پخش';
 
-  const step = 0.35;
+  const step = 0.32;
   const baseTime = audioCtx.currentTime + 0.05;
 
   inScaleKeys.forEach((k, idx) => {
     const noteStart = baseTime + (idx * step);
-    const pitchClass = k.midi % 12;
-    const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
-    const freq = midiToMicroFreq(k.midi, cents);
-
-    playVoice(freq, noteStart, step * 0.9);
+    playVoice(midiToFreq(k.midi), noteStart, step * 0.9);
 
     const delayMs = (noteStart - audioCtx.currentTime) * 1000;
     const tid = setTimeout(() => {
       highlightKeyVisual(k.domElement);
-      document.getElementById('statusActiveNote').innerText = `پخش دستگاه: ${k.badgeElement.innerText.replace('\n', ' ')}`;
+      document.getElementById('statusActiveNote').innerText = `پخش گام: ${k.badgeElement.innerText}`;
 
+      // Auto-scroll viewport into view
       const leftEdge = viewport.scrollLeft;
       const rightEdge = leftEdge + viewport.clientWidth;
       if (k.left < leftEdge || k.left > rightEdge - 60) {
@@ -1752,6 +1210,9 @@ function startScalePlayback() {
   activeScalePlaybackTids.push(finishTid);
 }
 
+/* -----------------------------------------------------------
+   8. Fullscreen & Canvas PNG Snapshot Export (Bright & Clean)
+   ----------------------------------------------------------- */
 function toggleFullscreen() {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
@@ -1761,75 +1222,77 @@ function toggleFullscreen() {
 }
 
 function exportAnnotatedSnapshot() {
-  const currentScale = getActiveScale();
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
   const totalW = currentWhiteX * whiteKeyWidth;
-  const totalH = 370;
+  const totalH = 350;
 
   canvas.width = totalW;
   canvas.height = totalH;
 
+  // Clean Light Studio Background
   ctx.fillStyle = '#f8fafc';
   ctx.fillRect(0, 0, totalW, totalH);
 
+  // Red Felt Strip
   ctx.fillStyle = '#b91c1c';
-  ctx.fillRect(0, 56, totalW, 10);
+  ctx.fillRect(0, 52, totalW, 10);
 
+  // Elegant Titles & Credits
   ctx.fillStyle = '#b45309';
   ctx.font = 'bold 16px sans-serif';
   ctx.textAlign = 'right';
-  ctx.fillText(`انطباق نوت‌های ${currentScale.name} بر کلاویه‌های پیانو و پهنه ویولن (نسخه ۲.۱.۱)`, totalW - 20, 34);
+  ctx.fillText('انطباق نوت‌های موسیقی بر کلاویه‌های پیانو و پهنه ویولن (G3 تا A7)', totalW - 20, 32);
 
   ctx.fillStyle = '#64748b';
   ctx.font = '13px sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText('کانال ویولن کده (t.me/violonkadeh) | تهیه و تدوین: ایمان برزجان', 20, 34);
+  ctx.fillText('کانال ویولن کده (t.me/violonkadeh) | تهیه و تدوین: ایمان برزجان', 20, 32);
 
+  // Render White Keys
   ALL_KEYS.filter(k => !k.isBlack).forEach(k => {
     const isOut = k.domElement.classList.contains('out-of-scale');
-    const isShahed = k.domElement.classList.contains('is-shahed');
-    const isIst = k.domElement.classList.contains('is-ist');
-
-    ctx.fillStyle = isShahed ? '#e0f2fe' : (isIst ? '#dcfce7' : (isOut ? '#e2e8f0' : '#ffffff'));
-    ctx.fillRect(k.left, 66, whiteKeyWidth - 1, 240);
-    ctx.strokeStyle = isShahed ? '#0284c7' : (isIst ? '#16a34a' : '#94a3b8');
-    ctx.strokeRect(k.left, 66, whiteKeyWidth - 1, 240);
+    ctx.fillStyle = isOut ? '#e2e8f0' : '#ffffff';
+    ctx.fillRect(k.left, 62, whiteKeyWidth - 1, 230);
+    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeRect(k.left, 62, whiteKeyWidth - 1, 230);
 
     ctx.fillStyle = isOut ? '#94a3b8' : '#0f172a';
-    ctx.font = 'bold 13px sans-serif';
+    ctx.font = 'bold 14px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(k.badgeElement.innerText.replace('\n', ' '), k.left + (whiteKeyWidth / 2), 282);
+    ctx.fillText(k.badgeElement.innerText, k.left + (whiteKeyWidth / 2), 272);
 
-    if (isShahed) {
-      ctx.fillStyle = '#0284c7';
+    if (k.stringTag) {
+      ctx.fillStyle = '#d97706';
       ctx.font = 'bold 10px sans-serif';
-      ctx.fillText('[شاهد]', k.left + (whiteKeyWidth / 2), 100);
+      ctx.fillText(k.stringTag, k.left + (whiteKeyWidth / 2), 85);
     }
   });
 
+  // Render Black Keys
   ALL_KEYS.filter(k => k.isBlack).forEach(k => {
     const isOut = k.domElement.classList.contains('out-of-scale');
-    const isShahed = k.domElement.classList.contains('is-shahed');
-    const isIst = k.domElement.classList.contains('is-ist');
-
-    ctx.fillStyle = isShahed ? '#0284c7' : (isIst ? '#16a34a' : (isOut ? '#94a3b8' : '#1e293b'));
-    ctx.fillRect(k.left, 66, blackKeyWidth, 146);
+    ctx.fillStyle = isOut ? '#94a3b8' : '#1e293b';
+    ctx.fillRect(k.left, 62, blackKeyWidth, 142);
     ctx.strokeStyle = '#0f172a';
-    ctx.strokeRect(k.left, 66, blackKeyWidth, 146);
+    ctx.strokeRect(k.left, 62, blackKeyWidth, 142);
 
     ctx.fillStyle = isOut ? '#f1f5f9' : '#fef3c7';
-    ctx.font = 'bold 10px sans-serif';
+    ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(k.badgeElement.innerText.replace('\n', ' '), k.left + (blackKeyWidth / 2), 185);
+    ctx.fillText(k.badgeElement.innerText.replace('\n', ' '), k.left + (blackKeyWidth / 2), 180);
   });
 
+  // Export File
   const link = document.createElement('a');
-  link.download = `violonkadeh_${currentScale.id}_v2.1.1_iman_barzjan.png`;
+  link.download = `piano_violin_iman_barzjan_${scaleSelect.value}.png`;
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
 
+/* -----------------------------------------------------------
+   9. PWA Installation Handler
+   ----------------------------------------------------------- */
 let deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -1855,18 +1318,7 @@ function handleAppInstall() {
       deferredPrompt = null;
     });
   } else {
-    const status = document.getElementById('statusActiveNote');
-    if (status) status.innerText = 'برای نصب: در منوی کروم روی Install یا Add to Home screen بزنید.';
-  }
-}
-
-function openChangelogModal() {
-  document.getElementById('changelogModal').style.display = 'flex';
-}
-
-function closeChangelogModal(e) {
-  if (e.target.id === 'changelogModal') {
-    document.getElementById('changelogModal').style.display = 'none';
+    alert('برای نصب این برنامه: در منوی مرورگر خود روی گزینه Install App یا Add to Home Screen بزنید.');
   }
 }
 
@@ -1876,9 +1328,9 @@ function closeIosModal(e) {
   }
 }
 
+// Initial Render Setup
 window.onload = function() {
-  populateScaleOptions();
-  applyScaleChange();
+  renderKeyLabels();
 };
 </script>
 </body>
