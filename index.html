@@ -1085,7 +1085,7 @@
       </div>
 
       <div class="version-badge">
-        <span>نسخه ۲.۶.۶ (اسکرول لبه‌ای و آرتیکولاسیون)</span>
+        <span>نسخه ۲.۶.۷ (تعدیل رزونانس و طنین گرد ویولن)</span>
       </div>
     </div>
 
@@ -1590,7 +1590,7 @@
   </section>
 
   <footer>
-    <p>نرم‌افزار جامع «پرده‌نگار» • آموزش انطباق نوت‌های پیانو، ویولن، دایره پنجم‌ها و ردیف موسیقی ایرانی (نسخه ۲.۶.۶ پایدار)</p>
+    <p>نرم‌افزار جامع «پرده‌نگار» • آموزش انطباق نوت‌های پیانو، ویولن، دایره پنجم‌ها و ردیف موسیقی ایرانی (نسخه ۲.۶.۷ پایدار)</p>
     <p style="margin-top:6px; font-weight:800; color:var(--accent-primary);">
       طراح و مؤلف: ایمان برزجان (Iman Barzjan) | وب‌‌سایت: <a href="https://imanbarzjan.ir" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary); text-decoration:underline;">imanbarzjan.ir</a> | مشاور علمی: استاد بابک بختیاری | اختصاصی کانال: ویولن کده (@violonkadeh)
     </p>
@@ -1599,7 +1599,7 @@
 </div>
 
 <script>
-const APP_VERSION = '2.6.6';
+const APP_VERSION = '2.6.7';
 
 // Auto Cache-Buster: Silently polls server and forces instant refresh if a new build is deployed
 (function autoBustCache() {
@@ -2007,6 +2007,7 @@ let isPlayingScaleActive = false;
 let isPlayingMotifActive = false;
 let activeScalePlaybackTids = [];
 let activeScheduledNodes = [];
+let activeViolinVoices = [];
 let ALL_KEYS = [];
 let currentWhiteX = 0;
 const whiteKeyWidth = 48;
@@ -2119,10 +2120,34 @@ function playVoice(freq, startTime = 0, duration = 1.6) {
         activeScheduledNodes.push(osc);
       });
     } else {
-      const sustainTime = Math.max(duration, 1.2);
+      // Rounded realistic violin legato transition (Max 2 overlapping voices, graceful bow damping)
+      while (activeViolinVoices.length >= 2) {
+        const oldest = activeViolinVoices.shift();
+        try {
+          oldest.gain.gain.cancelScheduledValues(t0);
+          oldest.gain.gain.setValueAtTime(Math.max(0.0001, oldest.gain.gain.value || 0.4), t0);
+          oldest.gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.18);
+          oldest.osc.stop(t0 + 0.20);
+        } catch (e) {}
+      }
+
+      // Gently round off any existing voice to prepare for the newly struck note
+      activeViolinVoices.forEach(prev => {
+        try {
+          prev.gain.gain.cancelScheduledValues(t0);
+          prev.gain.gain.setValueAtTime(Math.max(0.0001, prev.gain.gain.value || 0.45), t0);
+          prev.gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.24);
+          prev.osc.stop(t0 + 0.26);
+        } catch (e) {}
+      });
+
+      const noteHold = (duration && duration < 1.0) ? duration : 0.60;
+      const releaseTime = 0.24; // Soft acoustic body resonance (گرد و بدون بریدگی تیز)
+      const sustainTime = noteHold + releaseTime;
+
       mainGain.gain.setValueAtTime(0.0001, t0);
-      mainGain.gain.exponentialRampToValueAtTime(0.55, t0 + 0.08);
-      mainGain.gain.setValueAtTime(0.48, t0 + sustainTime * 0.6);
+      mainGain.gain.exponentialRampToValueAtTime(0.55, t0 + 0.05); // Warm bow contact
+      mainGain.gain.setValueAtTime(0.48, t0 + noteHold);
       mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + sustainTime);
 
       const osc = audioCtx.createOscillator();
@@ -2142,12 +2167,13 @@ function playVoice(freq, startTime = 0, duration = 1.6) {
       osc.connect(filter);
       filter.connect(mainGain);
 
-      lfo.start(t0 + 0.05);
+      lfo.start(t0 + 0.04);
       lfo.stop(t0 + sustainTime);
       osc.start(t0);
       osc.stop(t0 + sustainTime);
 
       activeScheduledNodes.push(osc, lfo);
+      activeViolinVoices.push({ osc, lfo, gain: mainGain, stopTime: t0 + sustainTime });
     }
   }
 }
@@ -2644,6 +2670,7 @@ function stopScalePlayback() {
     } catch (e) {}
   });
   activeScheduledNodes = [];
+  activeViolinVoices = [];
 
   isPlayingScaleActive = false;
   document.getElementById('playScaleLabel').innerText = currentCategory === 'classical' 
@@ -2719,6 +2746,7 @@ function stopMotifPlayback() {
     } catch (e) {}
   });
   activeScheduledNodes = [];
+  activeViolinVoices = [];
 
   isPlayingMotifActive = false;
   document.getElementById('playMotifLabel').innerText = '🎶 شنیدن تم شاخص درآمد';
@@ -3167,7 +3195,7 @@ function exportAnnotatedSnapshot() {
   });
 
   const link = document.createElement('a');
-  link.download = `pardehe_negar_${currentScale.id}_v2.6.6_barzjan.png`;
+  link.download = `pardehe_negar_${currentScale.id}_v2.6.7_barzjan.png`;
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
