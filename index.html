@@ -216,104 +216,104 @@
       line-height: 1.5;
     }
     .main-title span.brand-name {
-      color: var(--accent-primary);
+    .category-tab-btn.active.tuner-active {
+      color: #059669;
+      border-bottom: 2px solid #10b981;
     }
 
-    .action-links-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* Light Theme Tuner Panel */
+    .tuner-panel {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--card-shadow);
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tuner-stage {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
       align-items: center;
-      gap: 8px;
-      margin-top: 4px;
+    }
+    @media (min-width: 860px) {
+      .tuner-stage {
+        grid-template-columns: 360px 1fr;
+      }
     }
 
-    .app-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 8px 15px;
-      border-radius: 11px;
-      font-size: 12.5px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.16s ease;
-      border: 1px solid transparent;
-      outline: none;
-    }
-
-    .btn-author {
+    .tuner-gauge-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
-      color: var(--text-dark);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    }
-    .btn-author:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-    }
-
-    .btn-advisor {
-      background: #fefce8;
-      border: 1px solid #fef08a;
-      color: #854d0e;
-      box-shadow: 0 2px 6px rgba(161, 98, 7, 0.08);
-      font-weight: 800;
-      cursor: default;
-    }
-
-    .btn-telegram {
-      background: #0088cc;
-      color: #ffffff;
-      box-shadow: 0 3px 12px rgba(0, 136, 204, 0.28);
-    }
-
-    .category-tabs-container {
+      border-radius: 16px;
+      padding: 18px 14px;
       display: flex;
-      background: #e2e8f0;
-      padding: 4px;
-      border-radius: 14px;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .category-tab-btn {
-      flex: 1;
-      min-width: 170px;
-      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 11px;
-      border: none;
+      position: relative;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .tuner-status-pill {
       font-size: 13px;
       font-weight: 800;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      color: #475569;
-      background: transparent;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      text-align: center;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+    .tuner-status-pill.in-tune {
+      background: #dcfce7;
+      border-color: #86efac;
+      color: #15803d;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.25);
+    }
+    .tuner-status-pill.flat-tune {
+      background: #fef2f2;
+      border-color: #fca5a5;
+      color: #b91c1c;
+    }
+    .tuner-status-pill.sharp-tune {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #1d4ed8;
     }
 
-    .category-tab-btn.active {
+    .tuner-presets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .target-string-card {
       background: #ffffff;
-      color: var(--accent-primary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+      transition: all 0.16s ease;
     }
-
-    .category-tab-btn.active.persian-active {
-      color: #0369a1;
-      border-bottom: 2px solid #0284c7;
+    .target-string-card:hover {
+      border-color: #0284c7;
+      background: #f0f9ff;
+      transform: translateY(-2px);
     }
-    .category-tab-btn.active.daramad-active {
-      color: #b45309;
-      border-bottom: 2px solid #d97706;
-    }
-    .category-tab-btn.active.classical-active {
-      color: #1e3a8a;
-      border-bottom: 2px solid #2563eb;
+    .target-string-card.active-string {
+      background: #ecfdf5;
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
     }
 
     .control-panel {
@@ -1094,16 +1094,16 @@
         <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
         </svg>
-        <span>سامانه ۱۲ دستگاه و آواز ردیف ویولن ایران و پهنه کامل ساز (G3 تا A7)</span>
+        <span id="headerBadgeText">سامانه ۱۲ دستگاه و آواز ردیف ویولن ایران و پهنه کامل ساز (G3 تا A7)</span>
       </div>
 
       <div class="version-badge">
-        <span>نسخه ۲.۶.۱ (دایره پنجم‌ها و آکوردهای مستقل)</span>
+        <span>نسخه ۲.۶.۲ (تفکیک بنیادین کلاسیک و ردیف)</span>
       </div>
     </div>
 
-    <h1 class="main-title">
-      <span class="brand-name">«پرده‌‌نگار»</span> • انطباق نوت‌های موسیقی، ۱۲ دستگاه و آواز ایرانی بر پیانو و ویولن
+    <h1 class="main-title" id="mainTitleHeading">
+      <span class="brand-name">«پرده‌‌نگار»</span> • <span id="mainTitleSub">انطباق نوت‌های موسیقی، ۱۲ دستگاه و آواز ایرانی بر پیانو و ویولن</span>
     </h1>
 
     <div class="action-links-row">
@@ -1172,6 +1172,78 @@
     </div>
 
     <div id="dastgahInfoBadge" class="dastgah-info-badge"></div>
+
+    <!-- Tuner Panel (Clean Light Theme) -->
+    <div id="tunerPanel" class="tuner-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:1px solid #e2e8f0; padding-bottom:12px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:24px;">🎛️</span>
+          <div>
+            <h2 style="font-size:16px; font-weight:900; color:var(--text-dark); margin:0;">تیونر هوشمند و سنجشگر فرکانسی ۴ سیم ویولن</h2>
+            <p style="font-size:12px; color:var(--text-muted); margin:3px 0 0 0;">دریافت زنده صوت از میکروفون، محاسبه فرکانس با دقت هرتز و انطباق با تمامی کوک‌های ردیف و کلاسیک</p>
+          </div>
+        </div>
+
+        <button id="btnToggleMic" class="btn-gold" style="background: linear-gradient(180deg, #10b981 0%, #059669 100%);" onclick="toggleMicrophoneTuner()">
+          <span>🎙️ روشن کردن میکروفون تیونر</span>
+        </button>
+      </div>
+
+      <div class="tuner-stage">
+        <!-- Visual Gauge Card (Light Theme) -->
+        <div class="tuner-gauge-card">
+          <svg id="svgTunerGauge" viewBox="0 0 320 200" width="100%" style="max-width:310px;">
+            <!-- Outer Gauge Arch -->
+            <path d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke="#e2e8f0" stroke-width="16" stroke-linecap="round"/>
+            <!-- Flat zone (Red) -->
+            <path d="M 40 160 A 120 120 0 0 1 125 58" fill="none" stroke="#fca5a5" stroke-width="12" stroke-linecap="round"/>
+            <!-- Sharp zone (Blue) -->
+            <path d="M 195 58 A 120 120 0 0 1 280 160" fill="none" stroke="#93c5fd" stroke-width="12" stroke-linecap="round"/>
+            <!-- Perfect In-Tune Center Zone (Emerald Green) -->
+            <path d="M 140 44 A 120 120 0 0 1 180 44" fill="none" stroke="#22c55e" stroke-width="16" stroke-linecap="round"/>
+
+            <!-- Center Tick -->
+            <line x1="160" y1="42" x2="160" y2="24" stroke="#15803d" stroke-width="3.5" stroke-linecap="round"/>
+
+            <!-- Needle Pointer -->
+            <g id="gaugeNeedle" transform="rotate(0 160 145)" style="transition: transform 0.08s ease-out;">
+              <polygon points="160,35 155,145 165,145" fill="#d97706"/>
+              <circle cx="160" cy="145" r="9" fill="#0f172a"/>
+              <circle cx="160" cy="145" r="4" fill="#ffffff"/>
+            </g>
+
+            <!-- Gauge Scale Labels -->
+            <text x="35" y="180" fill="#94a3b8" font-size="11" font-weight="800">-50¢</text>
+            <text x="160" y="20" fill="#15803d" font-size="12" font-weight="900" text-anchor="middle">کوک دقیق (0)</text>
+            <text x="285" y="180" fill="#94a3b8" font-size="11" font-weight="800" text-anchor="end">+50¢</text>
+          </svg>
+
+          <div style="text-align:center; margin-top:2px;">
+            <div id="tunerDetectedNote" style="font-size:30px; font-weight:900; color:#0284c7; font-family:-apple-system, BlinkMacSystemFont, monospace;">--</div>
+            <div id="tunerDetectedFreq" style="font-size:13px; font-weight:700; color:#475569; margin-top:2px;">در انتظار صدا...</div>
+            <div id="tunerCentsDisplay" style="font-size:12.5px; font-weight:800; color:#b45309; margin-top:2px;">0 cent</div>
+          </div>
+
+          <div style="margin-top:12px; width:100%; text-align:center;">
+            <div id="tunerStatusPill" class="tuner-status-pill">میکروفون خاموش است</div>
+          </div>
+        </div>
+
+        <!-- Presets and Strings Selector (Light Theme) -->
+        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <label class="select-label" style="font-size:12.5px; color:#475569;">انتخاب الگوی کوک ویولن (ردیف یا کلاسیک):</label>
+            <select id="tunerPresetSelect" onchange="onTunerPresetChange()" style="margin-top:5px; background:#ffffff;"></select>
+            <div id="tunerPresetDesc" style="font-size:12px; color:#64748b; margin-top:5px; line-height:1.6;"></div>
+          </div>
+
+          <div>
+            <div style="font-size:12px; font-weight:800; color:#334155; margin-bottom:8px;">سیم‌های هدف در این کوک (برای شنیدن فرکانس مرجع کلیک کنید):</div>
+            <div id="tunerTargetStringsGrid" class="tuner-presets-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Circle of Fifths Panel (For Classical Mode) -->
     <div id="circleOfFifthsPanel" class="circle-fifths-panel">
@@ -1863,19 +1935,19 @@ const PERSIAN_DASTGAH_DATA = [
 ];
 
 const CLASSICAL_SCALES_DATA = [
-  { id: 'c_maj', name: 'دو ماژور / لا مینور (C Major - بدون علامت)', notes: [0,2,4,5,7,9,11], sharpPref: true, tonicMidi: 60, triadMidi: [60, 64, 67] },
-  { id: 'g_maj', name: 'سل ماژور (G Major - ۱ دیز: F♯)', notes: [7,9,11,0,2,4,6], sharpPref: true, tonicMidi: 67, triadMidi: [67, 71, 74] },
-  { id: 'd_maj', name: 'ر ماژور (D Major - ۲ دیز: F♯, C♯)', notes: [2,4,6,7,9,11,1], sharpPref: true, tonicMidi: 62, triadMidi: [62, 66, 69] },
-  { id: 'a_maj', name: 'لا ماژور (A Major - ۳ دیز: F♯, C♯, G♯)', notes: [9,11,1,2,4,6,8], sharpPref: true, tonicMidi: 69, triadMidi: [69, 73, 76] },
-  { id: 'e_maj', name: 'می ماژور (E Major - ۴ دیز: F♯..D♯)', notes: [4,6,8,9,11,1,3], sharpPref: true, tonicMidi: 64, triadMidi: [64, 68, 71] },
-  { id: 'b_maj', name: 'سی ماژور (B Major - ۵ دیز)', notes: [11,1,3,4,6,8,10], sharpPref: true, tonicMidi: 71, triadMidi: [71, 75, 78] },
-  { id: 'fs_maj', name: 'فا دیز ماژور (F♯ Major - ۶ دیز)', notes: [6,8,10,11,1,3,5], sharpPref: true, tonicMidi: 66, triadMidi: [66, 70, 73], specialNotes: { 5: 'E♯' } },
-  { id: 'db_maj', name: 'ر بمل ماژور (D♭ Major - ۵ بمل)', notes: [1,3,5,6,8,10,0], sharpPref: false, tonicMidi: 61, triadMidi: [61, 65, 68] },
-  { id: 'ab_maj', name: 'لا بمل ماژور (A♭ Major - ۴ بمل)', notes: [8,10,0,1,3,5,7], sharpPref: false, tonicMidi: 68, triadMidi: [68, 72, 75] },
-  { id: 'eb_maj', name: 'می بمل ماژور (E♭ Major - ۳ بمل)', notes: [3,5,7,8,10,0,2], sharpPref: false, tonicMidi: 63, triadMidi: [63, 67, 70] },
-  { id: 'bb_maj', name: 'سی بمل ماژور (B♭ Major - ۲ بمل)', notes: [10,0,2,3,5,7,9], sharpPref: false, tonicMidi: 70, triadMidi: [70, 74, 77] },
-  { id: 'f_maj', name: 'فا ماژور (F Major - ۱ بمل: B♭)', notes: [5,7,9,10,0,2,4], sharpPref: false, tonicMidi: 65, triadMidi: [65, 69, 72] },
-  { id: 'chromatic', name: 'کروماتیک (نمایش تمام ۵۱ نوت ساز)', notes: [0,1,2,3,4,5,6,7,8,9,10,11], sharpPref: true, tonicMidi: 60, triadMidi: [60, 64, 67] }
+  { id: 'c_maj', name: 'دو ماژور / لا مینور (C Major - بدون علامت)', notes: [0,2,4,5,7,9,11], sharpPref: true, tonicMidi: 60, triadMidi: [60, 64, 67], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'A Minor (لا مینور)', sigDesc: 'بدون دیز و بمل (Natural)' },
+  { id: 'g_maj', name: 'سل ماژور (G Major - ۱ دیز: F♯)', notes: [7,9,11,0,2,4,6], sharpPref: true, tonicMidi: 67, triadMidi: [67, 71, 74], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'E Minor (می مینور)', sigDesc: '۱ دیز: فا دیز (F♯)' },
+  { id: 'd_maj', name: 'ر ماژور (D Major - ۲ دیز: F♯, C♯)', notes: [2,4,6,7,9,11,1], sharpPref: true, tonicMidi: 62, triadMidi: [62, 66, 69], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'B Minor (سی مینور)', sigDesc: '۲ دیز: فا دیز، دو دیز (F♯, C♯)' },
+  { id: 'a_maj', name: 'لا ماژور (A Major - ۳ دیز: F♯, C♯, G♯)', notes: [9,11,1,2,4,6,8], sharpPref: true, tonicMidi: 69, triadMidi: [69, 73, 76], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'F♯ Minor (فا دیز مینور)', sigDesc: '۳ دیز: F♯, C♯, G♯' },
+  { id: 'e_maj', name: 'می ماژور (E Major - ۴ دیز: F♯..D♯)', notes: [4,6,8,9,11,1,3], sharpPref: true, tonicMidi: 64, triadMidi: [64, 68, 71], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'C♯ Minor (دو دیز مینور)', sigDesc: '۴ دیز: F♯, C♯, G♯, D♯' },
+  { id: 'b_maj', name: 'سی ماژور (B Major - ۵ دیز)', notes: [11,1,3,4,6,8,10], sharpPref: true, tonicMidi: 71, triadMidi: [71, 75, 78], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'G♯ Minor (سل دیز مینور)', sigDesc: '۵ دیز: F♯, C♯, G♯, D♯, A♯' },
+  { id: 'fs_maj', name: 'فا دیز ماژور (F♯ Major - ۶ دیز با حضور E♯)', notes: [6,8,10,11,1,3,5], sharpPref: true, tonicMidi: 66, triadMidi: [66, 70, 73], specialNotes: { 5: 'E♯' }, formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'D♯ Minor (ر دیز مینور)', sigDesc: '۶ دیز (شامل درجه هفتم E♯)' },
+  { id: 'db_maj', name: 'ر بمل ماژور (D♭ Major - ۵ بمل)', notes: [1,3,5,6,8,10,0], sharpPref: false, tonicMidi: 61, triadMidi: [61, 65, 68], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'B♭ Minor (سی بمل مینور)', sigDesc: '۵ بمل: B♭, E♭, A♭, D♭, G♭' },
+  { id: 'ab_maj', name: 'لا بمل ماژور (A♭ Major - ۴ بمل)', notes: [8,10,0,1,3,5,7], sharpPref: false, tonicMidi: 68, triadMidi: [68, 72, 75], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'F Minor (فا مینور)', sigDesc: '۴ بمل: B♭, E♭, A♭, D♭' },
+  { id: 'eb_maj', name: 'می بمل ماژور (E♭ Major - ۳ بمل)', notes: [3,5,7,8,10,0,2], sharpPref: false, tonicMidi: 63, triadMidi: [63, 67, 70], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'C Minor (دو مینور)', sigDesc: '۳ بمل: B♭, E♭, A♭' },
+  { id: 'bb_maj', name: 'سی بمل ماژور (B♭ Major - ۲ بمل)', notes: [10,0,2,3,5,7,9], sharpPref: false, tonicMidi: 70, triadMidi: [70, 74, 77], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'G Minor (سل مینور)', sigDesc: '۲ بمل: B♭, E♭' },
+  { id: 'f_maj', name: 'فا ماژور (F Major - ۱ بمل: B♭)', notes: [5,7,9,10,0,2,4], sharpPref: false, tonicMidi: 65, triadMidi: [65, 69, 72], formula: 'پ - پ - ن - پ - پ - پ - ن', relMinor: 'D Minor (ر مینور)', sigDesc: '۱ بمل: سی بمل (B♭)' },
+  { id: 'chromatic', name: 'کروماتیک جهانی (نمایش کامل ۵۱ نوت پیانو و ویولن)', notes: [0,1,2,3,4,5,6,7,8,9,10,11], sharpPref: true, tonicMidi: 60, triadMidi: [60, 64, 67], formula: '۱۲ نیم‌پرده مساوی (12-TET)', relMinor: '-', sigDesc: 'تمام درجات کروماتیک فعال' }
 ];
 
 const FIFTHS_WHEEL_DATA = [
@@ -1893,263 +1965,333 @@ const FIFTHS_WHEEL_DATA = [
   { major: 'F', solfege: 'فا', minor: 'Dm', minorSol: 'رِ مینور', sig: '۱ بمل (B♭)', scaleId: 'f_maj', tritone: 'B', triadMidi: [65, 69, 72] }
 ];
 
-let audioCtx = null;
-let masterCompressor = null;
-let activeScalePlaybackTids = [];
-let activeScheduledNodes = [];
-let isPlayingScaleActive = false;
-let isPlayingMotifActive = false;
-let currentCategory = 'persian';
-
-let circleSelectedIndex = 0;
-let circleRotationAngle = 0;
-let circleActiveMode = 'family'; // 'family' or 'tritone'
-
-const whiteKeyWidth = 48;
-const blackKeyWidth = 30;
-let currentWhiteX = 0;
-const ALL_KEYS = [];
-
-const NOTE_NAMES = {
-  0: { natural: 'C', solfege: 'دو', sharp: 'C♯', flat: 'D♭', solfegeSharp: 'دو♯', solfegeFlat: 'ر♭' },
-  1: { natural: null, sharp: 'C♯', flat: 'D♭', solfegeSharp: 'دو♯', solfegeFlat: 'ر♭' },
-  2: { natural: 'D', solfege: 'رِ', sharp: 'D♯', flat: 'E♭', solfegeSharp: 'رِ♯', solfegeFlat: 'می♭' },
-  3: { natural: null, sharp: 'D♯', flat: 'E♭', solfegeSharp: 'رِ♯', solfegeFlat: 'می♭' },
-  4: { natural: 'E', solfege: 'می', sharp: 'E♯', flat: 'F♭', solfegeSharp: 'می♯', solfegeFlat: 'فا♭' },
-  5: { natural: 'F', solfege: 'فا', sharp: 'F♯', flat: 'G♭', solfegeSharp: 'فا♯', solfegeFlat: 'سل♭' },
-  6: { natural: null, sharp: 'F♯', flat: 'G♭', solfegeSharp: 'فا♯', solfegeFlat: 'سل♭' },
-  7: { natural: 'G', solfege: 'سل', sharp: 'G♯', flat: 'A♭', solfegeSharp: 'سل♯', solfegeFlat: 'لا♭' },
-  8: { natural: null, sharp: 'G♯', flat: 'A♭', solfegeSharp: 'سل♯', solfegeFlat: 'لا♭' },
-  9: { natural: 'A', solfege: 'لا', sharp: 'A♯', flat: 'B♭', solfegeSharp: 'لا♯', solfegeFlat: 'سی♭' },
-  10: { natural: null, sharp: 'A♯', flat: 'B♭', solfegeSharp: 'لا♯', solfegeFlat: 'سی♭' },
-  11: { natural: 'B', solfege: 'سی', sharp: 'B♯', flat: 'C♭', solfegeSharp: 'سی♯', solfegeFlat: 'دو♭' }
-};
-
-const VIOLIN_OPEN_STRINGS = {
-  55: 'سیم ۴ (سل)',
-  62: 'سیم ۳ (رِ)',
-  69: 'سیم ۲ (لا)',
-  76: 'سیم ۱ (می)'
-};
-
-function initWebAudio() {
-  if (!audioCtx) {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContextClass();
-
-    masterCompressor = audioCtx.createDynamicsCompressor();
-    masterCompressor.threshold.setValueAtTime(-20, audioCtx.currentTime);
-    masterCompressor.knee.setValueAtTime(30, audioCtx.currentTime);
-    masterCompressor.ratio.setValueAtTime(12, audioCtx.currentTime);
-    masterCompressor.attack.setValueAtTime(0.003, audioCtx.currentTime);
-    masterCompressor.release.setValueAtTime(0.25, audioCtx.currentTime);
-    masterCompressor.connect(audioCtx.destination);
+/* Tuner Preset Library Covering Persian Radif & Classical */
+const VIOLIN_TUNER_PRESETS = [
+  {
+    id: 'classical_standard',
+    name: 'کوک استاندارد کلاسیک جهانی (G3 - D4 - A4 - E5)',
+    desc: 'کوک ارکسترال فواصل پنجم درست دیاپازون بین‌المللی با مبنای A4=440Hz.',
+    strings: [
+      { num: 1, note: 'E5 (می)', freq: 659.25, midi: 76 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
+  },
+  {
+    id: 'shor_1',
+    name: 'شور «لا» - کوک اول ردیف (می - لا - رِ - سل)',
+    desc: 'کوک پایه ردیف برای اجرای شور لا با سرکلید سی کُرن.',
+    strings: [
+      { num: 1, note: 'E5 (می)', freq: 659.25, midi: 76 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
+  },
+  {
+    id: 'shor_2',
+    name: 'شور «لا» - کوک دوم (رِ - لا - رِ - سل)',
+    desc: 'کوک مشهور با سیم اول رِ برای بم‌خوانی و راحتی پوزیسیون.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
+  },
+  {
+    id: 'shor_3',
+    name: 'شور «لا» - کوک سوم با واخوان دوبل لا (رِ - لا - لا - سل)',
+    desc: 'کوک استادان قدیم برای تشدید صدای سیم‌های جفت روی نوت شاهد لا.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'A3 (لا)', freq: 220.00, midi: 57 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
+  },
+  {
+    id: 'dashti_mi',
+    name: 'آواز دشتی «می» و همایون عمومی (رِ - لا - رِ - لا)',
+    desc: 'کوک بسیار رایج ردیف با دو سیم رِ و دو سیم لا برای زنگ و طنین واخوان.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'A3 (لا)', freq: 220.00, midi: 57 }
+    ]
+  },
+  {
+    id: 'dashti_si',
+    name: 'آواز دشتی «سی» چپ‌کوک (می - لا - می - لا)',
+    desc: 'کوک پرطنین منطقه چپ‌کوک با سرکلید فا سُری.',
+    strings: [
+      { num: 1, note: 'E5 (می)', freq: 659.25, midi: 76 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'E4 (می)', freq: 329.63, midi: 64 },
+      { num: 4, note: 'A3 (لا)', freq: 220.00, midi: 57 }
+    ]
+  },
+  {
+    id: 'esfahan',
+    name: 'بیات اصفهان و ماهور چپ (می - لا - رِ - لا)',
+    desc: 'کوک محبوب ردیف اصفهان و مکتب یاحقی با طنین سیم چهارم لا.',
+    strings: [
+      { num: 1, note: 'E5 (می)', freq: 659.25, midi: 76 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'A3 (لا)', freq: 220.00, midi: 57 }
+    ]
+  },
+  {
+    id: 'homayoun_mahjoubi',
+    name: 'کوک اختصاصی استاد رضا محجوبی در همایون (رِ - لا - سی کُرن - فا سُری)',
+    desc: 'کوک تاریخی و شاهکار با سیم چهارم روی فا سُری و سیم سوم سی کُرن.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'B𝄳3 (سی کُرن)', freq: 240.60, midi: 59 },
+      { num: 4, note: 'F𝄲3 (فا سُری بم)', freq: 180.20, midi: 54 }
+    ]
+  },
+  {
+    id: 'bayat_tork',
+    name: 'بیات تُرک زند (رِ - لا - دو - سل)',
+    desc: 'سیم سوم روی دو جهت سهولت انگشت‌گذاری و طنین گوشه شکسته.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'C4 (دو)', freq: 261.63, midi: 60 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
+  },
+  {
+    id: 'segah',
+    name: 'دستگاه سه‌گاه (می - لا - رِ - فا سُری)',
+    desc: 'سیم چهارم (بم) دقیقاً روی قطب سه‌گاه یعنی فا سُری کوک می‌شود.',
+    strings: [
+      { num: 1, note: 'E5 (می)', freq: 659.25, midi: 76 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'F𝄲3 (فا سُری بم)', freq: 180.20, midi: 54 }
+    ]
+  },
+  {
+    id: 'chahargah_re',
+    name: 'چهارگاه «رِ» و نوا «رِ» (رِ - لا - رِ - لا)',
+    desc: 'کوک حماسی و مقتدر ردیف دوم صبا برای چهارگاه و نوای رِ.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'A3 (لا)', freq: 220.00, midi: 57 }
+    ]
+  },
+  {
+    id: 'mahoor_sol',
+    name: 'ماهور «سل» و راست‌پنجگاه (رِ - لا - رِ - سل)',
+    desc: 'کوک اصیل ویولن برای ماهور سل با سرکلید فا دیز.',
+    strings: [
+      { num: 1, note: 'D5 (رِ)', freq: 587.33, midi: 74 },
+      { num: 2, note: 'A4 (لا)', freq: 440.00, midi: 69 },
+      { num: 3, note: 'D4 (رِ)', freq: 293.66, midi: 62 },
+      { num: 4, note: 'G3 (سل)', freq: 196.00, midi: 55 }
+    ]
   }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
+];
+
+let tunerAudioCtx = null;
+let tunerMediaStream = null;
+let tunerAnalyser = null;
+let tunerRafId = null;
+let isTunerListening = false;
+let currentTunerPreset = VIOLIN_TUNER_PRESETS[0];
+
+/* Pitch Detection via Robust Autocorrelation */
+function autoCorrelate(buf, sampleRate) {
+  let SIZE = buf.length;
+  let rms = 0;
+  for (let i = 0; i < SIZE; i++) {
+    let val = buf[i];
+    rms += val * val;
   }
+  rms = Math.sqrt(rms / SIZE);
+  if (rms < 0.015) return -1; // Background noise threshold
+
+  let r1 = 0, r2 = SIZE - 1, thres = 0.2;
+  for (let i = 0; i < SIZE / 2; i++) {
+    if (Math.abs(buf[i]) < thres) { r1 = i; break; }
+  }
+  for (let i = 1; i < SIZE / 2; i++) {
+    if (Math.abs(buf[SIZE - i]) < thres) { r2 = SIZE - i; break; }
+  }
+
+  buf = buf.slice(r1, r2);
+  SIZE = buf.length;
+
+  let c = new Array(SIZE).fill(0);
+  for (let i = 0; i < SIZE; i++) {
+    for (let j = 0; j < SIZE - i; j++) {
+      c[i] = c[i] + buf[j] * buf[j + i];
+    }
+  }
+
+  let d = 0;
+  while (c[d] > c[d + 1]) d++;
+  let maxval = -1, maxpos = -1;
+  for (let i = d; i < SIZE; i++) {
+    if (c[i] > maxval) {
+      maxval = c[i];
+      maxpos = i;
+    }
+  }
+  let T0 = maxpos;
+
+  // Parabolic interpolation for sub-bin precision
+  let x1 = c[T0 - 1], x2 = c[T0], x3 = c[T0 + 1];
+  let a = (x1 + x3 - 2 * x2) / 2;
+  let b = (x3 - x1) / 2;
+  if (a) T0 = T0 - b / (2 * a);
+
+  return sampleRate / T0;
 }
 
-function midiToMicroFreq(midi, centsOffset = 0) {
-  const baseFreq = 440 * Math.pow(2, (midi - 69) / 12);
-  return baseFreq * Math.pow(2, centsOffset / 1200);
-}
+function updateTunerLoop() {
+  if (!isTunerListening || !tunerAnalyser) return;
 
-function playVoice(freq, startTime = 0, duration = 0.55) {
-  initWebAudio();
-  const safeTime = Math.max(audioCtx.currentTime, 0.05);
-  const now = startTime > 0 ? startTime : safeTime;
-  const timbre = document.getElementById('soundTimbre') ? document.getElementById('soundTimbre').value : 'piano';
+  const buf = new Float32Array(2048);
+  tunerAnalyser.getFloatTimeDomainData(buf);
+  const freq = autoCorrelate(buf, tunerAudioCtx.sampleRate);
 
-  if (timbre === 'violin') {
-    const osc = audioCtx.createOscillator();
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    const filter = audioCtx.createBiquadFilter();
-    const mainGain = audioCtx.createGain();
-
-    lfo.frequency.setValueAtTime(5.8, now);
-    lfoGain.gain.setValueAtTime(freq * 0.015, now);
-    lfo.connect(osc.frequency);
-
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(freq, now);
-
-    filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(Math.min(freq * 2.2, 3500), now);
-    filter.Q.setValueAtTime(1.8, now);
-
-    mainGain.gain.setValueAtTime(0.0001, now);
-    mainGain.gain.linearRampToValueAtTime(0.45, now + 0.04);
-    mainGain.gain.exponentialRampToValueAtTime(0.35, now + duration * 0.7);
-    mainGain.gain.exponentialRampToValueAtTime(0.0001, now + duration + 0.15);
-
-    osc.connect(filter);
-    filter.connect(mainGain);
-    mainGain.connect(masterCompressor);
-
-    lfo.start(now);
-    osc.start(now);
-    lfo.stop(now + duration + 0.2);
-    osc.stop(now + duration + 0.2);
-
-    activeScheduledNodes.push(osc, mainGain);
-  } else {
-    // Rich Acoustic Piano
-    const mainGain = audioCtx.createGain();
-    mainGain.gain.setValueAtTime(0.0001, now);
-    mainGain.gain.exponentialRampToValueAtTime(0.75, now + 0.015);
-    mainGain.gain.exponentialRampToValueAtTime(0.32, now + 0.2);
-    mainGain.gain.exponentialRampToValueAtTime(0.0001, now + duration + 0.45);
-    mainGain.connect(masterCompressor);
-
-    const harmonics = [
-      { fRatio: 1, gain: 0.65, type: 'triangle' },
-      { fRatio: 2, gain: 0.28, type: 'sine' },
-      { fRatio: 3, gain: 0.16, type: 'sine' },
-      { fRatio: 4, gain: 0.08, type: 'sine' },
-      { fRatio: 5, gain: 0.03, type: 'sine' }
-    ];
-
-    harmonics.forEach(h => {
-      const osc = audioCtx.createOscillator();
-      const hGain = audioCtx.createGain();
-      osc.type = h.type;
-      osc.frequency.setValueAtTime(freq * h.fRatio, now);
-
-      hGain.gain.setValueAtTime(h.gain, now);
-      hGain.gain.exponentialRampToValueAtTime(0.0001, now + (duration + 0.4) / Math.sqrt(h.fRatio));
-
-      osc.connect(hGain);
-      hGain.connect(mainGain);
-
-      osc.start(now);
-      osc.stop(now + duration + 0.5);
-      activeScheduledNodes.push(osc);
+  if (freq !== -1 && freq >= 150 && freq <= 1800) {
+    // Determine closest target string in the active preset
+    let closestStr = currentTunerPreset.strings[0];
+    let minDiff = 99999;
+    currentTunerPreset.strings.forEach(s => {
+      const diff = Math.abs(s.freq - freq);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestStr = s;
+      }
     });
-    activeScheduledNodes.push(mainGain);
-  }
-}
 
-function highlightKeyVisual(domElem, duration = 200) {
-  if (!domElem) return;
-  domElem.classList.add('pressed');
-  setTimeout(() => domElem.classList.remove('pressed'), duration);
-}
+    const cents = Math.round(1200 * Math.log2(freq / closestStr.freq));
+    const clampedCents = Math.max(-50, Math.min(50, cents));
 
-function playKey(k) {
-  initWebAudio();
-  const currentScale = getActiveScale();
-  const pitchClass = k.midi % 12;
+    // Gauge Needle: 0 cents is 0 deg. -50 cents is -65 deg, +50 cents is +65 deg.
+    const deg = (clampedCents / 50) * 65;
+    const needle = document.getElementById('gaugeNeedle');
+    if (needle) needle.setAttribute('transform', `rotate(${deg} 160 145)`);
 
-  if (currentScale.id !== 'chromatic' && !currentScale.notes.includes(pitchClass)) {
-    return;
-  }
+    document.getElementById('tunerDetectedNote').innerText = closestStr.note.split(' ')[0];
+    document.getElementById('tunerDetectedFreq').innerText = `${freq.toFixed(1)} Hz (هدف: ${closestStr.freq} Hz)`;
+    document.getElementById('tunerCentsDisplay').innerText = (cents > 0 ? `+${cents}` : `${cents}`) + ' cent';
 
-  const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
-  const freq = midiToMicroFreq(k.midi, cents);
-
-  playVoice(freq, 0, 0.7);
-  highlightKeyVisual(k.domElement, 220);
-
-  const cleanLabel = k.badgeElement.innerText.replace('\n', ' ');
-  document.getElementById('statusActiveNote').innerText = `نواخته شد: ${cleanLabel} | ${freq.toFixed(1)}Hz`;
-}
-
-function playKeyByMidi(midi) {
-  const k = ALL_KEYS.find(x => x.midi === midi);
-  if (k) {
-    playKey(k);
-    jumpToMidi(midi);
-  }
-}
-
-function buildPianoBoard() {
-  const board = document.getElementById('pianoBoard');
-  board.innerHTML = '';
-  ALL_KEYS.length = 0;
-  currentWhiteX = 0;
-
-  const START_MIDI = 55;
-  const END_MIDI = 105;
-  const tempKeys = [];
-
-  for (let midi = START_MIDI; midi <= END_MIDI; midi++) {
-    const pitchClass = midi % 12;
-    const isBlack = [1, 3, 6, 8, 10].includes(pitchClass);
-    const octave = Math.floor(midi / 12) - 1;
-    const noteInfo = NOTE_NAMES[pitchClass];
-
-    let left = 0;
-    if (!isBlack) {
-      left = currentWhiteX * whiteKeyWidth;
-      currentWhiteX++;
+    const pill = document.getElementById('tunerStatusPill');
+    pill.className = 'tuner-status-pill';
+    if (Math.abs(cents) <= 4) {
+      pill.classList.add('in-tune');
+      pill.innerText = `✓ کوک دقیق سیم ${closestStr.num} (${closestStr.note})`;
+    } else if (cents < 0) {
+      pill.classList.add('flat-tune');
+      pill.innerText = `▼ شل / بم است (سیم ${closestStr.num} را سفت‌تر کنید)`;
     } else {
-      left = (currentWhiteX - 0.5) * whiteKeyWidth - (blackKeyWidth / 2);
+      pill.classList.add('sharp-tune');
+      pill.innerText = `▲ سفت / زیر است (سیم ${closestStr.num} را شل‌تر کنید)`;
     }
 
-    const keyObj = {
-      midi,
-      isBlack,
-      octave,
-      pitchClass,
-      left,
-      name: (noteInfo.natural || noteInfo.sharp) + octave,
-      sharp: noteInfo.sharp + octave,
-      flat: noteInfo.flat + octave,
-      solfege: (noteInfo.solfege || noteInfo.solfegeSharp) + ' ' + octave,
-      solfegeSharp: noteInfo.solfegeSharp + ' ' + octave,
-      solfegeFlat: noteInfo.solfegeFlat + ' ' + octave
-    };
+    // Highlight card
+    document.querySelectorAll('.target-string-card').forEach((c, idx) => {
+      c.classList.toggle('active-string', currentTunerPreset.strings[idx].num === closestStr.num);
+    });
 
-    tempKeys.push(keyObj);
+  } else {
+    document.getElementById('tunerStatusPill').innerText = 'در انتظار نواختن ساز ویولن...';
   }
 
-  board.style.width = (currentWhiteX * whiteKeyWidth) + 'px';
-
-  tempKeys.forEach(k => {
-    const keyEl = document.createElement('div');
-    keyEl.className = `key ${k.isBlack ? 'black-key' : 'white-key'}`;
-    keyEl.style.left = k.left + 'px';
-
-    const badgeEl = document.createElement('div');
-    badgeEl.className = 'key-badge';
-    keyEl.appendChild(badgeEl);
-
-    const roleEl = document.createElement('div');
-    roleEl.className = 'role-badge';
-    roleEl.style.display = 'none';
-    keyEl.appendChild(roleEl);
-
-    if (VIOLIN_OPEN_STRINGS[k.midi]) {
-      const tag = document.createElement('div');
-      tag.className = 'violin-string-tag';
-      tag.innerText = VIOLIN_OPEN_STRINGS[k.midi];
-      keyEl.appendChild(tag);
-    }
-
-    const handleAction = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      playKey(k);
-    };
-
-    keyEl.addEventListener('mousedown', handleAction);
-    keyEl.addEventListener('touchstart', handleAction, { passive: false });
-
-    k.domElement = keyEl;
-    k.badgeElement = badgeEl;
-    k.roleElement = roleEl;
-
-    board.appendChild(keyEl);
-    ALL_KEYS.push(k);
-  });
+  tunerRafId = requestAnimationFrame(updateTunerLoop);
 }
 
-function getActiveScale() {
-  const select = document.getElementById('scaleSelect');
-  const pool = currentCategory === 'classical' ? CLASSICAL_SCALES_DATA : PERSIAN_DASTGAH_DATA;
-  return pool.find(s => s.id === select.value) || pool[0];
+async function toggleMicrophoneTuner() {
+  const btn = document.getElementById('btnToggleMic');
+  if (isTunerListening) {
+    if (tunerMediaStream) {
+      tunerMediaStream.getTracks().forEach(tr => tr.stop());
+    }
+    if (tunerRafId) cancelAnimationFrame(tunerRafId);
+    isTunerListening = false;
+    btn.innerHTML = '<span>🎙️ روشن کردن میکروفون تیونر</span>';
+    btn.style.background = 'linear-gradient(180deg, #10b981 0%, #059669 100%)';
+    document.getElementById('tunerStatusPill').className = 'tuner-status-pill';
+    document.getElementById('tunerStatusPill').innerText = 'میکروفون خاموش است';
+    document.getElementById('gaugeNeedle').setAttribute('transform', 'rotate(0 160 145)');
+  } else {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      tunerAudioCtx = new AudioCtx();
+      tunerMediaStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+      const source = tunerAudioCtx.createMediaStreamSource(tunerMediaStream);
+      tunerAnalyser = tunerAudioCtx.createAnalyser();
+      tunerAnalyser.fftSize = 2048;
+      source.connect(tunerAnalyser);
+
+      isTunerListening = true;
+      btn.innerHTML = '<span>⏹️ خاموش کردن میکروفون تیونر</span>';
+      btn.style.background = 'linear-gradient(180deg, #ef4444 0%, #dc2626 100%)';
+      updateTunerLoop();
+    } catch (err) {
+      document.getElementById('tunerStatusPill').innerText = 'دسترسی میکروفون رد شد یا در دسترس نیست.';
+    }
+  }
+}
+
+function populateTunerPresets() {
+  const select = document.getElementById('tunerPresetSelect');
+  if (!select) return;
+  select.innerHTML = '';
+  VIOLIN_TUNER_PRESETS.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = p.name;
+    select.appendChild(opt);
+  });
+  renderTunerTargetStrings();
+}
+
+function onTunerPresetChange() {
+  const id = document.getElementById('tunerPresetSelect').value;
+  currentTunerPreset = VIOLIN_TUNER_PRESETS.find(p => p.id === id) || VIOLIN_TUNER_PRESETS[0];
+  document.getElementById('tunerPresetDesc').innerText = currentTunerPreset.desc;
+  renderTunerTargetStrings();
+}
+
+function renderTunerTargetStrings() {
+  const container = document.getElementById('tunerTargetStringsGrid');
+  if (!container) return;
+  container.innerHTML = '';
+
+  currentTunerPreset.strings.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'target-string-card';
+    card.innerHTML = `
+      <div style="font-size:11px; color:#64748b; font-weight:800;">سیم ${s.num}</div>
+      <div style="font-size:16px; font-weight:900; color:#0f172a;">${s.note}</div>
+      <div style="font-size:12px; color:#0284c7; font-weight:800; font-family:monospace;">${s.freq} Hz</div>
+      <button class="btn-secondary" style="margin-top:4px; font-size:10.5px; padding:4px 8px; justify-content:center; width:100%;">
+        <span>▶ صدای مرجع</span>
+      </button>
+    `;
+    card.querySelector('button').onclick = (e) => {
+      e.stopPropagation();
+      playVoice(s.freq, 0, 1.8);
+      document.getElementById('statusActiveNote').innerText = `پخش صدای مرجع سیم ${s.num}: ${s.note} | ${s.freq}Hz`;
+    };
+    card.onclick = () => {
+      playVoice(s.freq, 0, 1.8);
+    };
+    container.appendChild(card);
+  });
 }
 
 function switchCategory(cat) {
@@ -2160,41 +2302,66 @@ function switchCategory(cat) {
   document.getElementById('tabDaramad').classList.toggle('daramad-active', cat === 'daramad');
   document.getElementById('tabClassical').classList.toggle('active', cat === 'classical');
   document.getElementById('tabClassical').classList.toggle('classical-active', cat === 'classical');
+  document.getElementById('tabTuner').classList.toggle('active', cat === 'tuner');
+  document.getElementById('tabTuner').classList.toggle('tuner-active', cat === 'tuner');
 
   const circlePanel = document.getElementById('circleOfFifthsPanel');
   const daramadPanel = document.getElementById('daramadPanel');
+  const tunerPanel = document.getElementById('tunerPanel');
   const persianGuide = document.getElementById('persianGuideSection');
   const classicalGuide = document.getElementById('classicalGuideSection');
   const playMotifBtn = document.getElementById('playMotifBtn');
   const legend = document.getElementById('statusBarLegend');
+  const headerBadge = document.getElementById('headerBadgeText');
+  const mainTitleSub = document.getElementById('mainTitleSub');
 
-  if (cat === 'classical') {
+  if (cat === 'tuner') {
+    circlePanel.style.display = 'none';
+    daramadPanel.style.display = 'none';
+    tunerPanel.style.display = 'flex';
+    persianGuide.style.display = 'none';
+    classicalGuide.style.display = 'none';
+    playMotifBtn.style.display = 'none';
+
+    headerBadge.innerText = 'سامانه تیونر هوشمند، پردازش صوت میکروفون و انطباق کوک‌های ردیف ویولن ایران و کلاسیک';
+    mainTitleSub.innerText = 'تیونر هوشمند کوک ۴ سیم ویولن در تمامی دستگاه‌ها، آوازها و کوک‌های ردیف';
+
+    populateTunerPresets();
+    onTunerPresetChange();
+  } else if (cat === 'classical') {
     circlePanel.style.display = 'flex';
     daramadPanel.style.display = 'none';
+    tunerPanel.style.display = 'none';
     persianGuide.style.display = 'none';
     classicalGuide.style.display = 'flex';
     playMotifBtn.style.display = 'none';
 
+    headerBadge.innerText = 'سامانه جامع گام‌های دیاتونیک کلاسیک، دایره پنجم‌ها و انطباق هارمونی پیانو و ویولن';
+    mainTitleSub.innerText = 'انطباق گام‌های دیاتونیک جهانی، دایره پنجم‌ها و هارمونی بر پیانو و ویولن';
+
     legend.innerHTML = `
-      <span class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> طلایی: نوت پایه (تونیک)</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> طلایی: نوت پایه (تونیک I)</span>
       <span class="legend-item"><span class="legend-dot" style="background:#0284c7;"></span> آبی: درجات گام دیاتونیک</span>
       <span class="legend-item"><span class="legend-dot" style="background:#cbd5e1; border:1px solid #94a3b8;"></span> مات: خارج از گام (قفل ضدفالش)</span>
     `;
 
-    document.getElementById('scaleSelectLabel').innerText = 'انتخاب گام دیاتونیک کلاسیک:';
+    document.getElementById('scaleSelectLabel').innerText = 'انتخاب گام دیاتونیک کلاسیک (ماژور / مینور):';
     document.getElementById('playScaleLabel').innerText = 'پخش سریع رفت و برگشتی گام (۱۰ ثانیه)';
 
     populateScaleOptions();
-    // Default to C Major
     document.getElementById('scaleSelect').value = 'c_maj';
     applyScaleChange();
     renderCircleOfFifthsSVG();
   } else if (cat === 'daramad') {
     circlePanel.style.display = 'none';
     daramadPanel.style.display = 'flex';
+    tunerPanel.style.display = 'none';
     persianGuide.style.display = 'flex';
     classicalGuide.style.display = 'none';
     playMotifBtn.style.display = 'inline-flex';
+
+    headerBadge.innerText = 'تالار درآمدها، پیش‌درآمدها و موتیف‌های شاخص ردیف ویولن ایران';
+    mainTitleSub.innerText = 'تالار درآمدها، پیش‌درآمدها و شناسنامه صوتی ردیف ویولن ایران';
 
     legend.innerHTML = `
       <span class="legend-item"><span class="legend-dot" style="background:#0284c7;"></span> آبی: نوت شاهد</span>
@@ -2210,12 +2377,15 @@ function switchCategory(cat) {
     applyScaleChange();
     renderDaramadGallery();
   } else {
-    // Persian
     circlePanel.style.display = 'none';
     daramadPanel.style.display = 'none';
+    tunerPanel.style.display = 'none';
     persianGuide.style.display = 'flex';
     classicalGuide.style.display = 'none';
     playMotifBtn.style.display = 'inline-flex';
+
+    headerBadge.innerText = 'سامانه ۱۲ دستگاه و آواز ردیف ویولن ایران و پهنه کامل ساز (G3 تا A7)';
+    mainTitleSub.innerText = 'انطباق نوت‌های موسیقی، ۱۲ دستگاه و آواز ایرانی بر پیانو و ویولن';
 
     legend.innerHTML = `
       <span class="legend-item"><span class="legend-dot" style="background:#0284c7;"></span> آبی: نوت شاهد</span>
@@ -2232,76 +2402,19 @@ function switchCategory(cat) {
   }
 }
 
-function populateScaleOptions() {
-  const scaleSelect = document.getElementById('scaleSelect');
-  scaleSelect.innerHTML = '';
-  const pool = currentCategory === 'classical' ? CLASSICAL_SCALES_DATA : PERSIAN_DASTGAH_DATA;
-  pool.forEach(s => {
-    const opt = document.createElement('option');
-    opt.value = s.id;
-    opt.innerText = s.name;
-    scaleSelect.appendChild(opt);
-  });
-}
-
-function applyScaleChange() {
-  if (isPlayingScaleActive) stopScalePlayback();
-  if (isPlayingMotifActive) stopMotifPlayback();
-  updateViolinKookBar();
-  updateDastgahInfoBadge();
-  renderKeyLabels();
-}
-
-function updateViolinKookBar() {
-  const currentScale = getActiveScale();
-  const kookRow = document.getElementById('violinStringsRow');
-  const buttonsContainer = document.getElementById('stringButtonsContainer');
-  buttonsContainer.innerHTML = '';
-
-  if (currentScale.isPersian && currentScale.kookViolin) {
-    kookRow.className = 'violin-strings-row persian-kook';
-    document.getElementById('stringsTitle').innerHTML = `<span>🎻 کوک ویولن برای ${currentScale.name.split(' ')[0]} ${currentScale.name.split(' ')[1]}:</span>`;
-    
-    currentScale.kookViolin.forEach(item => {
-      const btn = document.createElement('button');
-      btn.className = 'btn-string';
-      btn.innerText = item.name;
-      btn.onclick = () => {
-        playVoice(item.freq, 0, 1.1);
-        document.getElementById('statusActiveNote').innerText = `کوک سیم: ${item.name} (${item.freq.toFixed(1)}Hz)`;
-        jumpToMidi(item.midi);
-      };
-      buttonsContainer.appendChild(btn);
-    });
-  } else {
-    kookRow.className = 'violin-strings-row classical-kook';
-    document.getElementById('stringsTitle').innerHTML = `<span>🎻 سیم‌های باز ویولن (کوک استاندارد جهانی: می - لا - رِ - سل):</span>`;
-    const standard = [
-      { name: 'سیم ۴: G3 (سل)', midi: 55, freq: 196.00 },
-      { name: 'سیم ۳: D4 (رِ)', midi: 62, freq: 293.66 },
-      { name: 'سیم ۲: A4 (لا)', midi: 69, freq: 440.00 },
-      { name: 'سیم ۱: E5 (می)', midi: 76, freq: 659.25 }
-    ];
-    standard.forEach(item => {
-      const btn = document.createElement('button');
-      btn.className = 'btn-string';
-      btn.innerText = item.name;
-      btn.onclick = () => {
-        playVoice(item.freq, 0, 1.1);
-        document.getElementById('statusActiveNote').innerText = `سیم باز: ${item.name} (${item.freq.toFixed(1)}Hz)`;
-        jumpToMidi(item.midi);
-      };
-      buttonsContainer.appendChild(btn);
-    });
-  }
-}
-
 function updateDastgahInfoBadge() {
   const currentScale = getActiveScale();
   const badge = document.getElementById('dastgahInfoBadge');
   if (currentScale.isPersian && currentScale.info) {
     badge.style.display = 'block';
     badge.innerHTML = `<strong>مشخصات و گردش ملودی:</strong> ${currentScale.info} <br><span style="color:#d97706; font-weight:800;">🎵 نمونه اثر شاخص:</span> ${currentScale.pishdaramadTitle || 'درآمد اصیل ردیف'}`;
+  } else if (!currentScale.isPersian && currentScale.formula) {
+    badge.style.display = 'block';
+    badge.innerHTML = `
+      <strong>تحلیل گام کلاسیک:</strong> فرمول فواصل: <span style="font-weight:900; color:#b45309;">${currentScale.formula}</span> | 
+      سرکلید: <span style="font-weight:900; color:#0284c7;">${currentScale.sigDesc}</span> | 
+      مینور نسبی: <span style="font-weight:900; color:#16a34a;">${currentScale.relMinor}</span>
+    `;
   } else {
     badge.style.display = 'none';
   }
@@ -2955,7 +3068,113 @@ window.onload = function() {
   applyScaleChange();
   jumpToMidi(64);
   renderCircleOfFifthsSVG();
+  populateTunerPresets();
 };
 </script>
-</body>
-</html>
+  <!-- Tab 3 Guide: Classical & Circle of Fifths Theory Guide (Shown ONLY in Classical Mode) -->
+  <section id="classicalGuideSection" class="guide-card" style="display:none;">
+    <div class="guide-section-title">۱. ساختار گام‌های دیاتونیک، کلاویه‌ها و چیدمان نوت‌های موسیقی</div>
+    <div class="guide-box">
+      پیانو از تکرار الگوی منظم ۱۲ نیم‌پرده‌ای در قالب اکتاوها تشکیل شده است:
+      <br>• <strong>کلاویه‌های سفید (نوت‌های طبیعی / Natural):</strong> C, D, E, F, G, A, B (دو، ر، می، فا، سل، لا، سی)
+      <br>• <strong>کلاویه‌های مشکی (نیم‌پرده‌های کروماتیک):</strong> C♯/D♭, D♯/E♭, F♯/G♭, G♯/A♭, A♯/B♭
+      <br>• <strong>فرمول بنیادی گام‌های ماژور دیاتونیک:</strong> پرده - پرده - نیم‌پرده - پرده - پرده - پرده - نیم‌پرده (W-W-H-W-W-W-H)
+    </div>
+
+    <div class="guide-section-title">۲. چرا برای «می دیز (#E)» و «سی دیز (#B)» کلاویه مشکی مجزا نداریم؟</div>
+    <p>
+      فاصله‌بندی کلاویه‌های پیانو مبتنی بر نیم‌پرده‌های فیزیکی صوت است. بین اکثر نوت‌های مجاور سفید (مانند Do تا Re یا Fa تا Sol) فاصله <strong>یک پرده کامل</strong> است و یک کلاویه مشکی میان آن‌ها نیم‌پرده را تأمین می‌کند. اما فاصله طبیعی بین دو نوت <strong>E تا F (می تا فا)</strong> و همچنین <strong>B تا C (سی تا دو)</strong>، ذاتاً خودش <strong>نیم‌پرده</strong> است؛ بنابراین هیچ فضای فیزیکی بین آن‌ها وجود ندارد و این کلیدها مستقیماً به هم چسبیده‌اند.
+    </p>
+    <div class="guide-box" style="border-right-color:#0284c7;">
+      <strong>مفهوم آن‌هارمونیک (مترادف صوتی):</strong> نوت <strong>#E (می دیز)</strong> یعنی نوت «می» را نیم‌پرده زیرتر کنیم که از نظر فیزیکی و فرکانسی دقیقاً همان کلاویه سفید <strong>F (فا)</strong> به صدا درمی‌آید. به همین شکل، نوت <strong>#B (سی دیز)</strong> دقیقاً همان کلید سفید <strong>C (دو)</strong> است.
+    </div>
+
+    <div class="guide-section-title">۳. چرا مستقیماً F یا C نمی‌نویسیم و از اصطلاح #E یا #B استفاده می‌کنیم؟</div>
+    <div class="guide-box" style="background:#fffbeb; border-right-color:#f59e0b; color:#78350f;">
+      📌 <strong>قانون توالی الفبایی در گام‌های دیاتونیک:</strong> در هر گام ماژور یا مینور ۷ نوتی، از هر یک از حروف هفت‌گانه الفبای موسیقی (A, B, C, D, E, F, G) <strong>دقیقاً باید یک‌بار</strong> استفاده شود؛ نه نام حرفی حذف می‌شود و نه نام هیچ حرفی دوبار تکرار می‌گردد.
+    </div>
+
+    <div class="guide-section-title">۴. کدام گام‌های دیاتونیک دارای نوت‌های #E یا #B هستند؟</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>گام دیاتونیک</th>
+            <th>توالی درجات ۷ گانه</th>
+            <th>نوت آن‌هارمونیک</th>
+            <th>دلیل علمی عدم استفاده از نام طبیعی</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>فا دیز ماژور (F♯ Major)</strong></td>
+            <td>F♯ - G♯ - A♯ - B - C♯ - D♯ - <strong>E♯</strong></td>
+            <td><strong>E♯ (می دیز)</strong></td>
+            <td>اگر درجه ۷ را F بنامیم، نام F دو بار در گام تکرار شده و نام حرف E غایب می‌ماند.</td>
+          </tr>
+          <tr>
+            <td><strong>دو دیز مینور هارمونیک (C♯m)</strong></td>
+            <td>C♯ - D♯ - E - F♯ - G♯ - A - <strong>B♯</strong></td>
+            <td><strong>B♯ (سی دیز)</strong></td>
+            <td>درجه هفتم برای ساخت نوت محسوس (Leading Note) نیم‌پرده بالا می‌رود و B تبدیل به <strong>#B</strong> می‌شود.</td>
+          </tr>
+          <tr>
+            <td><strong>دو دیز ماژور (C♯ Major)</strong></td>
+            <td>C♯ - D♯ - <strong>E♯</strong> - F♯ - G♯ - A♯ - <strong>B♯</strong></td>
+            <td><strong>هم E♯ و هم B♯</strong></td>
+            <td>تمام ۷ نوت گام دیز دارند و هر دو نوت آن‌هارمونیک در گام حضور دارند.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="guide-section-title">۵. مهندسی دایره پنجم‌ها (Circle of Fifths) و نسبت‌های فیثاغورثی</div>
+    <p>
+      دایره پنجم‌ها ساعت ریاضی و هندسی موسیقی جهان است. حرکت در جهت عقربه‌های ساعت بر مبنای ضرب فرکانس در نسبت ۳:۲ (فاصله پنجم درست) است که در هر گام یک <strong>دیز (♯)</strong> به سرکلید می‌افزاید؛ و حرکت پادساعت‌گرد (نسبت ۴:۳ یا فاصله چهارم درست) در هر گام یک <strong>بمل (♭)</strong> به سرکلید اضافه می‌کند.
+    </p>
+
+    <div class="guide-section-title">۶. جدول مرجع ۱۲ گام ماژور، مینورهای نسبی و علامات سرکلید</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>گام ماژور (پایه)</th>
+            <th>مینور نسبی (Relative Minor)</th>
+            <th>تعداد علامات سرکلید</th>
+            <th>ترتیب دیزها یا بمل‌ها</th>
+            <th>آکورد پایگی (Triad)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>C Major (دو)</strong></td><td>A Minor (لا مینور)</td><td>بدون علامت (Natural)</td><td>-</td><td>C - E - G</td></tr>
+          <tr><td><strong>G Major (سل)</strong></td><td>E Minor (می مینور)</td><td>۱ دیز (1♯)</td><td>F♯</td><td>G - B - D</td></tr>
+          <tr><td><strong>D Major (رِ)</strong></td><td>B Minor (سی مینور)</td><td>۲ دیز (2♯)</td><td>F♯, C♯</td><td>D - F♯ - A</td></tr>
+          <tr><td><strong>A Major (لا)</strong></td><td>F♯ Minor (فا دیز مینور)</td><td>۳ دیز (3♯)</td><td>F♯, C♯, G♯</td><td>A - C♯ - E</td></tr>
+          <tr><td><strong>E Major (می)</strong></td><td>C♯ Minor (دو دیز مینور)</td><td>۴ دیز (4♯)</td><td>F♯, C♯, G♯, D♯</td><td>E - G♯ - B</td></tr>
+          <tr><td><strong>B Major (سی)</strong></td><td>G♯ Minor (سل دیز مینور)</td><td>۵ دیز (5♯)</td><td>F♯, C♯, G♯, D♯, A♯</td><td>B - D♯ - F♯</td></tr>
+          <tr><td><strong>F♯ Major (فا دیز)</strong></td><td>D♯ Minor (ر دیز مینور)</td><td>۶ دیز (6♯)</td><td>F♯, C♯, G♯, D♯, A♯, <strong>E♯</strong></td><td>F♯ - A♯ - C♯</td></tr>
+          <tr><td><strong>D♭ Major (رِ بمل)</strong></td><td>B♭ Minor (سی بمل مینور)</td><td>۵ بمل (5♭)</td><td>B♭, E♭, A♭, D♭, G♭</td><td>D♭ - F - A♭</td></tr>
+          <tr><td><strong>A♭ Major (لا بمل)</strong></td><td>F Minor (فا مینور)</td><td>۴ بمل (4♭)</td><td>B♭, E♭, A♭, D♭</td><td>A♭ - C - E♭</td></tr>
+          <tr><td><strong>E♭ Major (می بمل)</strong></td><td>C Minor (دو مینور)</td><td>۳ بمل (3♭)</td><td>B♭, E♭, A♭</td><td>E♭ - G - B♭</td></tr>
+          <tr><td><strong>B♭ Major (سی بمل)</strong></td><td>G Minor (سل مینور)</td><td>۲ بمل (2♭)</td><td>B♭, E♭</td><td>B♭ - D - F</td></tr>
+          <tr><td><strong>F Major (فا)</strong></td><td>D Minor (رِ مینور)</td><td>۱ بمل (1♭)</td><td>B♭</td><td>F - A - C</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="guide-section-title">۷. هندسه خوشه هارمونی (I - IV - V) و محور تریتون</div>
+    <div class="guide-box" style="border-right-color:#2563eb;">
+      <strong>خوشه هارمونی همسایه:</strong> در هر گام، درجه ۴ (زیرنمایان / Subdominant) در فاصله یک پله پادساعت‌گرد و درجه ۵ (نمایان / Dominant) در فاصله یک پله ساعت‌گرد قرار دارد. به همراه مینورهای نسبی زیرین آن‌ها، ۶ آکورد اصلی هارمونی تنال را شکل می‌دهند.
+      <br><strong>محور تریتون (Tritone Axis):</strong> دو گام متضاد در زاویه ۱۸۰ درجه دایره نسبت به هم فاصله ۳ پرده کامل دارند که ناپایدارترین و پرکشش‌ترین فاصله فیزیکی صوت است و پایه مدولاسیون‌های هارمونیک است.
+    </div>
+
+    <div class="guide-section-title">۸. انطباق ۴ سیم ویولن با پیانو در استاندارد ارکسترال جهانی</div>
+    <div class="guide-box">
+      در موسیقی کلاسیک جهانی، کوک ۴ سیم ویولن بر مبنای فرکانس استاندارد دیاپازون بین‌المللی (A4 = 440 Hz) و فواصل پنجم درست است:
+      <br>• <strong>سیم ۴ (بم‌ترین نوت ساز):</strong> G3 (سل اکتاو ۳ - ۱۹۶ هرتز)
+      <br>• <strong>سیم ۳:</strong> D4 (رِ اکتاو ۴ - ۲۹۳.۶ هرتز)
+      <br>• <strong>سیم ۲:</strong> A4 (لا اکتاو ۴ - ۴۴۰ هرتز)
+      <br>• <strong>سیم ۱ (زیرترین سیم باز):</strong> E5 (می اکتاو ۵ - ۶۵۹.۲ هرتز)
+      <br>گستره صوتی کامل ۵۱ کلاویه پرده‌نگار، تمام پوزیسیون‌های اول تا هفتم ویولن کلاسیک (تا A7) را به صورت بی‌‌نقص پوشش می‌دهد.
+    </div>
+  </section>
