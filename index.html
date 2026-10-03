@@ -520,6 +520,29 @@
       user-select: none;
     }
 
+    .wheel-pointer {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-top: 14px solid #f59e0b;
+      z-index: 15;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.6));
+      pointer-events: none;
+    }
+
+    .wheel-slice {
+      cursor: pointer;
+      transition: filter 0.15s ease, opacity 0.15s ease;
+    }
+    .wheel-slice:hover {
+      filter: brightness(1.25);
+    }
+
     .svg-circle-wheel {
       width: 100%;
       height: 100%;
@@ -1484,7 +1507,7 @@
             <td>سی کُرن - دو دیز</td>
             <td>رِ - لا - رِ - لا<br>رِ - لا - سی کُرن - فا سُری</td>
             <td>شاهد: رِ (D5)<br>ایست: لا (A4)</td>
-            <td>پیش‌درآمد همایون رکن‌الدین مختاری</td>
+            <td>پیش‌درآمد همایون رکن‌‌الدین مختاری</td>
           </tr>
           <tr>
             <td><strong>۶. آواز بیات تُرک (زند)</strong></td>
@@ -1537,6 +1560,21 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- Section 4: Academic Sources & Master Parviz Yahaghi School -->
+    <div class="guide-section-title">۴. کتاب‌شناسی، منابع مکتوب و سنت‌های اجرایی (با تمرکز بر مکتب استاد پرویز یاحقی)</div>
+    <div class="guide-box" style="background:#f8fafc; border-right-color:#0284c7; line-height:1.8;">
+      جهت شفافیت علمی، کلیه نوت‌ها، تم‌های درآمدی و فواصل شبیه‌سازی‌شده در سامانه «پرده‌نگار» مستقیماً از روی معتبرترین مراجع ردیف‌شناسی مکتوب و سنت‌های فاخر ویولن ایران اخذ شده است:
+      <ul style="margin-top:8px; padding-right:18px; list-style-type:disc; font-size:13px; color:#334155;">
+        <li><strong>ردیف سازی و آوازی میرزا عبدالله (روایت نورعلی برومند - نت‌نگاری ژان دورینگ و مسعود شعاری):</strong> مرجع رسمی هسته‌های ملودیک، تثبیت دانگ‌ها، نوت شاهد و فرود درآمدهای اصیل.</li>
+        <li><strong>کتاب «بیست و چهار پیش‌درآمد» (تدوین و نت‌نگاری استاد فرامرز پایور):</strong> منبع تم‌های آغازین پیش‌درآمدهای تاریخی درویش‌خان، مرتضی نی‌داوود و رکن‌الدین مختاری.</li>
+        <li><strong>کتاب «سرگذشت موسیقی ایران» (استاد روح‌الله خالقی - جلد اول):</strong> مرجع مستند تاریخچه تحول فرم پیش‌درآمد از دوران قاجار و کنسرت‌های انجمن اخوّت.</li>
+        <li><strong>کتاب «ردیف هفت دستگاه موسیقی ایران» (موسی معروفی با نظارت دکتر مهدی برکشلی):</strong> مأخذ سنجش فواصل و ریزپرده‌های سُری و کُرن بر حسب سِنت.</li>
+        <li><strong>سنت‌های اجرایی و لحن‌شناسی «مکتب استاد پرویز یاحقی»:</strong>
+          شامل کاربرد تخصصی واخوان‌های دوبل، استفاده بهینه از تشدید صدای سیم‌های جفت در کوک‌های خاص (مانند می-لا-ر-لا در اصفهان و ر-لا-ر-لا در دشتی و همایون)، مالش‌ها و ویبراتوی عمیق، و شکل‌گیری نغمه‌های درآمدی موجز و تأثیرگذار در مطلع قطعات ماندگار برنامه گل‌ها.
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -2526,6 +2564,257 @@ function playMotifSequence(melodyNotes, title) {
   activeScalePlaybackTids.push(finishTid);
 }
 
+const FIFTHS_WHEEL_DATA = [
+  { major: 'C', solfege: 'دو', minor: 'Am', minorSol: 'لا مینور', sig: 'بدون علامت (♮)', scaleId: 'c_maj', tritone: 'F♯ / G♭', triadMidi: [60, 64, 67] },
+  { major: 'G', solfege: 'سل', minor: 'Em', minorSol: 'می مینور', sig: '۱ دیز (F♯)', scaleId: 'g_maj', tritone: 'C♯ / D♭', triadMidi: [67, 71, 74] },
+  { major: 'D', solfege: 'رِ', minor: 'Bm', minorSol: 'سی مینور', sig: '۲ دیز (F♯, C♯)', scaleId: 'd_maj', tritone: 'G♯ / A♭', triadMidi: [62, 66, 69] },
+  { major: 'A', solfege: 'لا', minor: 'F♯m', minorSol: 'فا دیز مینور', sig: '۳ دیز (F♯, C♯, G♯)', scaleId: 'a_maj', tritone: 'D♯ / E♭', triadMidi: [69, 73, 76] },
+  { major: 'E', solfege: 'می', minor: 'C♯m', minorSol: 'دو دیز مینور', sig: '۴ دیز (F♯..D♯)', scaleId: 'e_maj', tritone: 'A♯ / B♭', triadMidi: [64, 68, 71] },
+  { major: 'B', solfege: 'سی', minor: 'G♯m', minorSol: 'سل دیز مینور', sig: '۵ دیز', scaleId: 'b_maj', tritone: 'F', triadMidi: [71, 75, 78] },
+  { major: 'F♯/G♭', solfege: 'فا♯/سل♭', minor: 'D♯m', minorSol: 'ر دیز مینور', sig: '۶ دیز / ۶ بمل', scaleId: 'fs_maj', tritone: 'C', triadMidi: [66, 70, 73] },
+  { major: 'D♭', solfege: 'رِ♭', minor: 'B♭m', minorSol: 'سی بمل مینور', sig: '۵ بمل', scaleId: 'db_maj', tritone: 'G', triadMidi: [61, 65, 68] },
+  { major: 'A♭', solfege: 'لا♭', minor: 'Fm', minorSol: 'فا مینور', sig: '۴ بمل', scaleId: 'ab_maj', tritone: 'D', triadMidi: [68, 72, 75] },
+  { major: 'E♭', solfege: 'می♭', minor: 'Cm', minorSol: 'دو مینور', sig: '۳ بمل', scaleId: 'eb_maj', tritone: 'A', triadMidi: [63, 67, 70] },
+  { major: 'B♭', solfege: 'سی♭', minor: 'Gm', minorSol: 'سل مینور', sig: '۲ بمل (B♭, E♭)', scaleId: 'bb_maj', tritone: 'E', triadMidi: [70, 74, 77] },
+  { major: 'F', solfege: 'فا', minor: 'Dm', minorSol: 'رِ مینور', sig: '۱ بمل (B♭)', scaleId: 'f_maj', tritone: 'B', triadMidi: [65, 69, 72] }
+];
+
+let circleSelectedIndex = 0;
+let circleRotationAngle = 0;
+let circleActiveMode = 'family'; // 'family' or 'tritone'
+
+function renderCircleOfFifthsSVG() {
+  const svg = document.getElementById('svgFifthsWheel');
+  if (!svg) return;
+  svg.innerHTML = '';
+
+  const rOuter = 190;
+  const rMid1 = 135;
+  const rMid2 = 82;
+  const rInner = 38;
+
+  // Background hub
+  const hubCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  hubCircle.setAttribute('cx', '0');
+  hubCircle.setAttribute('cy', '0');
+  hubCircle.setAttribute('r', '195');
+  hubCircle.setAttribute('fill', '#090d16');
+  hubCircle.setAttribute('stroke', '#334155');
+  hubCircle.setAttribute('stroke-width', '2');
+  svg.appendChild(hubCircle);
+
+  // Draw 12 Slices
+  FIFTHS_WHEEL_DATA.forEach((item, idx) => {
+    const startDeg = idx * 30 - 15 - 90;
+    const endDeg = idx * 30 + 15 - 90;
+    const isSelected = idx === circleSelectedIndex;
+
+    const isFamilyTonic = isSelected;
+    const isFamilySub = idx === ((circleSelectedIndex + 11) % 12);
+    const isFamilyDom = idx === ((circleSelectedIndex + 1) % 12);
+    const isFamily = isFamilyTonic || isFamilySub || isFamilyDom;
+
+    const isTritone = idx === ((circleSelectedIndex + 6) % 12);
+
+    let majorFill = (idx % 2 === 0) ? '#1e293b' : '#172033';
+    let minorFill = (idx % 2 === 0) ? '#0f172a' : '#141d2f';
+    let strokeCol = '#334155';
+
+    if (circleActiveMode === 'family' && isFamily) {
+      if (isFamilyTonic) {
+        majorFill = '#d97706';
+        minorFill = '#92400e';
+        strokeCol = '#fde68a';
+      } else {
+        majorFill = '#0369a1';
+        minorFill = '#075985';
+        strokeCol = '#38bdf8';
+      }
+    } else if (circleActiveMode === 'tritone' && (isSelected || isTritone)) {
+      majorFill = isSelected ? '#d97706' : '#dc2626';
+      minorFill = isSelected ? '#92400e' : '#991b1b';
+      strokeCol = '#f87171';
+    }
+
+    // Outer Path (Major Keys)
+    const pMajor = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pMajor.setAttribute('d', getAnnulusPath(0, 0, rMid1, rOuter, startDeg, endDeg));
+    pMajor.setAttribute('fill', majorFill);
+    pMajor.setAttribute('stroke', strokeCol);
+    pMajor.setAttribute('stroke-width', isSelected ? '2.5' : '1');
+    pMajor.setAttribute('class', 'wheel-slice');
+    pMajor.onclick = () => selectCircleKeyByIndex(idx);
+    svg.appendChild(pMajor);
+
+    // Inner Path (Minor Keys)
+    const pMinor = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pMinor.setAttribute('d', getAnnulusPath(0, 0, rMid2, rMid1, startDeg, endDeg));
+    pMinor.setAttribute('fill', minorFill);
+    pMinor.setAttribute('stroke', strokeCol);
+    pMinor.setAttribute('stroke-width', isSelected ? '2' : '1');
+    pMinor.setAttribute('class', 'wheel-slice');
+    pMinor.onclick = () => selectCircleKeyByIndex(idx);
+    svg.appendChild(pMinor);
+
+    // Mid Angle for Label
+    const midAngleRad = (idx * 30 - 90) * (Math.PI / 180);
+
+    // Major Label Text
+    const rMajLabel = (rOuter + rMid1) / 2;
+    const txtMaj = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txtMaj.setAttribute('x', Math.cos(midAngleRad) * rMajLabel);
+    txtMaj.setAttribute('y', Math.sin(midAngleRad) * rMajLabel + 5);
+    txtMaj.setAttribute('text-anchor', 'middle');
+    txtMaj.setAttribute('fill', isSelected ? '#ffffff' : (isFamily ? '#f8fafc' : '#e2e8f0'));
+    txtMaj.setAttribute('font-weight', '900');
+    txtMaj.setAttribute('font-size', '14');
+    txtMaj.setAttribute('pointer-events', 'none');
+    txtMaj.textContent = item.major;
+    svg.appendChild(txtMaj);
+
+    // Minor Label Text
+    const rMinLabel = (rMid1 + rMid2) / 2;
+    const txtMin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txtMin.setAttribute('x', Math.cos(midAngleRad) * rMinLabel);
+    txtMin.setAttribute('y', Math.sin(midAngleRad) * rMinLabel + 4);
+    txtMin.setAttribute('text-anchor', 'middle');
+    txtMin.setAttribute('fill', isSelected ? '#fde68a' : '#94a3b8');
+    txtMin.setAttribute('font-weight', '700');
+    txtMin.setAttribute('font-size', '11');
+    txtMin.setAttribute('pointer-events', 'none');
+    txtMin.textContent = item.minor;
+    svg.appendChild(txtMin);
+  });
+
+  // Center Core
+  const centerHub = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  centerHub.setAttribute('cx', '0');
+  centerHub.setAttribute('cy', '0');
+  centerHub.setAttribute('r', rMid2);
+  centerHub.setAttribute('fill', '#020617');
+  centerHub.setAttribute('stroke', '#38bdf8');
+  centerHub.setAttribute('stroke-width', '2');
+  svg.appendChild(centerHub);
+
+  // Geometric overlays: Tritone Axis line
+  if (circleActiveMode === 'tritone') {
+    const oppIdx = (circleSelectedIndex + 6) % 12;
+    const rad1 = (circleSelectedIndex * 30 - 90) * (Math.PI / 180);
+    const rad2 = (oppIdx * 30 - 90) * (Math.PI / 180);
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', Math.cos(rad1) * (rOuter - 10));
+    line.setAttribute('y1', Math.sin(rad1) * (rOuter - 10));
+    line.setAttribute('x2', Math.cos(rad2) * (rOuter - 10));
+    line.setAttribute('y2', Math.sin(rad2) * (rOuter - 10));
+    line.setAttribute('stroke', '#ef4444');
+    line.setAttribute('stroke-width', '3.5');
+    line.setAttribute('stroke-dasharray', '5,5');
+    svg.appendChild(line);
+  }
+
+  // Center Emblem Text
+  const cur = FIFTHS_WHEEL_DATA[circleSelectedIndex];
+  const centerText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  centerText.setAttribute('x', '0');
+  centerText.setAttribute('y', '-6');
+  centerText.setAttribute('text-anchor', 'middle');
+  centerText.setAttribute('fill', '#38bdf8');
+  centerText.setAttribute('font-size', '15');
+  centerText.setAttribute('font-weight', '900');
+  centerText.textContent = cur.major;
+  svg.appendChild(centerText);
+
+  const centerSub = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  centerSub.setAttribute('x', '0');
+  centerSub.setAttribute('y', '14');
+  centerSub.setAttribute('text-anchor', 'middle');
+  centerSub.setAttribute('fill', '#94a3b8');
+  centerSub.setAttribute('font-size', '10.5');
+  centerSub.setAttribute('font-weight', '700');
+  centerSub.textContent = cur.sig;
+  svg.appendChild(centerSub);
+}
+
+function getAnnulusPath(cx, cy, rIn, rOut, startDeg, endDeg) {
+  const rad = Math.PI / 180;
+  const x1 = cx + rOut * Math.cos(startDeg * rad);
+  const y1 = cy + rOut * Math.sin(startDeg * rad);
+  const x2 = cx + rOut * Math.cos(endDeg * rad);
+  const y2 = cy + rOut * Math.sin(endDeg * rad);
+
+  const x3 = cx + rIn * Math.cos(endDeg * rad);
+  const y3 = cy + rIn * Math.sin(endDeg * rad);
+  const x4 = cx + rIn * Math.cos(startDeg * rad);
+  const y4 = cy + rIn * Math.sin(startDeg * rad);
+
+  return `M ${x1} ${y1} A ${rOut} ${rOut} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${rIn} ${rIn} 0 0 0 ${x4} ${y4} Z`;
+}
+
+function selectCircleKeyByIndex(idx) {
+  circleSelectedIndex = idx;
+  const cur = FIFTHS_WHEEL_DATA[idx];
+
+  // Rotate wheel so selected key aligns to top 12 o'clock
+  circleRotationAngle = -(idx * 30);
+  const wheel = document.getElementById('svgFifthsWheel');
+  if (wheel) {
+    wheel.style.transform = `rotate(${circleRotationAngle}deg)`;
+  }
+
+  // Update card statistics
+  document.getElementById('circleSelectedTitle').innerText = `${cur.major} ماژور (${cur.solfege}) / ${cur.minor}`;
+  document.getElementById('circleStatAccidentals').innerText = cur.sig;
+  document.getElementById('circleStatRelativeMinor').innerText = `${cur.minor} (${cur.minorSol})`;
+  document.getElementById('circleStatTritone').innerText = `${cur.tritone} (۳ پرده متضاد)`;
+
+  const IV = FIFTHS_WHEEL_DATA[(idx + 11) % 12];
+  const V = FIFTHS_WHEEL_DATA[(idx + 1) % 12];
+  document.getElementById('circleAnalysisDesc').innerHTML = `
+    <strong>پایه (I):</strong> ${cur.major} | 
+    <strong>زیرنمایان (IV):</strong> ${IV.major} | 
+    <strong>نمایان (V):</strong> ${V.major} <br>
+    <strong>خوشه مینورهای همسایه هارمونی:</strong> ${IV.minor}, ${cur.minor}, ${V.minor}
+  `;
+
+  // Synchronize dropdown & piano keys
+  const scaleSelect = document.getElementById('scaleSelect');
+  if (scaleSelect && cur.scaleId) {
+    scaleSelect.value = cur.scaleId;
+    applyScaleChange();
+  }
+
+  renderCircleOfFifthsSVG();
+  playSelectedTonicChord();
+}
+
+function spinCircleStep(delta) {
+  const nextIdx = (circleSelectedIndex + delta + 12) % 12;
+  selectCircleKeyByIndex(nextIdx);
+}
+
+function toggleCircleMode(mode) {
+  circleActiveMode = mode;
+  document.getElementById('btnCircleTritone').classList.toggle('active-mode', mode === 'tritone');
+  document.getElementById('btnCircleFamily').classList.toggle('active-mode', mode === 'family');
+  renderCircleOfFifthsSVG();
+}
+
+function playSelectedTonicChord() {
+  initWebAudio();
+  const cur = FIFTHS_WHEEL_DATA[circleSelectedIndex];
+  if (!cur || !cur.triadMidi) return;
+
+  cur.triadMidi.forEach((midi, idx) => {
+    const freq = midiToMicroFreq(midi, 0);
+    playVoice(freq, audioCtx.currentTime + (idx * 0.035), 1.1);
+    const k = ALL_KEYS.find(x => x.midi === midi);
+    if (k) highlightKeyVisual(k.domElement, 750);
+  });
+
+  document.getElementById('statusActiveNote').innerText = `آکورد پایگی: ${cur.major} (${cur.solfege}) [${cur.triadMidi.map(m => m % 12).join('-')}]`;
+}
+
 function renderDaramadGallery() {
   const container = document.getElementById('daramadCardsContainer');
   container.innerHTML = '';
@@ -2762,6 +3051,7 @@ window.onload = function() {
   populateScaleOptions();
   applyScaleChange();
   jumpToMidi(64);
+  renderCircleOfFifthsSVG();
 };
 </script>
 </body>
