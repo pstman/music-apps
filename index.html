@@ -13,6 +13,11 @@
   <meta name="keywords" content="پرده‌نگار, ایمان برزجان, Iman Barzjan, استاد بابک بختیاری, دایره پنجم ها, Circle of Fifths, آموزش ویولن, آموزش پیانو, ردیف موسیقی ایرانی, ۱۲ دستگاه و آواز, کوک ویولن, ریزپرده, سُری, کُرن">
   <link rel="canonical" href="https://pstman.github.io/music-apps/">
 
+  <!-- Anti-Cache Directives: Prevents mobile browsers from freezing stale versions -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Schema.org JSON-LD Structured Data for Google Knowledge Graph -->
   <script type="application/ld+json">
   {
@@ -47,7 +52,7 @@
         "alternateName": "PardehNegar",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "All (Web, Android, iOS, Windows, macOS, Linux)",
-        "softwareVersion": "2.6.3",
+        "softwareVersion": "2.6.6",
         "inLanguage": "fa",
         "url": "https://pstman.github.io/music-apps/",
         "author": { "@id": "https://imanbarzjan.ir/#person" },
@@ -84,6 +89,24 @@
       --black-h: 140px;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --white-w: 42px;
+        --white-h: 195px;
+        --black-w: 26px;
+        --black-h: 122px;
+      }
+    }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      :root {
+        --white-w: 38px;
+        --white-h: 155px;
+        --black-w: 24px;
+        --black-h: 96px;
+      }
     }
 
     * {
@@ -331,6 +354,22 @@
       justify-content: space-between;
       border-top: 1px solid #f1f5f9;
       padding-top: 10px;
+    }
+
+    .control-pill-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      padding: 4px 10px;
+    }
+    .control-mini-label {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
 
     .btn-gold {
@@ -690,6 +729,8 @@
       -webkit-overflow-scrolling: touch;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(0, 0, 0, 0.02);
       position: relative;
+      touch-action: none;
+      direction: ltr; /* Guaranteed baseline LTR coordinate mapping for scrollLeft across all browsers */
     }
 
     .piano-wrapper::before {
@@ -707,7 +748,8 @@
     .piano-board {
       position: relative;
       height: var(--white-h);
-      margin: 0 auto;
+      margin: 0;
+      touch-action: none;
     }
 
     .key {
@@ -720,6 +762,7 @@
       cursor: pointer;
       border-radius: 0 0 6px 6px;
       transition: background 0.12s, transform 0.06s, opacity 0.15s;
+      touch-action: none;
     }
     .key:active, .key.pressed {
       transform: translateY(3px);
@@ -1042,7 +1085,7 @@
       </div>
 
       <div class="version-badge">
-        <span>نسخه ۲.۶.۳ (پایدار و بدون تداخل)</span>
+        <span>نسخه ۲.۶.۶ (اسکرول لبه‌ای و آرتیکولاسیون)</span>
       </div>
     </div>
 
@@ -1205,9 +1248,27 @@
         </button>
 
         <select id="soundTimbre" style="width: auto; padding: 9px 12px; font-size:13px; font-weight:700;">
-          <option value="piano">پیانو (ساستین غنی و طنین‌دار)</option>
-          <option value="violin">صدای ویولن سنتی با ویبراتوی عمیق</option>
+          <option value="piano">پیانو آکوستیک</option>
+          <option value="violin">ویولن سنتی با ویبراتو</option>
         </select>
+
+        <!-- Articulation Selector (Legato/Glissando vs Staccato) -->
+        <div class="control-pill-group">
+          <span class="control-mini-label">آرتیکولاسیون:</span>
+          <select id="articulationMode" style="width:auto; padding:5px 8px; font-size:12.5px; font-weight:800; border:none; background:transparent; cursor:pointer;">
+            <option value="glissando" selected>گلیساندو / لگاتو (کشدار و متصل)</option>
+            <option value="staccato">استاکاتو (کوتاه، مقطع و ضربه‌ای)</option>
+          </select>
+        </div>
+
+        <div class="control-pill-group">
+          <span class="control-mini-label">تمپو:</span>
+          <select id="tempoSelector" style="width:auto; padding:5px 8px; font-size:12.5px; font-weight:800; border:none; background:transparent; cursor:pointer;">
+            <option value="60">۶۰ (آموزشی)</option>
+            <option value="120" selected>۱۲۰ (استاندارد)</option>
+            <option value="180">۱۸۰ (چابک)</option>
+          </select>
+        </div>
       </div>
 
       <div style="display:flex; gap:8px;">
@@ -1239,7 +1300,7 @@
   <!-- Octave & Navigation Bar -->
   <div class="nav-controller">
     <div class="nav-buttons-line">
-      <button class="btn-secondary" onclick="stepScroll(300)" style="padding:7px 14px; font-size:12.5px;">
+      <button class="btn-secondary" onclick="stepScroll(-300)" style="padding:7px 14px; font-size:12.5px;">
         <span>▶ کلاویه‌های بم‌تر</span>
       </button>
 
@@ -1251,7 +1312,7 @@
         <button class="btn-octave" onclick="jumpToMidi(96)">اکتاو ۷ (بالاترین)</button>
       </div>
 
-      <button class="btn-secondary" onclick="stepScroll(-300)" style="padding:7px 14px; font-size:12.5px;">
+      <button class="btn-secondary" onclick="stepScroll(300)" style="padding:7px 14px; font-size:12.5px;">
         <span>کلاویه‌های زیرتر ◀</span>
       </button>
     </div>
@@ -1283,7 +1344,7 @@
     <div class="daramad-header">
       <h2>🎶 تالار درآمدها، پیش‌درآمدها و موتیف‌های ماندگار ردیف</h2>
       <p style="font-size:13px; color:#64748b; line-height:1.7;">
-        در موسیقی دستگاهی ایران، <strong>«درآمد»</strong> گوشه نخست و شناسنامه هر دستگاه است که فضا، نوت شاهد و ایست را در ریتم آزاد معرفی می‌کند؛ در حالی که <strong>«پیش‌درآمد»</strong> فرمی ضربی و منسجم (ابداع استاد غلامحسین درویش‌خان و رکن‌الدین مختاری) است که در آغاز اجرا برای آماده‌سازی ذهن شنونده و مرور گوشه‌های دستگاه نواخته می‌شود. روی هر کارت کلیک کنید تا موتیف شاخص همان دستگاه روی کلاویه‌ها به صدا درآید:
+        در موسیقی دستگاهی ایران، <strong>«درآمد»</strong> گوشه نخست و شناسنامه هر دستگاه است که فضا، نوت شاهد و ایست را در ریتم آزاد معرفی می‌کند؛ در حالی که <strong>«پیش‌درآمد»</strong> فرمی ضربی و منسجم (ابداع استاد غلامحسین درویش‌خان و رکن‌الدین مختاری) است که در آغاز اجرا برای آماده‌‌سازی ذهن شنونده و مرور گوشه‌های دستگاه نواخته می‌شود. روی هر کارت کلیک کنید تا موتیف شاخص همان دستگاه روی کلاویه‌ها به صدا درآید:
       </p>
     </div>
 
@@ -1356,7 +1417,7 @@
             <td>سی کُرن (B𝄳)</td>
             <td>رِ - لا - دو - سل</td>
             <td>شاهد: دو (C5)<br>ایست: فا (F4)</td>
-            <td>پیش‌درآمد بیات ترک درویش‌خان</td>
+            <td>پیش‌درآمد بیات ترک درویش‌‌خان</td>
           </tr>
           <tr>
             <td><strong>۷. آواز افشاری «رِ»</strong></td>
@@ -1407,7 +1468,7 @@
     <!-- Section 4: Academic Sources & Master Parviz Yahaghi School -->
     <div class="guide-section-title">۴. کتاب‌شناسی، منابع مکتوب و سنت‌های اجرایی (مکتب استاد پرویز یاحقی)</div>
     <div class="guide-box" style="background:#f8fafc; border-right-color:#0284c7; line-height:1.8;">
-      جهت شفافیت علمی، کلیه نوت‌ها، تم‌های درآمدی و فواصل شبیه‌سازی‌شده در سامانه «پرده‌‌‌‌نگار» مستقیماً از روی معتبرترین مراجع ردیف‌شناسی مکتوب و سنت‌های فاخر ویولن ایران اخذ شده است:
+      جهت شفافیت علمی، کلیه نوت‌ها، تم‌های درآمدی و فواصل شبیه‌سازی‌شده در سامانه «پرده‌نگار» مستقیماً از روی معتبرترین مراجع ردیف‌شناسی مکتوب و سنت‌های فاخر ویولن ایران اخذ شده است:
       <ul style="margin-top:8px; padding-right:18px; list-style-type:disc; font-size:13px; color:#334155;">
         <li><strong>ردیف سازی و آوازی میرزا عبدالله (روایت نورعلی برومند):</strong> مرجع رسمی هسته‌های ملودیک، تثبیت دانگ‌ها، نوت شاهد و فرود درآمدهای اصیل.</li>
         <li><strong>کتاب «بیست و چهار پیش‌درآمد» (تدوین و نت‌نگاری استاد فرامرز پایور):</strong> منبع تم‌های آغازین پیش‌درآمدهای تاریخی درویش‌خان، مرتضی نی‌داوود و رکن‌الدین مختاری.</li>
@@ -1529,7 +1590,7 @@
   </section>
 
   <footer>
-    <p>نرم‌افزار جامع «پرده‌نگار» • آموزش انطباق نوت‌های پیانو، ویولن، دایره پنجم‌ها و ردیف موسیقی ایرانی (نسخه ۲.۶.۳ پایدار)</p>
+    <p>نرم‌افزار جامع «پرده‌نگار» • آموزش انطباق نوت‌های پیانو، ویولن، دایره پنجم‌ها و ردیف موسیقی ایرانی (نسخه ۲.۶.۶ پایدار)</p>
     <p style="margin-top:6px; font-weight:800; color:var(--accent-primary);">
       طراح و مؤلف: ایمان برزجان (Iman Barzjan) | وب‌‌سایت: <a href="https://imanbarzjan.ir" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary); text-decoration:underline;">imanbarzjan.ir</a> | مشاور علمی: استاد بابک بختیاری | اختصاصی کانال: ویولن کده (@violonkadeh)
     </p>
@@ -1538,6 +1599,28 @@
 </div>
 
 <script>
+const APP_VERSION = '2.6.6';
+
+// Auto Cache-Buster: Silently polls server and forces instant refresh if a new build is deployed
+(function autoBustCache() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('v') === APP_VERSION) return;
+
+    fetch(window.location.pathname + '?_bust=' + Date.now(), { cache: 'no-store' })
+      .then(res => res.text())
+      .then(freshHtml => {
+        const match = freshHtml.match(/const\s+APP_VERSION\s*=\s*['"]([^'"]+)['"]/);
+        if (match && match[1] && match[1] !== APP_VERSION) {
+          const freshUrl = new URL(window.location.href);
+          freshUrl.searchParams.set('v', match[1]);
+          window.location.replace(freshUrl.toString());
+        }
+      })
+      .catch(() => {});
+  } catch (e) {}
+})();
+
 const NOTE_NAMES = [
   { natural: 'C', solfege: 'دو', isBlack: false },
   { sharp: 'C♯', flat: 'D♭', solfegeSharp: 'دو دیز', solfegeFlat: 'ر بمل', isBlack: true },
@@ -1830,7 +1913,7 @@ const PERSIAN_DASTGAH_DATA = [
       { name: 'سیم ۴: G3 (سل)', freq: 196.00, midi: 55 }
     ],
     info: 'راست‌پنجگاه: سرکلید فا دیز. بستر پرده‌گردانی به سایر مایه‌ها. کوک: رِ - لا - رِ - سل.',
-    pishdaramadTitle: 'پیشدرآمد راست‌پنجگاه درویش‌خان',
+    pishdaramadTitle: 'پیش‌درآمد راست‌پنجگاه درویش‌خان',
     motifMelody: [
       { midi: 67, dur: 0.5 }, { midi: 69, dur: 0.4 }, { midi: 71, dur: 0.5 },
       { midi: 72, dur: 0.5 }, { midi: 74, dur: 0.5 }, { midi: 72, dur: 0.4 },
@@ -1948,70 +2031,124 @@ function midiToMicroFreq(midi, centsOffset = 0) {
   return baseFreq * Math.pow(2, centsOffset / 1200);
 }
 
-function playVoice(freq, startTime = 0, duration = 1.4) {
+function playVoice(freq, startTime = 0, duration = 1.6) {
   initWebAudio();
   const timbre = document.getElementById('soundTimbre') ? document.getElementById('soundTimbre').value : 'piano';
+  const articulation = document.getElementById('articulationMode') ? document.getElementById('articulationMode').value : 'glissando';
   const t0 = startTime > 0 ? startTime : audioCtx.currentTime;
 
   const mainGain = audioCtx.createGain();
   mainGain.connect(audioCtx.destination);
 
-  if (timbre === 'piano') {
+  if (articulation === 'staccato') {
+    // Punchy, short, detached staccato articulation (approx 0.16s - 0.20s duration)
+    const staccatoDur = 0.18;
     mainGain.gain.setValueAtTime(0.0001, t0);
-    mainGain.gain.exponentialRampToValueAtTime(0.65, t0 + 0.012);
-    mainGain.gain.exponentialRampToValueAtTime(0.24, t0 + 0.28);
-    mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    mainGain.gain.exponentialRampToValueAtTime(0.95, t0 + 0.005);
+    mainGain.gain.exponentialRampToValueAtTime(0.18, t0 + 0.06);
+    mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + staccatoDur);
 
-    const harmonics = [
-      { fRatio: 1, gain: 0.65 },
-      { fRatio: 2, gain: 0.25 },
-      { fRatio: 3, gain: 0.14 },
-      { fRatio: 4, gain: 0.07 }
-    ];
+    if (timbre === 'piano') {
+      const harmonics = [
+        { fRatio: 1, gain: 0.80 },
+        { fRatio: 2, gain: 0.35 },
+        { fRatio: 3, gain: 0.18 },
+        { fRatio: 4, gain: 0.08 }
+      ];
 
-    harmonics.forEach(h => {
+      harmonics.forEach(h => {
+        const osc = audioCtx.createOscillator();
+        const hGain = audioCtx.createGain();
+        osc.type = h.fRatio === 1 ? 'triangle' : 'sine';
+        osc.frequency.setValueAtTime(freq * h.fRatio, t0);
+        hGain.gain.setValueAtTime(h.gain, t0);
+        hGain.gain.exponentialRampToValueAtTime(0.0001, t0 + staccatoDur);
+
+        osc.connect(hGain);
+        hGain.connect(mainGain);
+        osc.start(t0);
+        osc.stop(t0 + staccatoDur);
+        activeScheduledNodes.push(osc);
+      });
+    } else {
+      // Staccato / Spiccato Violin
       const osc = audioCtx.createOscillator();
-      const hGain = audioCtx.createGain();
-      osc.type = h.fRatio === 1 ? 'triangle' : 'sine';
-      osc.frequency.setValueAtTime(freq * h.fRatio, t0);
-      hGain.gain.setValueAtTime(h.gain, t0);
-      hGain.gain.exponentialRampToValueAtTime(0.0001, t0 + (duration / Math.sqrt(h.fRatio)));
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, t0);
 
-      osc.connect(hGain);
-      hGain.connect(mainGain);
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(Math.min(3800, freq * 4.0), t0);
+
+      osc.connect(filter);
+      filter.connect(mainGain);
+
       osc.start(t0);
-      osc.stop(t0 + duration);
+      osc.stop(t0 + staccatoDur);
       activeScheduledNodes.push(osc);
-    });
+    }
   } else {
-    mainGain.gain.setValueAtTime(0.0001, t0);
-    mainGain.gain.exponentialRampToValueAtTime(0.55, t0 + 0.08);
-    mainGain.gain.setValueAtTime(0.48, t0 + duration * 0.7);
-    mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    // Rich polyphonic acoustic sustain with warm overtone decay (Legato / Glissando)
+    if (timbre === 'piano') {
+      const sustainTime = Math.max(duration, 1.5);
+      mainGain.gain.setValueAtTime(0.0001, t0);
+      mainGain.gain.exponentialRampToValueAtTime(0.85, t0 + 0.010);
+      mainGain.gain.exponentialRampToValueAtTime(0.40, t0 + 0.22);
+      mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + sustainTime);
 
-    const osc = audioCtx.createOscillator();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(freq, t0);
+      const harmonics = [
+        { fRatio: 1, gain: 0.70 },
+        { fRatio: 2, gain: 0.32 },
+        { fRatio: 3, gain: 0.18 },
+        { fRatio: 4, gain: 0.09 },
+        { fRatio: 5, gain: 0.04 }
+      ];
 
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.setValueAtTime(5.8, t0);
-    lfoGain.gain.setValueAtTime(freq * 0.012, t0);
-    lfo.connect(osc.frequency);
+      harmonics.forEach(h => {
+        const osc = audioCtx.createOscillator();
+        const hGain = audioCtx.createGain();
+        osc.type = h.fRatio === 1 ? 'triangle' : 'sine';
+        osc.frequency.setValueAtTime(freq * h.fRatio, t0);
+        hGain.gain.setValueAtTime(h.gain, t0);
+        hGain.gain.exponentialRampToValueAtTime(0.0001, t0 + (sustainTime / Math.sqrt(h.fRatio)));
 
-    const filter = audioCtx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(Math.min(3200, freq * 3.5), t0);
+        osc.connect(hGain);
+        hGain.connect(mainGain);
+        osc.start(t0);
+        osc.stop(t0 + sustainTime);
+        activeScheduledNodes.push(osc);
+      });
+    } else {
+      const sustainTime = Math.max(duration, 1.2);
+      mainGain.gain.setValueAtTime(0.0001, t0);
+      mainGain.gain.exponentialRampToValueAtTime(0.55, t0 + 0.08);
+      mainGain.gain.setValueAtTime(0.48, t0 + sustainTime * 0.6);
+      mainGain.gain.exponentialRampToValueAtTime(0.0001, t0 + sustainTime);
 
-    osc.connect(filter);
-    filter.connect(mainGain);
+      const osc = audioCtx.createOscillator();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, t0);
 
-    lfo.start(t0 + 0.05);
-    lfo.stop(t0 + duration);
-    osc.start(t0);
-    osc.stop(t0 + duration);
+      const lfo = audioCtx.createOscillator();
+      const lfoGain = audioCtx.createGain();
+      lfo.frequency.setValueAtTime(5.8, t0);
+      lfoGain.gain.setValueAtTime(freq * 0.012, t0);
+      lfo.connect(osc.frequency);
 
-    activeScheduledNodes.push(osc, lfo);
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(Math.min(3200, freq * 3.5), t0);
+
+      osc.connect(filter);
+      filter.connect(mainGain);
+
+      lfo.start(t0 + 0.05);
+      lfo.stop(t0 + sustainTime);
+      osc.start(t0);
+      osc.stop(t0 + sustainTime);
+
+      activeScheduledNodes.push(osc, lfo);
+    }
   }
 }
 
@@ -2019,6 +2156,103 @@ function highlightKeyVisual(element, durationMs = 350) {
   if (!element) return;
   element.classList.add('pressed');
   setTimeout(() => element.classList.remove('pressed'), durationMs);
+}
+
+let isPointerDragging = false;
+let lastTriggeredMidi = null;
+let edgeAutoScrollRaf = null;
+let currentPointerClientX = 0;
+let currentPointerClientY = 0;
+
+function setupPianoPointerGestures() {
+  const board = document.getElementById('pianoBoard');
+  const viewport = document.getElementById('pianoViewport');
+  if (!board || !viewport) return;
+
+  const getTargetKeyFromPoint = (clientX, clientY) => {
+    const el = document.elementFromPoint(clientX, clientY);
+    if (!el) return null;
+    const keyEl = el.closest('.key');
+    if (!keyEl) return null;
+    return ALL_KEYS.find(k => k.domElement === keyEl);
+  };
+
+  const autoScrollLoop = () => {
+    if (!isPointerDragging) {
+      edgeAutoScrollRaf = null;
+      return;
+    }
+
+    const rect = viewport.getBoundingClientRect();
+    const edgeMargin = 70; // px threshold from viewport edges
+    let scrollDelta = 0;
+
+    // Left edge on screen -> scroll towards lower bass keys (scrollLeft decreases)
+    if (currentPointerClientX < rect.left + edgeMargin && currentPointerClientX >= rect.left - 40) {
+      const intensity = (rect.left + edgeMargin - currentPointerClientX) / edgeMargin;
+      scrollDelta = -Math.round(4 + intensity * 18);
+    } 
+    // Right edge on screen -> scroll towards higher treble keys (scrollLeft increases)
+    else if (currentPointerClientX > rect.right - edgeMargin && currentPointerClientX <= rect.right + 40) {
+      const intensity = (currentPointerClientX - (rect.right - edgeMargin)) / edgeMargin;
+      scrollDelta = Math.round(4 + intensity * 18);
+    }
+
+    if (scrollDelta !== 0) {
+      viewport.scrollLeft += scrollDelta;
+
+      // Detect and trigger any new key that scrolled underneath the dragging finger or mouse
+      const key = getTargetKeyFromPoint(currentPointerClientX, currentPointerClientY);
+      if (key && key.midi !== lastTriggeredMidi) {
+        lastTriggeredMidi = key.midi;
+        onKeyTriggered(key);
+      }
+    }
+
+    edgeAutoScrollRaf = requestAnimationFrame(autoScrollLoop);
+  };
+
+  const handlePointerStart = (e) => {
+    isPointerDragging = true;
+    currentPointerClientX = e.clientX;
+    currentPointerClientY = e.clientY;
+
+    const key = getTargetKeyFromPoint(e.clientX, e.clientY);
+    if (key) {
+      lastTriggeredMidi = key.midi;
+      onKeyTriggered(key);
+    }
+
+    if (!edgeAutoScrollRaf) {
+      edgeAutoScrollRaf = requestAnimationFrame(autoScrollLoop);
+    }
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isPointerDragging) return;
+    currentPointerClientX = e.clientX;
+    currentPointerClientY = e.clientY;
+
+    const key = getTargetKeyFromPoint(e.clientX, e.clientY);
+    if (key && key.midi !== lastTriggeredMidi) {
+      lastTriggeredMidi = key.midi;
+      onKeyTriggered(key);
+    }
+  };
+
+  const handlePointerEnd = () => {
+    isPointerDragging = false;
+    lastTriggeredMidi = null;
+    if (edgeAutoScrollRaf) {
+      cancelAnimationFrame(edgeAutoScrollRaf);
+      edgeAutoScrollRaf = null;
+    }
+  };
+
+  board.addEventListener('pointerdown', handlePointerStart);
+  window.addEventListener('pointermove', handlePointerMove);
+  window.addEventListener('pointerup', handlePointerEnd);
+  window.addEventListener('pointercancel', handlePointerEnd);
 }
 
 function buildPianoBoard() {
@@ -2035,7 +2269,7 @@ function buildPianoBoard() {
     if (!noteInfo.isBlack) {
       const keyEl = document.createElement('div');
       keyEl.className = 'key white-key';
-      keyEl.style.left = `${currentWhiteX * whiteKeyWidth}px`;
+      keyEl.style.left = `calc(${currentWhiteX} * var(--white-w))`;
 
       const badge = document.createElement('div');
       badge.className = 'key-badge';
@@ -2060,21 +2294,14 @@ function buildPianoBoard() {
         roleElement: roleBadge
       };
 
-      keyEl.addEventListener('pointerdown', (e) => {
-        e.preventDefault();
-        onKeyTriggered(keyObj);
-      });
-
       board.appendChild(keyEl);
       ALL_KEYS.push(keyObj);
       currentWhiteX++;
     } else {
-      const prevWhiteLeft = (currentWhiteX - 1) * whiteKeyWidth;
-      const blackLeft = prevWhiteLeft + (whiteKeyWidth - (blackKeyWidth / 2));
-
+      const prevWhiteIdx = currentWhiteX - 1;
       const keyEl = document.createElement('div');
       keyEl.className = 'key black-key';
-      keyEl.style.left = `${blackLeft}px`;
+      keyEl.style.left = `calc(${prevWhiteIdx} * var(--white-w) + var(--white-w) - (var(--black-w) / 2))`;
 
       const badge = document.createElement('div');
       badge.className = 'key-badge';
@@ -2095,24 +2322,20 @@ function buildPianoBoard() {
         solfegeSharp: noteInfo.solfegeSharp,
         solfegeFlat: noteInfo.solfegeFlat,
         octave,
-        left: blackLeft,
+        left: (prevWhiteIdx * whiteKeyWidth) + (whiteKeyWidth - (blackKeyWidth / 2)),
         domElement: keyEl,
         badgeElement: badge,
         roleElement: roleBadge
       };
-
-      keyEl.addEventListener('pointerdown', (e) => {
-        e.preventDefault();
-        onKeyTriggered(keyObj);
-      });
 
       board.appendChild(keyEl);
       ALL_KEYS.push(keyObj);
     }
   }
 
-  board.style.width = `${currentWhiteX * whiteKeyWidth}px`;
+  board.style.width = `calc(${currentWhiteX} * var(--white-w))`;
   renderViolinStringsTags();
+  setupPianoPointerGestures();
 }
 
 function renderViolinStringsTags() {
@@ -2150,8 +2373,10 @@ function onKeyTriggered(keyObj) {
 
   const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
   const freq = midiToMicroFreq(keyObj.midi, cents);
-  playVoice(freq, 0, 1.4);
-  highlightKeyVisual(keyObj.domElement, 350);
+  const articulation = document.getElementById('articulationMode') ? document.getElementById('articulationMode').value : 'glissando';
+  
+  playVoice(freq, 0, articulation === 'staccato' ? 0.18 : 1.4);
+  highlightKeyVisual(keyObj.domElement, articulation === 'staccato' ? 160 : 350);
 
   const noteTitle = keyObj.isBlack ? (keyObj.sharp + '/' + keyObj.flat) : keyObj.name;
   document.getElementById('statusActiveNote').innerText = `نواخته شد: ${noteTitle} (اکتاو ${keyObj.octave}) | ${freq.toFixed(1)}Hz`;
@@ -2442,8 +2667,10 @@ function startScalePlayback() {
   isPlayingScaleActive = true;
   document.getElementById('playScaleLabel').innerText = 'توقف پخش سریع';
 
-  const step = Math.min(0.28, 11.5 / fullSequence.length);
+  const bpmVal = parseInt(document.getElementById('tempoSelector') ? document.getElementById('tempoSelector').value : '120', 10);
+  const step = Math.max(0.18, (60 / bpmVal) * 0.48);
   const baseTime = Math.max(audioCtx.currentTime, 0.05) + 0.05;
+  const articulation = document.getElementById('articulationMode') ? document.getElementById('articulationMode').value : 'glissando';
 
   fullSequence.forEach((k, idx) => {
     const noteStart = baseTime + (idx * step);
@@ -2451,11 +2678,11 @@ function startScalePlayback() {
     const cents = (currentScale.microCents && currentScale.microCents[pitchClass]) ? currentScale.microCents[pitchClass] : 0;
     const freq = midiToMicroFreq(k.midi, cents);
 
-    playVoice(freq, noteStart, step * 1.1);
+    playVoice(freq, noteStart, articulation === 'staccato' ? 0.18 : 1.5);
 
     const delayMs = (noteStart - audioCtx.currentTime) * 1000;
     const tid = setTimeout(() => {
-      highlightKeyVisual(k.domElement, step * 850);
+      highlightKeyVisual(k.domElement, articulation === 'staccato' ? 160 : Math.max(220, step * 850));
       const direction = idx < ascendingKeys.length ? '▲ بالارونده' : '▼ پایین‌رونده';
       document.getElementById('statusActiveNote').innerText = `${direction}: ${k.badgeElement.innerText.replace('\n', ' ')}`;
 
@@ -2468,7 +2695,7 @@ function startScalePlayback() {
     activeScalePlaybackTids.push(tid);
   });
 
-  const totalMs = (fullSequence.length * step + 0.3) * 1000;
+  const totalMs = (fullSequence.length * step + 0.4) * 1000;
   const finishTid = setTimeout(stopScalePlayback, totalMs);
   activeScalePlaybackTids.push(finishTid);
 }
@@ -2509,18 +2736,19 @@ function playMotifSequence(melodyNotes, title) {
 
   const currentScale = getActiveScale();
   let accumulatedTime = Math.max(audioCtx.currentTime, 0.05) + 0.05;
+  const articulation = document.getElementById('articulationMode') ? document.getElementById('articulationMode').value : 'glissando';
 
   melodyNotes.forEach((item) => {
     const k = ALL_KEYS.find(x => x.midi === item.midi);
     const cents = (currentScale.microCents && currentScale.microCents[item.midi % 12]) ? currentScale.microCents[item.midi % 12] : 0;
     const freq = midiToMicroFreq(item.midi, cents);
 
-    playVoice(freq, accumulatedTime, item.dur);
+    playVoice(freq, accumulatedTime, articulation === 'staccato' ? 0.18 : item.dur);
 
     const delayMs = (accumulatedTime - audioCtx.currentTime) * 1000;
     const tid = setTimeout(() => {
       if (k) {
-        highlightKeyVisual(k.domElement, item.dur * 850);
+        highlightKeyVisual(k.domElement, articulation === 'staccato' ? 160 : item.dur * 850);
         jumpToMidi(k.midi);
         document.getElementById('statusActiveNote').innerText = `تم درآمد: ${k.badgeElement.innerText.replace('\n', ' ')}`;
       }
@@ -2939,7 +3167,7 @@ function exportAnnotatedSnapshot() {
   });
 
   const link = document.createElement('a');
-  link.download = `pardehe_negar_${currentScale.id}_v2.6.3_barzjan.png`;
+  link.download = `pardehe_negar_${currentScale.id}_v2.6.6_barzjan.png`;
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
